@@ -1,0 +1,199 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+$maxWidth: 1200;
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+
+@mixin SourceSans3 {
+    font-family: 'Source Sans 3 Variable', sans-serif;
+}
+
+@mixin Roboto {
+    font-family: 'Roboto Variable', sans-serif;
+}
+
+.block_header {
+    position: relative;
+
+    .block_header__flex {
+        display: flex;
+        justify-content: space-between;
+        height: 97px;
+        position: relative;
+
+        .block_header__left {
+            position: relative;
+            width: 20%;
+            height: 97px;
+            display: flex;
+            align-items: center;
+        }
+
+        .block_header__center {
+            position: relative;
+            width: 60%;
+            height: 97px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .block_header__right {
+            @include Roboto;
+            position: relative;
+            width: 20%;
+            height: 97px;
+            display: flex;
+            justify-content: end;
+            align-items: center;
+
+            .header_phone_email_blind {
+                display: flex;
+                color: $colorBlue;
+                font-size: 16px;
+
+                .header_phone_email {
+                    padding-right: 20px;
+
+                    a {
+                        color: $colorBlue;
+                        text-decoration: none;
+
+                        &:hover {
+                            color: $colorRed;
+                        }
+                    }
+
+                }
+
+                .header_phone {
+                    font-weight: 800;
+                    text-decoration: none;
+                    padding: 0 0 3px 0;
+                }
+
+                .header_email {
+                    font-weight: 400;
+                    text-decoration: none;
+                }
+
+                .header_blind {
+                    padding: 5px 0 0 0;
+                }
+            }
+        }
+    }
+}
+
+.d12__flex {
+    position: relative;
+    width: 100%;
+    height: 4px;
+    display: flex;
+    justify-content: space-between;
+    background: #fff;
+    overflow: hidden;
+
+    .d12 {
+        width: 69%;
+        height: 4px;
+        transform: skew(314deg);
+        background: $colorBlue2;
+    }
+
+    .d13 {
+        width: 30.5%;
+        height: 4px;
+        transform: skew(314deg);
+        background: $colorBlue;
+    }
+
+}
+
+@media screen and (max-width: 1068px) {
+    .block_header {
+
+        .block_header__flex {
+            height: 87px;
+            gap: 30px;
+
+            .block_header__left {
+                width: 20%;
+                height: 87px;
+
+            }
+
+            .block_header__center {
+                width: 80%;
+                height: 87px;
+                justify-content: end;
+
+            }
+
+            .block_header__right {
+                display: none;
+                width: 0;
+
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 794px) {
+    .block_header {
+
+        .block_header__flex {
+            height: 70px;
+
+            gap: 30px;
+
+            .block_header__left {
+                width: 50%;
+                height: 70px;
+                .logo {
+                    img {
+                        width: auto;
+                        height: 50px;
+                    }
+                }
+
+            }
+
+            .block_header__center {
+                width: 0;
+                display: none;
+            }
+
+            .block_header__right {
+                display: flex;
+                width: 50%;
+                height: 70px;
+                .header_phone_email_blind {
+                    font-size: 14px;
+                    .header_blind {
+                        display: none;
+                    }
+                }
+
+
+            }
+        }
+    }
+
+}
+
+

@@ -1,0 +1,109 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+
+.btn
+{
+    width: auto;
+    height: 40px;
+    line-height: 27px;
+    display: inline-table;
+    text-align: center;
+    padding: 0;
+    background: $colorBlue;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid $colorBlue;
+    color: #FFFFFF;
+    position: relative;
+    transition: 0.3s;
+    text-decoration: none !important;
+    span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ffffff;
+        background: $colorBlue;
+        border-radius: 20px;
+        padding: 5px 26px;
+        transition: 0.3s;
+
+
+    }
+}
+
+
+.btn.btn_white{
+    background: #fff;
+    border-radius: 20px;
+    border: 1px solid $colorBlue;
+    color: $color;
+    span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $colorBlue;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 5px 26px;
+
+    }
+}
+
+.btn.btn_white:hover {
+    background: $colorBlue;
+    border-radius: 4px;
+    border: 1px solid $colorBlue;
+    color: #fff;
+    span {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid #ffffff;
+        background: $colorBlue;
+        border-radius: 20px;
+        padding: 5px 26px;
+
+    }
+}
+
+.btn.over,
+.btn:hover {
+background: #FFFFFF;
+    border: 1px solid $colorBlue;
+    color: $colorBlue;
+    span {
+        border: 1px solid #ffffff;
+        background: #ffffff;
+
+    }
+}
+
+.btn.over:hover {
+    background: $colorBlue;
+    color: #FFFFFF;
+    border: 1px solid $colorBlue;
+}
+
+.btn.btn-middle {
+    padding: 8px 20px;
+}
+.btn.btn-big {
+    padding: 10px 20px;
+    height: auto;
+    font-size: 18px;
+}

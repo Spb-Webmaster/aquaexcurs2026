@@ -1,0 +1,151 @@
+@charset "UTF-8";
+body.bind {
+  font-family: Arial, sans-serif !important;
+  color: black !important;
+  background-color: white !important;
+  font-size: 18px !important; /* Увеличение размера шрифта */
+  line-height: 1.5 !important; /* Улучшение расстояния между строками */
+  /** header **/
+  /** header **/
+  /** экскурсии **/
+  /** /// экскурсии **/
+  /** current info **/
+  /** ///current info **/
+  /** content **/
+  /** ///content **/
+  /** footer **/
+  /** footer **/
+}
+body.bind .block_header .block_header__flex .block_header__left {
+  width: 20%;
+}
+body.bind .block_header .block_header__flex .block_header__center {
+  width: 80%;
+}
+body.bind .block_header .block_header__flex .block_header__center .top_menu > li > a {
+  position: relative;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #000000;
+  font-weight: 600;
+}
+body.bind .block_header .block_header__flex .block_header__center .top_menu .submenu li a {
+  font-size: 19px;
+  height: 52px;
+}
+body.bind .block_header .block_header__flex .block_header__center .top_menu .submenu {
+  width: 450px;
+}
+body.bind .block_header .block_header__flex .block_header__right {
+  width: 0;
+  display: none;
+}
+body.bind ._info .h3_blue {
+  color: #000000;
+  font-weight: 600;
+  display: block;
+  text-transform: uppercase;
+}
+body.bind ._info .h3_blue:before {
+  display: none;
+}
+body.bind ._info .h3_blue:after {
+  display: none;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item {
+  width: 100%;
+  position: relative;
+  height: auto;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .excursion_item__img {
+  display: none;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .excursion_item__title a {
+  color: #000000;
+  font-size: 24px;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .excursion_item__teaser li {
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .excursion_item__teaser li:before {
+  content: "";
+  display: none;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .excursion_item__price {
+  display: block;
+  color: #000000;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .__price {
+  width: 100%;
+  display: block;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .__buy {
+  width: 100%;
+  margin-top: 60px;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .__buy a {
+  width: 100%;
+  background: #000 !important;
+  font-size: 20px;
+  height: 55px;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .__buy a span {
+  background: #000 !important;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .excursion_item__pier {
+  display: none;
+}
+body.bind .excursion_items .excursion_items__flex .excursion_item .display_1024 {
+  display: block;
+}
+body.bind .current_information .current_information__left .h1 {
+  font-weight: 700;
+  color: #000;
+  padding: 0 0 18px 0;
+}
+body.bind .current_information .current_information__left .h1 span {
+  color: #000000;
+}
+body.bind .current_information .current_information__left .ci__title {
+  color: #000000;
+}
+body.bind .current_information .current_information__left .ci__subtitle {
+  color: #000000;
+  font-size: 20px;
+}
+body.bind .content_one-column-component .one-column-title h2 {
+  font-weight: 700;
+  color: #000000;
+  font-size: 36px;
+}
+body.bind .content_one-column-component .one-column-title h3 {
+  color: #000000;
+  font-size: 28px;
+}
+body.bind .desc p {
+  width: 100%;
+  position: relative;
+  padding: 10px 0;
+  line-height: 1.6rem;
+  font-size: 20px;
+}
+body.bind footer .menu_footer-menu-component {
+  display: none;
+}
+body.bind footer .image_footer {
+  display: none;
+}
+body.bind footer .blue_footer {
+  background: #000000;
+}
+body.bind footer .footer {
+  border-top: 3px solid #ffffff;
+}
+
+/*# sourceMappingURL=blind.css.map */

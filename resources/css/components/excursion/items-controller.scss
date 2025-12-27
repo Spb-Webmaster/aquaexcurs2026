@@ -1,0 +1,139 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+$maxWidth: 1200;
+@mixin adaptiv-font($pcSize, $mobSize) {
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+}
+
+
+.excursion_items {
+    position: relative;
+    padding: 36px 0;
+    .excursion_items__flex {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: start;
+        align-items: stretch;
+
+        gap: 24px;
+        .excursion_item {
+            width: 32%;
+            position: relative;
+            height: auto;
+        }
+
+    }
+}
+
+@media screen and (max-width: 1440px) {
+
+    .excursion_items {
+        .excursion_items__flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            align-items: stretch;
+            gap: normal;
+            .excursion_item {
+                width: calc((100% / 3) - 20px);
+                margin: 10px;
+                position: relative;
+                height: auto;
+                .excursion_item__price .__price {
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    height: 46px;
+                    span:first-child {
+                       // font-size: 36px !important;
+                        @include adaptiv-font(36, 18);
+
+                    }
+                    .__current {
+                        top:2px;
+                        @include adaptiv-font(32, 18);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+
+    .home_excursion {
+        .block {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+    .excursion_items {
+            position: relative;
+            padding: 15px 0;
+
+        .excursion_items__flex {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: start;
+            align-items: stretch;
+            gap: normal;
+            .excursion_item {
+                width: calc((100% / 2) - 30px);
+                margin: 15px;
+                position: relative;
+                height: auto;
+                .excursion_item__price .__price {
+                    width: 50%;
+                    display: flex;
+                    align-items: center;
+                    height: 46px;
+                    span:first-child {
+                       // font-size: 36px !important;
+                        @include adaptiv-font(36, 18);
+
+                    }
+                    .__current {
+                        top:2px;
+                        @include adaptiv-font(32, 18);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 568px) {
+    .home_excursion {
+        .block {
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+    }
+    .excursion_items {
+
+
+        .excursion_items__flex {
+
+            .excursion_item {
+                width: 100%;
+                margin:  15px 0;
+                position: relative;
+                height: auto;
+
+            }
+        }
+    }
+}
+

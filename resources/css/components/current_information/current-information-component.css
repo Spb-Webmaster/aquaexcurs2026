@@ -1,0 +1,174 @@
+.current_information {
+  display: flex;
+  justify-content: space-between;
+  padding: 50px 0 30px 0;
+}
+.current_information .current_information__left {
+  width: 60%;
+  padding: 0 30px 0 0;
+}
+.current_information .current_information__left .h1 {
+  letter-spacing: 1px;
+  word-spacing: 10px;
+  font-weight: 700;
+  color: #00306B;
+  padding: 0 0 18px 0;
+}
+.current_information .current_information__left .h1 span {
+  color: #3BA3D0;
+}
+.current_information .current_information__left .ci__title {
+  font-size: 28px;
+  line-height: 1.2em;
+  font-weight: 400;
+  color: #00306B;
+  padding: 0 0 16px 0;
+}
+.current_information .current_information__left .ci__subtitle {
+  line-height: 1.4em;
+  font-weight: 400;
+  max-width: 600px;
+}
+.current_information .current_information__right {
+  padding: 10px 0 0 0;
+  width: 40%;
+}
+
+._info {
+  padding: 36px 36px 36px 46px;
+}
+._info p {
+  line-height: 1.4em;
+  padding: 0 0 10px 0;
+}
+._info p:last-child {
+  padding-bottom: 0;
+}
+._info .h3_blue {
+  color: #00306B;
+  font-weight: 600;
+  line-height: 1.2em;
+  position: relative;
+  font-size: 24px;
+  display: flex;
+  padding: 0 0 20px 0;
+}
+._info .h3_blue:before {
+  content: "";
+  width: 21px;
+  height: 4px;
+  background: #0082C9;
+  display: block;
+  position: relative;
+  top: 13px;
+  margin: 0 20px 0 0;
+}
+._info .h3_blue:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  width: 38px;
+  min-width: 38px;
+  height: 38px;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzgiIGhlaWdodD0iMzgiIHZpZXdCb3g9IjAgMCAzOCAzOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTIwLjUyNDUgMzMuMTYwMkgyMy4yMjEyQzIzLjc0MTEgMzMuMTYwMiAyNC4xNjI1IDMzLjQyNDcgMjQuMTYyNSAzMy43NTFDMjQuMTYyNSAzNC4wNzcyIDIzLjc0MTEgMzQuMzQxOSAyMy4yMjEyIDM0LjM0MTlIMjMuMDk1NkMyMi41NzU3IDM0LjM0MTkgMjIuMTU0MSAzNC42MDY1IDIyLjE1NDEgMzQuOTMyOEMyMi4xNTQxIDM1LjI1OTIgMjIuNTc1NyAzNS41MjM1IDIzLjA5NTYgMzUuNTIzNUgyOC44OTI0QzI5LjQxMjIgMzUuNTIzNSAyOS44MzM4IDM1Ljc4ODMgMjkuODMzOCAzNi4xMTQ0QzI5LjgzMzggMzYuNDQwOCAyOS40MTIyIDM2LjcwNTMgMjguODkyNCAzNi43MDUzSDIxLjkyNjFIMTQuMjY5NkMxMy43NDk2IDM2LjcwNTMgMTMuMzI4MiAzNi40NDA4IDEzLjMyODIgMzYuMTE0NEMxMy4zMjgyIDM1Ljc4ODMgMTMuNzQ5NiAzNS41MjM1IDE0LjI2OTYgMzUuNTIzNUgxNS44Nzg0QzE2LjM5ODIgMzUuNTIzNSAxNi44MTk4IDM1LjI1OTIgMTYuODE5OCAzNC45MzI4QzE2LjgxOTggMzQuNjA2NSAxNi4zOTgyIDM0LjM0MTkgMTUuODc4NCAzNC4zNDE5SDguMjIxNjlDNy43MDE4MiAzNC4zNDE5IDcuMjgwMjcgMzQuMDc3MiA3LjI4MDI3IDMzLjc1MUM3LjI4MDI3IDMzLjQyNDcgNy43MDE4MiAzMy4xNjAyIDguMjIxNjkgMzMuMTYwMkgxMC4wMzEzSDIwLjUyNDVaIiBmaWxsPSIjNTRBRkQ2Ii8+CjxwYXRoIGQ9Ik01LjczOTIgMzAuMTI0NUM2LjUxOTEgMzAuMTI0NSA3LjE1MTI0IDI5LjcyNzcgNy4xNTEyNCAyOS4yMzgzQzcuMTUxMjQgMjguNzQ4OSA2LjUxOTEgMjguMzUyMSA1LjczOTIgMjguMzUyMUgxLjQxMTg3QzAuNjMyMTM4IDI4LjM1MjEgMCAyOC43NDg5IDAgMjkuMjM4M0MwIDI5LjcyNzcgMC42MzIxMzggMzAuMTI0NSAxLjQxMTg3IDMwLjEyNDVINS43MzkyWiIgZmlsbD0iIzNCQTNEMCIvPgo8cGF0aCBkPSJNMzcuMDk5MyAxNy42MzU5TDMxLjYxMTEgMjEuODA0NUwzNC4wMDU2IDIyLjY2NDNDMzEuNzQ3OSAyNi41NDM3IDI3LjY3OTcgMjkuMjU4MyAyMi45NDQ0IDI5LjY3NThWMTUuNDQ3NUgyNi4yMDk1VjEyLjk5NjdIMjIuOTQ0NFY5Ljk3NjE0QzI0Ljc5MjggOS40MzA4NSAyNi4xNDE1IDcuNzM2NjcgMjYuMTQxNSA1LjcyODUyQzI2LjE0MTUgMy4yNzk2OCAyNC4xMzc3IDEuMjk0NjggMjEuNjY1NyAxLjI5NDY4QzE5LjE5MzkgMS4yOTQ2OCAxNy4xOTAxIDMuMjc5NjggMTcuMTkwMSA1LjcyODUyQzE3LjE5MDEgNy43MzY2NyAxOC41Mzg4IDkuNDMwODUgMjAuMzg3MiA5Ljk3NjE0VjEyLjk5NjdIMTcuMTIyMlYxNS40NDc2SDIwLjM4NzJWMjkuNjc2QzE1LjI5OTIgMjkuMjI3MyAxMS4xMDA0IDI1Ljc2MTEgOC45NzEwNyAyMS40MTMzTDExLjQ3NCAyMC40OTU1TDYuNDI5MTIgMTYuMDUyM0w0LjY4ODQ4IDIyLjg2MjZMNy41NTc0NiAyMS45NDA1QzguNDg3NTcgMjguODM3MiAxNC40NDk1IDMzLjk3NzQgMjEuNjY1NyAzMy45Nzc0QzI4LjM1MTQgMzMuOTc3NCAzMy45NjA3IDI5LjQxMTMgMzUuNDg4OSAyMy4yNTU0TDM3Ljk5OTcgMjQuNDI4NkwzNy4wOTkzIDE3LjYzNTlaTTIxLjY2NTcgNy40MDY2OEMyMC43MyA3LjQwNjY4IDE5Ljk3MTUgNi42NTUzMiAxOS45NzE1IDUuNzI4MzVDMTkuOTcxNSA0LjgwMTIgMjAuNzMgNC4wNDk2NyAyMS42NjU3IDQuMDQ5NjdDMjIuNjAxNiA0LjA0OTY3IDIzLjM2IDQuODAxMiAyMy4zNiA1LjcyODM1QzIzLjM2IDYuNjU1NDkgMjIuNjAxNiA3LjQwNjY4IDIxLjY2NTcgNy40MDY2OFoiIGZpbGw9IiMwMDMwNkIiLz4KPC9zdmc+Cg==");
+}
+
+@media screen and (max-width: 1068px) {
+  .current_information {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column-reverse;
+    padding: 30px 0 20px 0;
+  }
+  .current_information .current_information__left {
+    width: 100%;
+    padding: 40px 0 0 0;
+  }
+  .current_information .current_information__left .ci__subtitle {
+    color: #667085;
+  }
+  .current_information .current_information__right {
+    padding: 10px 0 0 0;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 568px) {
+  .current_information {
+    padding: 25px 0 11px 0;
+  }
+  .current_information .current_information__left .h1 {
+    padding: 0 0 15px 0;
+    font-size: 30px;
+  }
+  .current_information .current_information__left .ci__title {
+    font-size: 24px;
+    line-height: 1.2em;
+    font-weight: 400;
+    padding: 0 0 12px 0;
+  }
+  .current_information .current_information__left .ci__subtitle {
+    color: #667085;
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 438px) {
+  ._info {
+    padding: 26px 26px 26px 36px;
+  }
+  ._info p {
+    line-height: 1.4em;
+    padding: 0 0 10px 0;
+  }
+  ._info p:last-child {
+    padding-bottom: 0;
+  }
+  ._info .h3_blue:before {
+    margin: 0 10px 0 0;
+  }
+  ._info .h3_blue:after {
+    right: -10px;
+  }
+}
+@media screen and (max-width: 395px) {
+  ._info {
+    padding: 26px 26px 26px 36px;
+  }
+  ._info p {
+    font-size: 14px;
+    line-height: 1.4em;
+    padding: 0 0 10px 0;
+  }
+  ._info p:last-child {
+    padding-bottom: 0;
+  }
+  ._info .h3_blue {
+    font-size: 22px;
+  }
+  ._info .h3_blue:before {
+    margin: 0 10px 0 0;
+    height: 3px;
+    top: 12px;
+  }
+  ._info .h3_blue:after {
+    width: 28px;
+    min-width: 28px;
+    height: 28px;
+    right: -10px;
+    top: -2px;
+    background-size: cover;
+  }
+}
+@media screen and (max-width: 375px) {
+  ._info .h3_blue {
+    font-size: 22px;
+  }
+  ._info .h3_blue span {
+    max-width: 200px;
+  }
+}
+
+/*# sourceMappingURL=current-information-component.css.map */

@@ -1,0 +1,95 @@
+.excursion_items {
+  position: relative;
+  padding: 36px 0;
+}
+.excursion_items .excursion_items__flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: stretch;
+  gap: 24px;
+}
+.excursion_items .excursion_items__flex .excursion_item {
+  width: 32%;
+  position: relative;
+  height: auto;
+}
+
+@media screen and (max-width: 1440px) {
+  .excursion_items .excursion_items__flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: stretch;
+    gap: normal;
+  }
+  .excursion_items .excursion_items__flex .excursion_item {
+    width: calc(33.3333333333% - 20px);
+    margin: 10px;
+    position: relative;
+    height: auto;
+  }
+  .excursion_items .excursion_items__flex .excursion_item .excursion_item__price .__price {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    height: 46px;
+  }
+  .excursion_items .excursion_items__flex .excursion_item .excursion_item__price .__price span:first-child {
+    font-size: calc(18px + 18 * (100vw - 320px) / 880);
+  }
+  .excursion_items .excursion_items__flex .excursion_item .excursion_item__price .__price .__current {
+    top: 2px;
+    font-size: calc(18px + 14 * (100vw - 320px) / 880);
+  }
+}
+@media screen and (max-width: 900px) {
+  .home_excursion .block {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .excursion_items {
+    position: relative;
+    padding: 15px 0;
+  }
+  .excursion_items .excursion_items__flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: stretch;
+    gap: normal;
+  }
+  .excursion_items .excursion_items__flex .excursion_item {
+    width: calc(50% - 30px);
+    margin: 15px;
+    position: relative;
+    height: auto;
+  }
+  .excursion_items .excursion_items__flex .excursion_item .excursion_item__price .__price {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    height: 46px;
+  }
+  .excursion_items .excursion_items__flex .excursion_item .excursion_item__price .__price span:first-child {
+    font-size: calc(18px + 18 * (100vw - 320px) / 880);
+  }
+  .excursion_items .excursion_items__flex .excursion_item .excursion_item__price .__price .__current {
+    top: 2px;
+    font-size: calc(18px + 14 * (100vw - 320px) / 880);
+  }
+}
+@media screen and (max-width: 568px) {
+  .home_excursion .block {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .excursion_items .excursion_items__flex .excursion_item {
+    width: 100%;
+    margin: 15px 0;
+    position: relative;
+    height: auto;
+  }
+}
+
+/*# sourceMappingURL=items-controller.css.map */

@@ -1,0 +1,48 @@
+@import 'pagination.scss';
+@import 'general-style/paddind.scss';
+@import 'general-style/width.scss';
+@import 'general-style/button.scss';
+@import 'loader_map.css';
+@import '@fontsource-variable/roboto';
+@import '@fontsource-variable/source-sans-3';
+
+
+
+@import 'components/logo/logo-component.scss';
+@import 'components/blind/blind.scss';
+@import 'components/menu/header-menu-component.scss';
+
+@import 'components/menu/hamburger-component.scss';
+@import 'components/buttons/buttons.scss';
+@import 'components/form/form-input-component.scss';
+@import 'components/form/form-blue-component.scss';
+@import 'components/form/form-exclamation.scss';
+@import 'components/form/form-select-component.scss';
+@import 'components/form/form-loader-component.scss';
+@import 'components/form/form-response-component.scss';
+@import 'components/form/form-radio2-component.scss';
+@import 'components/form/form-checkbox3-component.scss';
+@import 'components/avatar/avatar-user-component.scss';
+@import 'components/current_information/current-information-component.scss';
+@import 'components/excursion/items-controller.scss';
+@import 'components/excursion/item-controller.scss';
+@import 'components/content/one-column-component.scss';
+@import 'components/content/desc.scss';
+@import 'message/flach_message.scss';
+
+@import 'templates/axeld/swiper.scss';
+@import 'templates/axeld/tabs.scss';
+@import 'templates/axeld/breadcrumbs.scss';
+@import 'templates/axeld/header.scss';
+@import 'templates/axeld/footer.scss';
+@import 'templates/axeld/content.scss';
+@import 'templates/axeld/search.scss';
+
+@import 'datepicker/datepicker.css';
+
+@import 'components/mobile/mobile-menu-component.scss';
+@import 'fancybox/fancubox6.scss';
+
+@import 'style.scss';
+@import 'blind/blind_panel.scss';
+@import 'blind/blind.scss';

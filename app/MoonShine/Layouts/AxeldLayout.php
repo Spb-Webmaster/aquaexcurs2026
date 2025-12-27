@@ -1,0 +1,93 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\MoonShine\Layouts;
+
+use App\MoonShine\Pages\HomePage;
+use App\MoonShine\Pages\SettingPage;
+use App\MoonShine\Resources\MoonShineUser\MoonShineUserResource;
+use MoonShine\Laravel\Layouts\AppLayout;
+use MoonShine\ColorManager\Palettes\PurplePalette;
+use MoonShine\ColorManager\ColorManager;
+use MoonShine\Contracts\ColorManager\ColorManagerContract;
+use MoonShine\Contracts\ColorManager\PaletteContract;
+use MoonShine\MenuManager\MenuDivider;
+use MoonShine\MenuManager\MenuGroup;
+use MoonShine\MenuManager\MenuItem;
+use App\MoonShine\Resources\Excursion\ExcursionResource;
+use App\MoonShine\Resources\SiteFormEmail\SiteFormEmailResource;
+
+final class AxeldLayout extends AppLayout
+{
+    /**
+     * @var null|class-string<PaletteContract>
+     */
+    protected ?string $palette = PurplePalette::class;
+
+    protected function assets(): array
+    {
+        return [
+            ...parent::assets(),
+        ];
+    }
+
+    protected function menu(): array
+    {
+        return [
+            MenuGroup::make('Пользователи', [
+                MenuItem::make( MoonShineUserResource::class, 'Админ', 'user'),
+                MenuDivider::make(),
+            ]),
+            MenuGroup::make(static fn() => __('Страницы'), [
+                MenuItem::make( HomePage::class, 'Главная', 'building-library'),
+
+            ]),
+            MenuGroup::make(static fn() => __('Экскурсии'), [
+                MenuItem::make( ExcursionResource::class, 'Экскурсии', 'banknotes'),
+
+            ]),
+            MenuGroup::make(static fn() => __('Заявки'), [
+                MenuItem::make( SiteFormEmailResource::class, 'Заявки с формы', 'envelope'),
+
+            ]),
+            MenuGroup::make(static fn() => __('Настройки'), [
+                MenuItem::make( SettingPage::class, 'Настройки', 'adjustments-vertical'),
+
+            ]),
+
+        ];
+    }
+    protected function getFooterCopyright(): string
+    {
+        return \sprintf(
+            <<<'HTML'
+                &copy; %d Made  by
+                <a href="https://t.me/AxeldMaster"
+                    class="font-semibold text-primary"
+                    target="_blank"
+                >
+                    @AxeldMaster
+                </a>
+                HTML,
+            now()->year,
+        );
+    }
+
+    protected function getFooterMenu(): array
+    {
+        return [
+            config('app.app_url') => 'WebSite',
+        ];
+    }
+
+    /**
+     * @param ColorManager $colorManager
+     */
+    protected function colors(ColorManagerContract $colorManager): void
+    {
+        parent::colors($colorManager);
+
+        // $colorManager->primary('#00000');
+    }
+}
