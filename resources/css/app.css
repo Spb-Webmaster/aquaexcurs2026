@@ -24,8 +24,9 @@
 @import 'components/form/form-checkbox3-component.scss';
 @import 'components/avatar/avatar-user-component.scss';
 @import 'components/current_information/current-information-component.scss';
-@import 'components/excursion/items-controller.scss';
-@import 'components/excursion/item-controller.scss';
+@import 'components/excursion/items-component.scss';
+@import 'components/excursion/item-component.scss';
+@import 'components/excursion/teaser-item-component.scss';
 @import 'components/content/one-column-component.scss';
 @import 'components/content/desc.scss';
 @import 'message/flach_message.scss';
@@ -37,6 +38,8 @@
 @import 'templates/axeld/footer.scss';
 @import 'templates/axeld/content.scss';
 @import 'templates/axeld/search.scss';
+@import 'cart/cart.scss';
+@import 'cart/cart-result-sum.scss';
 
 @import 'datepicker/datepicker.css';
 

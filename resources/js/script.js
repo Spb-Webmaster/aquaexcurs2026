@@ -10,6 +10,7 @@ import {flash_message} from "./include/flash_message/flash_message";
 import {uploadAvatar} from "./include/cabinet/uploadAvatar";
 import {datepicker_accountant_ticket_date, datepicker_date_birthday} from "./include/datepicker/datepicker";
 import {blind} from "./include/blind";
+import {add_sum} from './include/cart/add_sum';
 
 
 
@@ -27,4 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
     flash_message() // закрытие модального окна
     uploadAvatar() // отправляем аватар пользователя
     blind()
+    add_sum() // добавить количество людей и пересчитать сумму
+
 });

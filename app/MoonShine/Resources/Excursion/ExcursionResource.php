@@ -29,7 +29,7 @@ class ExcursionResource extends ModelResource
 
     public function search(): array
     {
-        return ['title'];
+        return ['username', 'phone'];
     }
     /**
      * @return list<class-string<PageContract>>

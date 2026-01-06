@@ -3,9 +3,7 @@
         <div class="custom-block">
             <div class="excursion_items__flex">
                 @foreach($items as $item)
-
-                                   <x-excursion.item :item="$item"/>
-
+                                   <x-excursion.teaser-item :item="$item"/>
                 @endforeach
             </div>
         </div>

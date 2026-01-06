@@ -30,7 +30,6 @@
     height: auto;
   }
   .excursion_items .excursion_items__flex .excursion_item .excursion_item__price .__price {
-    width: 50%;
     display: flex;
     align-items: center;
     height: 46px;
@@ -66,7 +65,6 @@
     height: auto;
   }
   .excursion_items .excursion_items__flex .excursion_item .excursion_item__price .__price {
-    width: 50%;
     display: flex;
     align-items: center;
     height: 46px;
@@ -92,4 +90,4 @@
   }
 }
 
-/*# sourceMappingURL=items-controller.css.map */
+/*# sourceMappingURL=items-component.css.map */

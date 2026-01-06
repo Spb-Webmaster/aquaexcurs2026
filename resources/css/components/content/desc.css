@@ -25,7 +25,7 @@
   font-weight: 700;
   font-style: normal;
   font-size: 30px;
-  color: #EF533F;
+  color: #00306B;
 }
 .desc h2 {
   line-height: 2.1rem;
@@ -33,7 +33,10 @@
   font-weight: 700;
   font-style: normal;
   font-size: 27px;
-  color: #EF533F;
+  color: #3BA3D0;
+}
+.desc h2 span, .desc h2 strong {
+  color: #00306B;
 }
 .desc h3 {
   line-height: 2rem;

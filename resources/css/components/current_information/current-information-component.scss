@@ -106,6 +106,14 @@ $colorOrange: #FF732C;
     }
 }
 
+.item_customer_info {
+    padding: 50px 0 30px 0;
+    ._info {
+        margin: 0 auto;
+        max-width: 800px;
+    }
+}
+
 @media screen and (max-width: 1068px) {
     .current_information {
         display: flex;

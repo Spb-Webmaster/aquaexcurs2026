@@ -13,7 +13,7 @@
     </section>
     <section class="home_excursion">
         <div class="block relative">
-          <x-excursion.items />
+          <x-excursion.items-component />
         </div>
     </section>
     <section class="home_content">

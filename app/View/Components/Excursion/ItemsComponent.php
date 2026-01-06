@@ -7,7 +7,7 @@ use Domain\Excursion\ViewModels\ExcursionViewModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Items extends Component
+class ItemsComponent extends Component
 {
     public object $items;
 

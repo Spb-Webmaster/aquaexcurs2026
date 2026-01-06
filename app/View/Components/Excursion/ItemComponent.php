@@ -7,11 +7,9 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class Item extends Component
+class ItemComponent extends Component
 {
-    /**
-     * Create a new component instance.
-     */
+
 
     public object $item;
     public function __construct(object $item)

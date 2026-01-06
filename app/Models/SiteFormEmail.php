@@ -14,6 +14,7 @@ class SiteFormEmail extends Model
         'params',
         'worked',
         'message',
+
     ];
 
 

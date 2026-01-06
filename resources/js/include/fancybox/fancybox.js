@@ -5,7 +5,7 @@ import {asyncExecution} from "../form_async/async_execution";
 import {scrf} from "../csrf";
 
 
-/*Fancybox.bind('[data-fancybox]', {
+Fancybox.bind('[data-fancybox]', {
 
     zoomEffect: false,
     hideScrollbar: false, // Оставляем скроллбар видимым
@@ -15,7 +15,22 @@ import {scrf} from "../csrf";
     userSelectableContent: true, // Разрешаем выделять текст внутри модального окна
     touch: false,
 
-});*/
+});
+
+// Fancybox.bind("[data-fancybox]", {
+//     zoomEffect: false,
+//     Carousel: {
+//         gestures: false,
+//         Zoomable: {
+//             Panzoom: {
+//                 startPos: {
+//                     scale: "cover",
+//                 },
+//             },
+//         },
+//     },
+// });
+
 
 
 
@@ -35,7 +50,8 @@ async  function openFancyBox(e) {
         /** в случае клика по-внутреннему тэгу, получим data-form в любом случае **/
         const parentEl = e.target.closest('.open-fancybox');
         const formTemplate = parentEl.dataset.form; /** название шаблона для blade **/
-        const template = { template: formTemplate, author: '@AxeldMaster' };
+        const transferData = parentEl.dataset.transfer; /** дополнительные данные в json для blade **/
+        const template = { template: formTemplate, author: '@AxeldMaster', data: transferData };
 
         console.log(template)
 

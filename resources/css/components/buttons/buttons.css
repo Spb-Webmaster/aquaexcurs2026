@@ -91,4 +91,11 @@
   font-size: 18px;
 }
 
+.btn_add_sum {
+  padding: 0 21px;
+  line-height: 38px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=buttons.css.map */

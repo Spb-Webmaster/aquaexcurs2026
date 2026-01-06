@@ -6,6 +6,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FancyBox\FancyBoxController;
 use App\Http\Controllers\FancyBox\FancyBoxSendingFromFormController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Order\OrderController;
 use App\Http\Controllers\SiteExcursion\SiteExcursionController;
 use App\Http\Controllers\TestController;
 use App\MoonShine\Controllers\MoonshineHome;
@@ -32,6 +33,7 @@ Route::controller(FancyBoxController::class)->group(function () {
 Route::controller(FancyBoxSendingFromFormController::class)->group(function () {
 
     Route::post('/call_me', 'fancyboxCallMe');
+    Route::post('/order_excursion', 'fancyboxOrderExcursion');
 
 });
 
@@ -80,3 +82,7 @@ Route::controller(SiteExcursionController::class)->group(function () {
 
 });
 /** ///Экскурсии **/
+/** заказ  */
+Route::get('/book-a-tour', [OrderController::class, 'order' ])->name('order');
+/** заказ  */
+

@@ -15,6 +15,7 @@ class SiteExcursionController extends Controller
             abort(404);
         }
 
+
         return view('pages.site_excursions.site_excursion', [
             'item' => $item
             ]);

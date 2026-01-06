@@ -25,6 +25,19 @@ class FancyBoxSendingFromFormController extends Controller
         ], 200);
 
     }
+    /** Заказ экскурсии */
+    public function fancyboxOrderExcursion(RequestCallMeRequest $request) {
+
+      SavedFormDataViewModel::make()->save($request);
+        $data = $request->except('url');
+     //FancyBoxSendingFromFormEvent::dispatch($data);
+
+        dd($data);
+     return response()->json([
+            'response' => $request->all(),
+        ], 200);
+
+    }
 
 
 }

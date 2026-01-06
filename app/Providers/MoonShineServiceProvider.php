@@ -14,6 +14,8 @@ use App\MoonShine\Pages\HomePage;
 use App\MoonShine\Pages\SettingPage;
 use App\MoonShine\Resources\Excursion\ExcursionResource;
 use App\MoonShine\Resources\SiteFormEmail\SiteFormEmailResource;
+use App\MoonShine\Resources\ExcursionOrder\ExcursionOrderResource;
+use App\MoonShine\Resources\ExcursionEmail\ExcursionEmailResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,8 @@ class MoonShineServiceProvider extends ServiceProvider
                 MoonShineUserRoleResource::class,
                 ExcursionResource::class,
                 SiteFormEmailResource::class,
+                ExcursionOrderResource::class,
+                ExcursionEmailResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

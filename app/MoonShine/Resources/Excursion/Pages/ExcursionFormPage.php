@@ -65,6 +65,7 @@ class ExcursionFormPage extends FormPage
                                 ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg'])
                                 ->removable(),
                             TinyMce::make('Краткое описание', 'short_desc'),
+                            Textarea::make('Карта яндекс', 'yandex_map')->nullable()   ->unescape(),
 
                         ]),
 
@@ -86,14 +87,17 @@ class ExcursionFormPage extends FormPage
                                 ->default(now()->toDateTimeString())
                                 ->sortable(),
                         ]),
-                        Collapse::make('Продажа без оформления', [
-                            Switcher::make('Публикация', 'published')->default(1),
+                        Collapse::make('Продажа билетов', [
+                            Switcher::make('Продажа включена', 'price_hide')->default(1)->hint('(Выключая эту опцию, продажа билетов прекращается)'),
+                            Number::make('Количество билетов', 'count_ticket')->default(100),
+                            OrderTodayTicket::make('', 'order_today_ticket')
 
                         ]),
                         Collapse::make('Макет - отправить заявку', [
                             Switcher::make('Только заявка', 'dont_register')->default(0)->hint('(Выключая эту опцию, экскурсия не оформляется и не оплачивается. Происходит только оформление заявки на email)'),
                             Text::make('Цена от', 'dont_register_prefix_price')->default('От'),
-                            Number::make('Цена', 'dont_register_price'),
+                            Number::make('Цена', 'dont_register_price')->nullable(),
+                            Text::make('Подпись под ценой', 'dont_register_desc')->nullable(),
                             Text::make('Надпись на кнопке', 'dont_register_button')->unescape(),
                             Text::make('Шаблон формы', 'dont_register_form')->unescape(),
 
@@ -129,7 +133,8 @@ class ExcursionFormPage extends FormPage
                                         Collapse::make('Причал', [
                                             Textarea::make('Причал', 'pier')->unescape(),
                                             Textarea::make('Преимущества', 'privilege')->unescape(),
-                                            Textarea::make('Время отправления', 'departure_time')->unescape(),
+                                            Text::make('Время отправления', 'departure_time')->unescape(),
+                                            Textarea::make('Время отправления (подробнее)', 'departure_time_desc')->unescape(),
                                             Textarea::make('Время в пути', 'time_route')->unescape(),
                                         ]),
                                     ])->columnSpan(6),
@@ -142,17 +147,17 @@ class ExcursionFormPage extends FormPage
                                     Column::make([
 
                                         Collapse::make('Взрослый', [
-                                            Number::make('Стоимость', 'price'),
+                                            Number::make('Стоимость', 'price')->nullable(),
                                             Textarea::make('Описание', 'price_desc')->escape(),
                                         ]),
 
                                         Collapse::make('Детский', [
-                                            Number::make('Стоимость', 'price_child'),
+                                            Number::make('Стоимость', 'price_child')->nullable(),
                                             Textarea::make('Описание', 'price_child_desc')->escape(),
                                         ]),
 
                                         Collapse::make('Льготный', [
-                                            Number::make('Стоимость', 'price_advantage'),
+                                            Number::make('Стоимость', 'price_advantage')->nullable(),
                                             Textarea::make('Описание', 'price_advantage_desc')->escape(),
                                         ]),
 
@@ -161,7 +166,8 @@ class ExcursionFormPage extends FormPage
                                     Column::make([
 
                                         Collapse::make('Цена на причале', [
-                                            Number::make('Стоимость', 'price_pier'),
+                                            Number::make('Стоимость', 'price_pier')->nullable(),
+
                                         ]),
 
 

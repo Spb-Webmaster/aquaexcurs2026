@@ -1,0 +1,128 @@
+.cart_cart-result-sum {
+  border-top: 1px solid #E0E0E0;
+  padding: 30px 0 0 0;
+}
+.cart_cart-result-sum.active {
+  display: block !important;
+}
+
+.cart-total {
+  padding: 4px 0;
+}
+.cart-total.active {
+  display: block !important;
+}
+
+.cart-total__left {
+  width: 150px;
+  min-width: 150px;
+}
+
+.cart-total__right {
+  width: 100%;
+}
+.cart-total__right hr {
+  margin-block: 0.5em;
+}
+.cart-total__right .cart-total__result {
+  font-weight: 500;
+  padding-top: 12px;
+  width: 100%;
+}
+.cart-total__right .cart-total__result .cart-total_sum_currency {
+  font-weight: 500;
+  font-size: 30px;
+  padding: 6px 7px 0 0;
+}
+
+.cart_item__human {
+  width: 150px;
+  line-height: 1.2em;
+}
+
+.new-block-result-cart {
+  padding-bottom: 16px !important;
+}
+.new-block-result-cart:last-child {
+  padding-bottom: 0 !important;
+}
+
+.send_to_basket {
+  display: flex !important;
+  height: 46px !important;
+  border-radius: 25px !important;
+}
+.send_to_basket span {
+  border-radius: 25px !important;
+  padding-right: 30px !important;
+  padding-left: 30px !important;
+}
+.send_to_basket.deactivate {
+  background: #cccccc !important;
+  cursor: initial !important;
+  color: #282828 !important;
+  border: 1px solid #cccccc !important;
+}
+.send_to_basket.deactivate span {
+  background: #cccccc !important;
+  cursor: initial !important;
+  color: #282828 !important;
+}
+.send_to_basket i {
+  width: 19px;
+  min-width: 19px;
+  position: relative;
+  top: 4px;
+  left: 8px;
+}
+
+.type_ticket {
+  display: none;
+  color: red;
+  padding: 9px 0 0 0;
+  font-size: 13px;
+  font-weight: 300;
+}
+.type_ticket.active {
+  display: block;
+}
+
+.mr-20 {
+  margin-right: 20px;
+}
+
+.not-italic {
+  font-style: normal;
+}
+
+.cart_item {
+  padding-bottom: 10px;
+}
+.cart_item .cart_item__right {
+  justify-content: space-between;
+  width: 100%;
+}
+.cart_item .cart_item__right .size-6 {
+  width: 24px;
+  height: 24px;
+}
+
+.cart_item__title {
+  font-weight: 600;
+  color: #00306B;
+  padding: 0 0 10px 0;
+  line-height: 1.2em;
+}
+
+.cart_item__options .ci_item_1 {
+  padding: 0 0 6px 0;
+}
+.cart_item_del {
+  display: block;
+  width: 37px;
+  height: 50px;
+  color: #282828;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=cart-result-sum.css.map */
