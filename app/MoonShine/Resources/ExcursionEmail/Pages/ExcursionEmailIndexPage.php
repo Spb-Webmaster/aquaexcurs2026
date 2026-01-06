@@ -39,6 +39,7 @@ class ExcursionEmailIndexPage extends IndexPage
             ID::make(),
             Text::make('ФИО', 'username'),
             Text::make('Телефон', 'phone'),
+            Text::make('Наш Email', 'email'),
 
             BelongsTo::make('Экскурсия', 'Excursion', 'title', resource: ExcursionResource::class)->nullable(),
         ];

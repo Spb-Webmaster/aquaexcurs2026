@@ -61,6 +61,10 @@ class ExcursionEmailFormPage extends FormPage
                             Text::make('ФИО', 'username')->required(),
                             Text::make('Телефон', 'phone'),
                         ]),
+             Collapse::make('Email получателя', [
+                 Text::make('Наш Email', 'email'),
+
+             ]),
 
 
                     ])->columnSpan(6),
