@@ -3,7 +3,9 @@ import {fieldErrors} from '../fancybox/form/fieldErrors.js'
 import {removeErrors} from "../fancybox/form/removeErrors.js";
 import {select} from "../select/select.js";
 import {imask} from "../imask.js";
-
+import {
+    datepicker_excursion_date
+} from "../datepicker/datepicker";
 export function asyncExecution() {
 
 
@@ -11,6 +13,8 @@ export function asyncExecution() {
     select()
     /** подключим маски **/
     imask()
+    /** подключим календарик **/
+    datepicker_excursion_date()
 
 
     const appFormButtons = Array.from(document.querySelectorAll('.app_form_button'))

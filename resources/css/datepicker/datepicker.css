@@ -86,7 +86,7 @@
 }
 
 .datepicker-controls .button:focus {
-  border-color: #EF533F;
+  border-color: #00306B;
   color: hsl(0, 0%, 21%);
 }
 
@@ -226,7 +226,7 @@
 
 .datepicker-cell.selected,
 .datepicker-cell.selected:hover {
-  background-color: #EF533F;
+  background-color: #00306B;
   color: #fff;
   font-weight: 600;
 }

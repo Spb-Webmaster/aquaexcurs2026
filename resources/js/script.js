@@ -8,7 +8,10 @@ import {removeErrors} from "./include/fancybox/form/removeErrors";
 // import {select} from "./include/select/select";
 import {flash_message} from "./include/flash_message/flash_message";
 import {uploadAvatar} from "./include/cabinet/uploadAvatar";
-import {datepicker_accountant_ticket_date, datepicker_date_birthday} from "./include/datepicker/datepicker";
+import {
+    datepicker_accountant_ticket_date,
+    datepicker_excursion_date
+} from "./include/datepicker/datepicker";
 import {blind} from "./include/blind";
 import {add_sum} from './include/cart/add_sum';
 
@@ -29,5 +32,6 @@ document.addEventListener('DOMContentLoaded', function () {
     uploadAvatar() // отправляем аватар пользователя
     blind()
     add_sum() // добавить количество людей и пересчитать сумму
+    datepicker_excursion_date() // дата желаемая для экскурсии
 
 });

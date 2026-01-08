@@ -12,6 +12,7 @@ use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Laravel\QueryTags\QueryTag;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
+use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
 use App\MoonShine\Resources\ExcursionEmail\ExcursionEmailResource;
 use MoonShine\Support\ListOf;
@@ -39,8 +40,10 @@ class ExcursionEmailIndexPage extends IndexPage
             ID::make(),
             Text::make('ФИО', 'username'),
             Text::make('Телефон', 'phone'),
-            Text::make('Наш Email', 'email'),
-
+            Text::make('Email', 'email'),
+            Text::make('Кол-во', 'quantity'),
+            Date::make(__('Необходимая дата'), 'excursion_date')
+                ->format("d.m.Y"),
             BelongsTo::make('Экскурсия', 'Excursion', 'title', resource: ExcursionResource::class)->nullable(),
         ];
     }

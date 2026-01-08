@@ -10,7 +10,6 @@ class FancyBoxController extends Controller
 {
     public function fancybox(Request $request) {
 
-        //dd($request->all());
 
 
         if($request->template == 'call_me') {
@@ -28,6 +27,7 @@ class FancyBoxController extends Controller
                 /** Получим экскурсию **/
                 $item = Excursion::find($excursion_id);
             }
+
 
             return view('fancybox.forms.order_excursion', [
                 'item' => $item

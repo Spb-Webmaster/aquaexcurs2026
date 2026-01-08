@@ -16,7 +16,6 @@ use MoonShine\MenuManager\MenuDivider;
 use MoonShine\MenuManager\MenuGroup;
 use MoonShine\MenuManager\MenuItem;
 use App\MoonShine\Resources\Excursion\ExcursionResource;
-use App\MoonShine\Resources\SiteFormEmail\SiteFormEmailResource;
 use App\MoonShine\Resources\ExcursionOrder\ExcursionOrderResource;
 use App\MoonShine\Resources\ExcursionEmail\ExcursionEmailResource;
 

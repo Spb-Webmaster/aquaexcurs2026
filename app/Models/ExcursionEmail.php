@@ -13,7 +13,10 @@ class ExcursionEmail extends Model
         'phone',
         'params',
         'excursion_id',
-        'email'
+        'email',
+        'emails',
+        'quantity',
+        'excursion_date'
     ];
     protected $casts = [
         'params' => 'collection'

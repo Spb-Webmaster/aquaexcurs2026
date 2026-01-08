@@ -7,7 +7,6 @@ namespace App\MoonShine\Resources\ExcursionEmail\Pages;
 use App\MoonShine\Fields\OrderTodayTicket;
 use App\MoonShine\Resources\Excursion\ExcursionResource;
 use App\MoonShine\Resources\MoonShineUserRole\MoonShineUserRoleResource;
-use App\MoonShine\Resources\UserSexResource;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Fields\Slug;
@@ -58,11 +57,15 @@ class ExcursionEmailFormPage extends FormPage
                     Column::make([
 
                         Collapse::make('Данные пользователя', [
-                            Text::make('ФИО', 'username')->required(),
-                            Text::make('Телефон', 'phone'),
+                            Text::make('ФИО', 'username')->required()->locked(),
+                            Text::make('Телефон', 'phone')->locked(),
+                            Text::make('Email', 'email')->locked(),
+                            Text::make('Кол-во', 'quantity')->locked(),
+                            Date::make(__('Необходимая дата'), 'excursion_date')
+                                ->format("d.m.Y")->locked(),
                         ]),
              Collapse::make('Email получателя', [
-                 Text::make('Наш Email', 'email'),
+                 Text::make('Наш Email', 'emails')->locked(),
 
              ]),
 
@@ -74,7 +77,7 @@ class ExcursionEmailFormPage extends FormPage
                             Date::make(__('Дата создания'), 'created_at')
                                 ->format("d.m.Y")
                                 ->default(now()->toDateTimeString())
-                                ->sortable(),
+                                ->sortable()->locked(),
 
 
                             BelongsTo::make('Экскурсия', 'Excursion', 'title', resource: ExcursionResource::class)->nullable(),

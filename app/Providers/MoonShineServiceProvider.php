@@ -13,7 +13,6 @@ use App\MoonShine\Resources\MoonShineUserRole\MoonShineUserRoleResource;
 use App\MoonShine\Pages\HomePage;
 use App\MoonShine\Pages\SettingPage;
 use App\MoonShine\Resources\Excursion\ExcursionResource;
-use App\MoonShine\Resources\SiteFormEmail\SiteFormEmailResource;
 use App\MoonShine\Resources\ExcursionOrder\ExcursionOrderResource;
 use App\MoonShine\Resources\ExcursionEmail\ExcursionEmailResource;
 
@@ -29,7 +28,6 @@ class MoonShineServiceProvider extends ServiceProvider
                 MoonShineUserResource::class,
                 MoonShineUserRoleResource::class,
                 ExcursionResource::class,
-                SiteFormEmailResource::class,
                 ExcursionOrderResource::class,
                 ExcursionEmailResource::class,
             ])

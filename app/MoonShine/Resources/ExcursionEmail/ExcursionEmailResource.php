@@ -8,13 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\ExcursionEmail;
 use App\MoonShine\Resources\ExcursionEmail\Pages\ExcursionEmailIndexPage;
 use App\MoonShine\Resources\ExcursionEmail\Pages\ExcursionEmailFormPage;
-use App\MoonShine\Resources\ExcursionEmail\Pages\ExcursionEmailDetailPage;
 
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Contracts\Core\PageContract;
 
 /**
- * @extends ModelResource<ExcursionEmail, ExcursionEmailIndexPage, ExcursionEmailFormPage, ExcursionEmailDetailPage>
+ * @extends ModelResource<ExcursionEmail, ExcursionEmailIndexPage, ExcursionEmailFormPage>
  */
 class ExcursionEmailResource extends ModelResource
 {
@@ -23,8 +22,7 @@ class ExcursionEmailResource extends ModelResource
 
     protected string $title = 'Заявки с формы обратной связи';
 
-    protected string $column = 'created_at';
-
+    protected string $column = 'username';
     protected string $sortColumn = 'created_at';
 
     public function search(): array
@@ -40,7 +38,7 @@ class ExcursionEmailResource extends ModelResource
         return [
             ExcursionEmailIndexPage::class,
             ExcursionEmailFormPage::class,
-            ExcursionEmailDetailPage::class,
+         //   ExcursionEmailDetailPage::class,
         ];
     }
 }

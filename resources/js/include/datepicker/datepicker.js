@@ -14,22 +14,27 @@ export function topPositionLabel(elem) {
     });
 }
 
-export function datepicker_date_birthday() {
+export function datepicker_excursion_date() {
 
-    const elem = document.querySelector('input[name="date_birthday"]');
+
+    const elem = document.querySelector('input[name="excursion_date"]');
+
     if(elem) {
         const today = new Date(); // Получаем сегодняшнюю дату
-        today.setFullYear(today.getFullYear() - 18); // Отнимаем 18 лет
         const datepicker = new Datepicker(elem, {
-            title:'Дата рождения',
+            title:'Дата экскурсии',
             language: 'ru',
             format: 'dd.mm.yyyy',
-            minDate: '01.01.1950',
-            maxDate: today.toLocaleDateString(),
+            minDate:  today.toLocaleDateString(),
+            maxDate: '01.10.2026',
+            autohide: true
         });
         topPositionLabel(elem)
     }
 }
+
+
+
 export function datepicker_accountant_ticket_date() {
 
         const elem = document.querySelector('input[name="accountant_ticket_date"]');

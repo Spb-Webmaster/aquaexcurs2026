@@ -17,19 +17,6 @@ Fancybox.bind('[data-fancybox]', {
 
 });
 
-// Fancybox.bind("[data-fancybox]", {
-//     zoomEffect: false,
-//     Carousel: {
-//         gestures: false,
-//         Zoomable: {
-//             Panzoom: {
-//                 startPos: {
-//                     scale: "cover",
-//                 },
-//             },
-//         },
-//     },
-// });
 
 
 

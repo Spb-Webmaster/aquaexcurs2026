@@ -11,32 +11,50 @@
         <div class="form_data app_form_data pad_b16">
 
             <x-form.form-input
-                name="Экскурсия"
+                name="excursion_id"
                 type="hidden"
-                label="Экскурсия"
                 :disabled="true"
-
-                value="{{ $item->title }}"
+                value="{{ $item->id }}"
 
             />
             <x-form.form-input
-                name="ФИО"
+                name="username"
                 type="text"
                 label="ФИО"
-                value="{{ old('ФИО')?:'' }}"
+                value="{{ old('username')?:'' }}"
                 autofocus="{{ true }}"
                 required="{{ true }}"
 
             />
             <x-form.form-input
-                name="Телефон"
+                name="phone"
                 type="tel"
                 label="Телефон"
                 class="imask"
-                value="{{ old('Телефон')?:'' }}"
+                value="{{ old('phone')?:'' }}"
                 required="{{ true }}"
+            />
+            <x-form.form-input
+                name="email"
+                type="email"
+                label="Email"
+                class=""
+                value="{{ old('email')?:'' }}"
+            />
+            <x-form.form-input
+                name="quantity"
+                type="number"
+                label="Количество"
+                class=""
+                min="1"
+                max="50"
+                value="{{ old('quantity')?:'' }}"
+            />
 
-
+            <x-form.form-input-datepicker
+                name="excursion_date"
+                label="Желаемая дата"
+                value="{{ (old('excursion_date'))?: '' }}"
             />
 
 
