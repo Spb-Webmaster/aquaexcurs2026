@@ -18,6 +18,7 @@ use MoonShine\MenuManager\MenuItem;
 use App\MoonShine\Resources\Excursion\ExcursionResource;
 use App\MoonShine\Resources\ExcursionOrder\ExcursionOrderResource;
 use App\MoonShine\Resources\ExcursionEmail\ExcursionEmailResource;
+use App\MoonShine\Resources\Menu\MenuResource;
 
 final class AxeldLayout extends AppLayout
 {
@@ -52,6 +53,12 @@ final class AxeldLayout extends AppLayout
                 MenuItem::make(ExcursionEmailResource::class, 'Заявки с формы', 'envelope'),
                 MenuItem::make(ExcursionOrderResource::class, 'Заказы билетов' , 'currency-dollar'),
 
+            ]),
+
+
+
+            MenuGroup::make(static fn() => __('Меню сайта'), [
+                MenuItem::make( MenuResource::class, 'Верхнее меню', 'bars-arrow-down'),
 
             ]),
             MenuGroup::make(static fn() => __('Настройки'), [

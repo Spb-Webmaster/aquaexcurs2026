@@ -15,6 +15,7 @@ use App\MoonShine\Pages\SettingPage;
 use App\MoonShine\Resources\Excursion\ExcursionResource;
 use App\MoonShine\Resources\ExcursionOrder\ExcursionOrderResource;
 use App\MoonShine\Resources\ExcursionEmail\ExcursionEmailResource;
+use App\MoonShine\Resources\Menu\MenuResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -30,6 +31,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 ExcursionResource::class,
                 ExcursionOrderResource::class,
                 ExcursionEmailResource::class,
+                MenuResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

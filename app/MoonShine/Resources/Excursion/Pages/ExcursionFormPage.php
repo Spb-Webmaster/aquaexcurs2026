@@ -126,7 +126,8 @@ class ExcursionFormPage extends FormPage
                                     ])->columnSpan(6),
                                 ]),
 
-                            ]),               Tab::make(__('Данные экскурсии'), [
+                            ]),
+                            Tab::make(__('Данные экскурсии'), [
                                 Grid::make([
                                     Column::make([
 

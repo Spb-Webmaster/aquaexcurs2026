@@ -21,19 +21,19 @@ class OrderExcursionRequest extends FormRequest
                 ->lower()
                 ->value(),
             'phone' => phone($this->input('phone')),
-            'excursion_date' => ($this->input('excursion_date')) ? Carbon::createFromFormat('d.m.Y', $this->input('excursion_date'))->format('Y-m-d') : null,
+        /*    'excursion_date' => ($this->input('excursion_date')) ? Carbon::createFromFormat('d.m.Y', $this->input('excursion_date'))->format('Y-m-d') : null,*/
         ]);
     }
 
     public function rules(): array
     {
         return [
-            'username' => ['required', 'string', 'min:2', 'max:100'], // Новые ключи
+            'username' => ['required', 'min:2', 'max:100'],
             'phone' => ['required', 'string', 'min:6', 'max:100'],
             'email' => ['string', 'email', 'max:100', 'nullable'],
             'excursion_id' => ['required'],
             'quantity' => ['required', 'min:1', 'max:50'],
-            'excursion_date' => ['date', 'nullable'],
+            'excursion_date' => ['date_format:d.m.Y', 'nullable'], // Правило date_format заменено на date_format:d.m.Y
         ];
     }
 
@@ -51,11 +51,13 @@ class OrderExcursionRequest extends FormRequest
             'username.min' => 'Мин. длина ФИО :min символов.',
             'username.max' => 'Макс. длина ФИО :max символов.',
             'phone.required' => 'Необходим номер телефона.',
-            'phone.min' => 'Мин. длина  - :min',
-            'phone.max' => 'Макс. длина номера  - :max',
+            'phone.min' => 'Мин. длина  - :min.',
+            'phone.max' => 'Макс. длина номера  - :max.',
             'email.max' => 'Длина email -  :max',
-            'quantity.min' => 'Мин. количество - :min',
-            'quantity.max' => 'Макс. количество -  :max',
+            'quantity.required' => 'Укажите количество пассажиров.',
+            'quantity.min' => 'Мин. количество - :min.',
+            'quantity.max' => 'Макс. количество -  :max.',
+            'excursion_date.date_format' => 'Не правильный формат даты.',
         ];
     }
 }

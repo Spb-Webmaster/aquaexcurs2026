@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
@@ -28,6 +29,13 @@ class ExcursionEmail extends Model
 
     }
 
+    /** Мутация атрибута для изменения формата даты **/
+    public function setExcursionDateAttribute($value): void
+    {
+        if (!empty($value)) {
+            $this->attributes['excursion_date'] = Carbon::parse($value)->format('Y-m-d');
+        }
+    }
 
     protected static function boot()
     {

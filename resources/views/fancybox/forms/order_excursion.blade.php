@@ -22,7 +22,7 @@
                 type="text"
                 label="ФИО"
                 value="{{ old('username')?:'' }}"
-                autofocus="{{ true }}"
+      {{--          autofocus="{{ true }}"--}}
                 required="{{ true }}"
 
             />

@@ -115,9 +115,11 @@ export function asyncExecution() {
 
                            /** Выключаем компонент loader **/
                            loader.classList.toggle('active');
+
                        } else {
+
                            /** если нет ошибок **/
-                           console.log(result.response)
+                          // console.log(result.response)
 
                            /** Выключаем компонент loader **/
                            loader.classList.toggle('active');

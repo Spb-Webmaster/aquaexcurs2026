@@ -27,7 +27,7 @@ class ExcursionEmailResource extends ModelResource
 
     public function search(): array
     {
-        return ['title'];
+        return ['username', 'email', 'phone',  'Excursion.title'];
     }
 
     /**
