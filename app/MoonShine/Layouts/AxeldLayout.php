@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Layouts;
 
+use App\MoonShine\Pages\ContactPage;
 use App\MoonShine\Pages\HomePage;
 use App\MoonShine\Pages\SettingPage;
 use App\MoonShine\Resources\MoonShineUser\MoonShineUserResource;
@@ -19,6 +20,7 @@ use App\MoonShine\Resources\Excursion\ExcursionResource;
 use App\MoonShine\Resources\ExcursionOrder\ExcursionOrderResource;
 use App\MoonShine\Resources\ExcursionEmail\ExcursionEmailResource;
 use App\MoonShine\Resources\Menu\MenuResource;
+use App\MoonShine\Resources\Page\PageResource;
 
 final class AxeldLayout extends AppLayout
 {
@@ -43,6 +45,9 @@ final class AxeldLayout extends AppLayout
             ]),
             MenuGroup::make(static fn() => __('Страницы'), [
                 MenuItem::make( HomePage::class, 'Главная', 'building-library'),
+                MenuItem::make( ContactPage::class, 'Контакты', 'flag'),
+                MenuItem::make(PageResource::class, 'Материалы', 'book-open'),
+
 
             ]),
             MenuGroup::make(static fn() => __('Экскурсии'), [

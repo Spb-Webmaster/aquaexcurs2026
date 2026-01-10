@@ -19,6 +19,7 @@ class MenuViewModel
 
            return Menu::query()
                 ->where('published', 1)
+               ->orderBy('sorting', 'desc')
                 ->get();
         });
 

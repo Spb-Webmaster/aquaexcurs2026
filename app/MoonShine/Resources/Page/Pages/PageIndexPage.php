@@ -2,19 +2,20 @@
 
 declare(strict_types=1);
 
-namespace App\MoonShine\Resources\Excursion\Pages;
+namespace App\MoonShine\Resources\Page\Pages;
 
-use App\Models\Excursion;
+use App\MoonShine\Resources\Excursion\ExcursionResource;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Laravel\QueryTags\QueryTag;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
+use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
-use App\MoonShine\Resources\Excursion\ExcursionResource;
+use App\MoonShine\Resources\Page\PageResource;
 use MoonShine\Support\ListOf;
-use MoonShine\UI\Fields\Image;
 use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Switcher;
 use MoonShine\UI\Fields\Text;
@@ -22,12 +23,11 @@ use Throwable;
 
 
 /**
- * @extends IndexPage<ExcursionResource>
+ * @extends IndexPage<PageResource>
  */
-class ExcursionIndexPage extends IndexPage
+class PageIndexPage extends IndexPage
 {
     protected bool $isLazy = true;
-
 
     /**
      * @return list<FieldContract>
@@ -36,11 +36,16 @@ class ExcursionIndexPage extends IndexPage
     {
         return [
             ID::make(),
-            Image::make(__('Изображение'), 'img'),
-            Text::make('Название', 'title'),
+            Text::make('Наименование', 'title'),
+            Text::make('Изображение', 'img'),
+            Date::make(__('Дата создания'), 'created_at')
+                ->format("d.m.Y"),
+
             Switcher::make('Публикация', 'published')->updateOnPreview(),
-            Switcher::make('Продажа билетов', 'price_hide')->updateOnPreview(),
             Text::make('Сортировка', 'sorting')->updateOnPreview(),
+            Switcher::make('title', 'metatitle'),
+            Switcher::make('description', 'description'),
+            Switcher::make('keywords', 'keywords'),
         ];
     }
 

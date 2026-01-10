@@ -6,7 +6,6 @@
 />
 @section('content')
 
-    <section class="unitedStates catalogContacts our-services pad_b1">
 
 @endsection
 

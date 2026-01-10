@@ -149,42 +149,10 @@ if (!function_exists('rusdate_month')) {
     }
 }
 
-
-if (!function_exists('active_link')) {
-    function active_link(string|array $names, string $class = 'active'): string|null
-    {
-
-        if (is_string($names)) {
-            $names = [$names];
-        }
-        return Route::is($names) ? $class : null;
-    }
-}
-
+/** Основная функция  */
 if (!function_exists('active_linkMenu')) {
     function active_linkMenu($url, string $find = null, string $class = 'active'): string|null
     {
-
-        if ($find) {
-
-            if (str_starts_with(url()->current(), trim($url))) {
-                return $class;
-            }
-
-            return str_starts_with(url()->current(), trim($url));
-            // return null;
-
-        }
-
-
-        return ($url == url()->current()) ? $class : null;
-    }
-}
-
-if (!function_exists('active_linkParse')) {
-    function active_linkParse($url, string $find = null, string $class = 'active'): string|null
-    {
-
 
         $parse_url = parse_url(url()->current(), PHP_URL_PATH) ?? '/';
 
@@ -195,19 +163,40 @@ if (!function_exists('active_linkParse')) {
             }
         }
 
+
         if ($find) {
-            if ($url == '/') {
-                /** * мы на главной (дальше не ходим) */
-                return null;
-            }
-            if (str_starts_with(parse_url(url()->current(), PHP_URL_PATH), trim($url))) {
+
+            if (str_starts_with(url()->current(), trim($url))) {
                 return $class;
             }
-            return null;
+
+            return str_starts_with(url()->current(), trim($url));
         }
 
 
         return ($url == url()->current()) ? $class : null;
+    }
+}
+
+/** Функция для вложенного меню */
+if (!function_exists('active_linkParentMenu')) {
+    function active_linkParentMenu(array $childs = null, string $class = 'active'): string|null
+    {
+
+        if ($childs) {
+
+            foreach ($childs as $child) {
+                if(active_linkMenu(asset($child['link']), 'find') == $class) {
+                 return $class;
+                }
+
+            }
+
+             return null;
+
+        }
+        return null;
+
     }
 }
 

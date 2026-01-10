@@ -79,8 +79,13 @@ class ContactPage extends Page
 
                                     Box::make([
 
-                                        Text::make('Название', 'title')->default((isset($title)) ? $title : ''),
+                                        Text::make('Название', 'title')->default((isset($title)) ? $title : '')->escape(),
+                                        Text::make('Алиас', 'slug')->default((isset($slug)) ? $slug : 'contacts')->locked(),
+                                        Text::make('Подзаголовок', 'subtitle')->default((isset($subtitle)) ? $subtitle : '')->escape(),
+
                                         TinyMce::make('Описание на странице', 'text')->default((isset($text)) ? $text : ''),
+
+                                        TinyMce::make('Описание на странице', 'text2')->default((isset($text2)) ? $text2 : ''),
 
 
                                     ]),
@@ -90,7 +95,7 @@ class ContactPage extends Page
 
 
                                 Column::make([
-                                    Divider::make('Контакты'),
+                                    Divider::make('Метаданные'),
 
                                     Box::make([
                                         Text::make('Мета тэг (title) ', 'metatitle')->unescape()->default((isset($metatitle)) ? $metatitle : ''),

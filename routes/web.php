@@ -7,8 +7,10 @@ use App\Http\Controllers\FancyBox\FancyBoxController;
 use App\Http\Controllers\FancyBox\FancyBoxSendingFromFormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Order\OrderController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteExcursion\SiteExcursionController;
 use App\Http\Controllers\TestController;
+use App\MoonShine\Controllers\MoonshineContact;
 use App\MoonShine\Controllers\MoonshineHome;
 use App\MoonShine\Controllers\MoonshineSetting;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +20,7 @@ use Illuminate\Support\Facades\Route;
  */
 Route::post('/moonshine/home', [MoonshineHome::class, 'home' ]);
 Route::post('/moonshine/setting', [MoonshineSetting::class, 'setting' ]);
+Route::post('/moonshine/contact', [MoonshineContact::class, 'contact' ]);
 
 /**
  * админка
@@ -69,7 +72,7 @@ Route::controller(TestController::class)->group(function () {
 /** Контакты **/
 
 Route::controller(ContactController::class)->group(function () {
-    Route::get('/contacts', 'contacts')->name('contacts');
+    Route::get('/'. config2('moonshine.contact.slug'), 'contacts')->name('contacts');
 });
 
 /** ///Контакты **/
@@ -85,4 +88,8 @@ Route::controller(SiteExcursionController::class)->group(function () {
 /** заказ  */
 Route::get('/book-a-tour', [OrderController::class, 'order' ])->name('order');
 /** заказ  */
+/** Статичные страницы (материалы)  */
+Route::get('/{slug}', [PageController::class, 'page' ])->name('page');
+/** Статичные страницы (материалы)  */
+
 

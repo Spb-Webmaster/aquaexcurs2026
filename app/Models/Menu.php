@@ -22,11 +22,18 @@ class Menu extends Model
 
     public function Excursion(): BelongsToMany
     {
-        return $this->belongsToMany(Excursion::class)
+        return $this->belongsToMany(Excursion::class)->where('published', 1)->orderBy('sorting', 'desc')
             ->withPivot(['custom_title', 'custom_url']);
 
     }
-    protected static function boot()
+    public function Page(): BelongsToMany
+    {
+        return $this->belongsToMany(Page::class)
+            ->where('published', 1)->orderBy('sorting', 'desc')
+            ->withPivot(['custom_title', 'custom_url']);
+
+    }
+    protected static function boot(): void
     {
         parent::boot();
 

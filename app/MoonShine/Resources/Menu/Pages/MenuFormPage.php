@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\MoonShine\Resources\Menu\Pages;
 
 use App\MoonShine\Resources\Excursion\ExcursionResource;
-use App\MoonShine\Resources\UserFileQualificationResource;
+use App\MoonShine\Resources\Page\PageResource;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
@@ -68,7 +68,16 @@ class MenuFormPage extends FormPage
                             Collapse::make('Выпадающие меню', [
 
 
-                                BelongsToMany::make('Пункты меню', 'Excursion', 'title', resource: ExcursionResource::class)
+                                BelongsToMany::make('Экскурсии', 'Excursion', 'title', resource: ExcursionResource::class)
+                                    ->valuesQuery(fn(Builder $query, Field $field) => $query->orderBy('sorting', 'DESC'))
+                                    ->fields([
+                                        Text::make('Наименование', 'custom_title'),
+                                        Text::make('Url адрес', 'custom_url'),
+
+                                    ])
+                                    ->nullable(),
+
+                                BelongsToMany::make('Страницы', 'Page', 'title', resource: PageResource::class)
                                     ->valuesQuery(fn(Builder $query, Field $field) => $query->orderBy('sorting', 'DESC'))
                                     ->fields([
                                         Text::make('Наименование', 'custom_title'),

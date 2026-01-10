@@ -29,6 +29,7 @@
 @import 'components/excursion/teaser-item-component.scss';
 @import 'components/content/one-column-component.scss';
 @import 'components/content/desc.scss';
+@import 'components/content/content-faq-component.scss';
 @import 'message/flach_message.scss';
 
 @import 'templates/axeld/swiper.scss';

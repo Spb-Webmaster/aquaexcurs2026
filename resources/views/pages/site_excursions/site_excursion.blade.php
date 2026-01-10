@@ -7,7 +7,7 @@
 @section('content')
 
 <main class="excursion">
-<section class="">
+<section>
     <div class="block relative item_customer_info">
         <x-current-information.info-component/>
     </div>

@@ -30,11 +30,14 @@ class HeaderMenuComponent extends Component
         $menu = [];
         foreach ($Menu_items as $i => $item) {
 
+
             $menu[$i]['text'] = $item->title;
             $menu[$i]['link'] = ($item->url)?:'#';
             $menu[$i]['class'] = false;
-            $menu[$i]['class_li'] = false;
             $menu[$i]['data'] = false;
+            $menu[$i]['class_li'] = false;
+            $menu[$i]['parent'] = false;
+
 
             if($item->Excursion->count()) {
                 /** Работаем с моделью экскурсии */
@@ -55,11 +58,30 @@ class HeaderMenuComponent extends Component
                     $menu[$i]['child'][$k]['data'] = false;
                 }
 
-            } else {
-                $menu[$i]['parent'] = false;
             }
 
-        }
+            if($item->Page->count()) {
+                /** Работаем с моделью страниц (материалы)  */
+
+                $menu[$i]['parent'] = true;
+
+                foreach ($item->Page as $k => $excursion) {
+
+                    // Получаем доступ к полю pivot (custom_title)
+                    $customTitle = $excursion->pivot->custom_title ?? '';
+                    $customUrl = $excursion->pivot->custom_url ?? '';
+                    $modelUrl = route('page', ['slug' => $excursion->slug]);
+
+                    $menu[$i]['child'][$k]['link'] = !empty($customUrl) ? $customUrl : $modelUrl;
+                    $menu[$i]['child'][$k]['text'] = !empty($customTitle) ? $customTitle : $excursion->title;
+                    $menu[$i]['child'][$k]['class'] = false;
+                    $menu[$i]['child'][$k]['class_li'] = false;
+                    $menu[$i]['child'][$k]['data'] = false;
+                }
+
+            }
+
+      }
 
         return $menu;
     }

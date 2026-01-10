@@ -1,80 +1,28 @@
-.block_content {
-  padding: 10px 0 20px 0;
+.content__title,
+.page__title {
+  padding: 20px;
+  text-align: center;
 }
-.block_content .block_content__title h1 {
-  font-size: 40px;
-}
-.block_content .block_content__flex {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  position: relative;
-  padding: 30px 0 20px 0;
-}
-.block_content .block_content__flex .block_content__left {
-  width: 26%;
-  min-width: 300px;
-  height: auto;
-  position: relative;
-}
-.block_content .block_content__flex .block_content__right {
-  width: 73%;
-  height: auto;
-  position: relative;
-  padding: 0 24px 24px 36px;
-}
-.block_content .block_content__flex.reverse {
-  flex-direction: row-reverse;
-}
-.block_content .block_content__flex.reverse .block_content__left {
-  padding: 0 24px 24px 36px;
-  width: 29%;
-}
-.block_content .block_content__flex.reverse .block_content__right {
-  padding: 0;
-  width: 70%;
-}
-.block_content .block_content__block {
-  width: 100%;
-  height: auto;
-  position: relative;
-  padding: 30px 0 20px 0;
+.content__title .subtitle,
+.page__title .subtitle {
+  padding: 10px 0 0 0;
+  color: #667085;
 }
 
-@media (max-width: 999px) {
-  .block_content .block_content__flex {
-    width: 100%;
-  }
-  .block_content .block_content__flex .block_content__left {
-    min-width: 250px;
-    height: auto;
-  }
-  .block_content .block_content__flex .block_content__right {
-    width: 100%;
-    height: auto;
-  }
+.well-danger {
+  margin: 30px 0;
+  padding: 24px;
+  border-radius: 4px;
+  position: relative;
+  display: block;
+  box-shadow: 0 5px 9px 0 rgba(0, 0, 0, 0.1215686275);
+  background: #f8d7da;
 }
-@media (max-width: 800px) {
-  .block_content .block_content__flex {
-    width: 100%;
-    flex-direction: column-reverse;
-    padding-top: 24px;
-  }
-  .block_content .block_content__flex .block_content__left {
-    min-width: 1px;
-    width: 100%;
-    height: auto;
-  }
-  .block_content .block_content__flex .block_content__right {
-    width: 100%;
-    height: auto;
-    padding: 0;
-  }
-}
-@media screen and (max-width: 742px) {
-  .block_content .block_content__flex {
-    padding-bottom: 50px;
-  }
+.well-danger h3 {
+  font-size: 22px;
+  padding: 5px 0;
+  color: #842029;
+  text-transform: uppercase;
 }
 
 /*# sourceMappingURL=content.css.map */

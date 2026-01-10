@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
+use App\MoonShine\Pages\ContactPage;
 use Illuminate\Support\ServiceProvider;
 use MoonShine\Contracts\Core\DependencyInjection\CoreContract;
 use MoonShine\Laravel\DependencyInjection\MoonShine;
@@ -16,6 +17,7 @@ use App\MoonShine\Resources\Excursion\ExcursionResource;
 use App\MoonShine\Resources\ExcursionOrder\ExcursionOrderResource;
 use App\MoonShine\Resources\ExcursionEmail\ExcursionEmailResource;
 use App\MoonShine\Resources\Menu\MenuResource;
+use App\MoonShine\Resources\Page\PageResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -32,11 +34,13 @@ class MoonShineServiceProvider extends ServiceProvider
                 ExcursionOrderResource::class,
                 ExcursionEmailResource::class,
                 MenuResource::class,
+                PageResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),
                 HomePage::class,
                 SettingPage::class,
+                ContactPage::class,
             ])
         ;
     }

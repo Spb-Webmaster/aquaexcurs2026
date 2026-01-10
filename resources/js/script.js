@@ -9,11 +9,11 @@ import {removeErrors} from "./include/fancybox/form/removeErrors";
 import {flash_message} from "./include/flash_message/flash_message";
 import {uploadAvatar} from "./include/cabinet/uploadAvatar";
 import {
-    datepicker_accountant_ticket_date,
     datepicker_excursion_date
 } from "./include/datepicker/datepicker";
 import {blind} from "./include/blind";
 import {add_sum} from './include/cart/add_sum';
+import {content_faq} from "./include/site/content_faq";
 
 
 
@@ -33,5 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
     blind()
     add_sum() // добавить количество людей и пересчитать сумму
     datepicker_excursion_date() // дата желаемая для экскурсии
+    content_faq()
 
 });
