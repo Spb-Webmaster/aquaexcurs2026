@@ -16,7 +16,6 @@ class HomeController extends Controller
             $user = false;
         }
 
-
        return view('home', [
            'user' => $user,
            ]
