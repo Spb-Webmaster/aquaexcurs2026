@@ -28,12 +28,14 @@ body.bind {
                     color: #000000;
                     font-weight: 600;
                 }
+
                 .top_menu .submenu li a {
                     font-size: 19px;
                     height: 52px;
                 }
+
                 .top_menu .submenu {
-                        width: 450px;
+                    width: 450px;
                 }
 
             }
@@ -162,6 +164,7 @@ body.bind {
 
 
     }
+
     /** ///current info **/
     /** content **/
     .content_one-column-component {
@@ -172,29 +175,172 @@ body.bind {
                 font-size: 36px;
 
             }
+
             h3 {
-                    color: #000000;
-                   font-size: 28px;
+                color: #000000;
+                font-size: 28px;
 
             }
         }
     }
 
     .desc {
-         p {
+
+        h1 {
+            text-transform: uppercase;
+            font-weight: 700;
+            color: #000;
+            font-size: 38px;
+
+        }
+
+        h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        h3 {
+            font-weight: 700;
+            color: #000;
+            font-size: 28px;
+        }
+
+        p {
             width: 100%;
             position: relative;
             padding: 10px 0;
             line-height: 1.6rem;
             font-size: 20px;
         }
+
+        li {
+            font-size: 20px;
+            font-weight: 500;
+            padding-left: 0;
+
+            &:before {
+                display: none;
+            }
+        }
     }
+
+    .page__title, .excursion__title {
+
+        h1 {
+
+            color: #000000;
+            font-weight: 600;
+            display: block;
+            text-transform: uppercase;
+
+        }
+
+        .subtitle {
+            line-height: 1.4em;
+            font-weight: 400;
+            color: #000000;
+            font-size: 20px;
+        }
+    }
+
+
     /** ///content **/
+
+    /** Полная экскурсия **/
+
+    .route_bg_blue {
+        color: #000 !important;
+        font-size: 20px !important;
+        background: #FFFFFF !important;
+        border-bottom: 2px solid #282828;
+    }
+
+
+    .excursion_item {
+        .excursion_item__flex {
+            .excursion_item__left {
+                .excursion_item__info-price {
+
+                    padding: 36px 24px;
+                    display: block;
+
+                    .ex_time {
+                        width: 100%;
+                        color: #000 !important;
+                        .ex_time__time-label {
+                            font-size: 19px !important;
+                            color: #000 !important;
+                        }
+                        .ex_time__time {
+                            font-size: 24px !important;
+                            color: #000 !important;
+                        }
+
+                    }
+
+                    .ex_places {
+                        width: 100%;
+                        color: #000 !important;
+                        .ex_place__place-label {
+                            font-size: 19px !important;
+                            color: #000 !important;
+                        }
+                        .ex_place {
+                            font-size: 24px !important;
+                            color: #000 !important;
+                        }
+
+
+                    }
+
+                    .ex_price {
+                        width: 100%;
+                        color: #000 !important;
+                        .ex_price__price {
+                            color: #000 !important;
+                        }
+                        .ex_price__pier {
+                            font-size: 22px !important;
+                            color: #000 !important;
+                        }
+
+                    }
+                }
+            }
+        }
+    }
+
+
+    .excursion_item__right_padding {
+        color: #000 !important;
+        font-size: 18px !important;
+
+        .h3-rubik {
+            font-size: 20px !important;
+            color: #000 !important;
+
+        }
+
+        li {
+            font-size: 20px !important;
+            font-weight: 500 !important;
+            padding-left: 0 !important;
+
+            &:before {
+                display: none !important;
+            }
+        }
+    }
+
+    /** ////Полная экскурсия **/
+
     /** footer **/
     footer {
         .menu_footer-menu-component {
             display: none;
         }
+
         .image_footer {
             display: none;
 
@@ -203,11 +349,13 @@ body.bind {
         .blue_footer {
             background: #000000;
         }
+
         .footer {
             border-top: 3px solid #ffffff;
 
         }
     }
+
     /** footer **/
 
 

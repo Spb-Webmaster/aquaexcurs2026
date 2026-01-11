@@ -20,7 +20,7 @@ const wLoader = document.querySelector('.wrapper_loader');
             }
         }
 
-    }, 2000);
+    }, 1000);
 
 
 }

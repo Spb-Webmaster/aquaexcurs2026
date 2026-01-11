@@ -1,0 +1,66 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #095C9A;
+$colorBlue2: #03a9f4;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+
+.block_800 {
+    max-width: 800px;
+    margin: 0 auto;
+}
+._desc_1 {
+padding: 10px 0;
+}
+._desc_2 {
+padding: 10px 0;
+}
+.JFormFieldMap {
+
+    border-top: 4px solid $colorBlue;
+    margin: 40px 0 0 0;
+
+    h5 {
+        font-size: 15px;
+        text-transform: uppercase;
+        color: rgb(0, 48, 107);
+        padding: 6px 0 11px 0;
+        font-weight: 600;
+
+    }
+
+    .jt_ph {
+        padding-bottom: 5px;
+        font-size: 15px;
+        font-weight: 600;
+    }
+    .jt_ph2 {
+        padding: 5px 0 10px 0;
+        font-size: 14px;
+        font-weight: 400;
+    }
+}
+
+@media (max-width: 1440px) {
+
+}
+
+@media (max-width: 1024px) {
+
+}
+
+@media (max-width: 868px) {
+
+
+}
+
+@media (max-width: 468px) {
+
+
+}
+

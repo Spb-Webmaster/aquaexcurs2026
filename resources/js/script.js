@@ -33,6 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
     blind()
     add_sum() // добавить количество людей и пересчитать сумму
     datepicker_excursion_date() // дата желаемая для экскурсии
-    content_faq()
+    content_faq() // faq
 
 });

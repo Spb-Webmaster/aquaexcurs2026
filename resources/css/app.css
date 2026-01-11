@@ -8,6 +8,7 @@
 
 
 
+@import 'contacts/contacts.scss';
 @import 'components/logo/logo-component.scss';
 @import 'components/blind/blind.scss';
 @import 'components/menu/header-menu-component.scss';

@@ -50,7 +50,7 @@ class ContactPage extends Page
 
     public function getTitle(): string
     {
-        return $this->title ?: 'ContactPage';
+        return $this->title ?: 'Контакты сайта';
     }
 
     /**
@@ -107,29 +107,21 @@ class ContactPage extends Page
                             ]),
                         ]),
 
-                        Tab::make(__('Города'), [
+                        Tab::make(__('Причалы'), [
 
                             Grid::make([
                                 Column::make([
 
                                     Box::make([
-                                        Json::make('Города сайта', 'json_cities')->fields([
-                                            Text::make('Заголовок города', 'json_title'),
+                                        Json::make('Причал', 'json_piers')->fields([
+                                            Text::make('Заголовок', 'json_title'),
                                             Number::make('Основной телефон', 'json_phone')->placeholder('Только цифры'),
-                                            Number::make('Дополнительный телефон', 'json_phone2')->placeholder('Только цифры'),
-                                            Number::make('Дополнительный телефон', 'json_phone3')->placeholder('Только цифры'),
-                                            Number::make('Дополнительный телефон', 'json_phone4')->placeholder('Только цифры'),
-                                            Number::make('Дополнительный телефон', 'json_phone5')->placeholder('Только цифры'),
                                             Text::make('Email', 'json_email'),
-                                            Text::make('Email', 'json_email2')->placeholder('Дополнительный email'),
-                                            Text::make('Email', 'json_email3')->placeholder('Дополнительный email'),
-                                            Text::make('Адрес офиса', 'json_address'),
-                                            Textarea::make('Краткое описание', 'json_text'),
                                             Text::make('Координаты', 'json_coordinates'),
-
+                                            Textarea::make('Краткое описание', 'json_text'),
 
                                         ])->vertical()->creatable(limit: 30)
-                                            ->removable()->default((isset($json_cities)) ? $json_cities : ''),
+                                            ->removable()->default((isset($json_piers)) ? $json_piers : ''),
 
 
                                     ]),

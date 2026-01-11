@@ -13,6 +13,8 @@ body.bind {
   /** ///current info **/
   /** content **/
   /** ///content **/
+  /** Полная экскурсия **/
+  /** ////Полная экскурсия **/
   /** footer **/
   /** footer **/
 }
@@ -128,12 +130,109 @@ body.bind .content_one-column-component .one-column-title h3 {
   color: #000000;
   font-size: 28px;
 }
+body.bind .desc h1 {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #000;
+  font-size: 38px;
+}
+body.bind .desc h2 {
+  font-size: 36px;
+  font-weight: 700;
+  color: #000;
+}
+body.bind .desc h3 {
+  font-weight: 700;
+  color: #000;
+  font-size: 28px;
+}
 body.bind .desc p {
   width: 100%;
   position: relative;
   padding: 10px 0;
   line-height: 1.6rem;
   font-size: 20px;
+}
+body.bind .desc li {
+  font-size: 20px;
+  font-weight: 500;
+  padding-left: 0;
+}
+body.bind .desc li:before {
+  display: none;
+}
+body.bind .page__title h1, body.bind .excursion__title h1 {
+  color: #000000;
+  font-weight: 600;
+  display: block;
+  text-transform: uppercase;
+}
+body.bind .page__title .subtitle, body.bind .excursion__title .subtitle {
+  line-height: 1.4em;
+  font-weight: 400;
+  color: #000000;
+  font-size: 20px;
+}
+body.bind .route_bg_blue {
+  color: #000 !important;
+  font-size: 20px !important;
+  background: #FFFFFF !important;
+  border-bottom: 2px solid #282828;
+}
+body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price {
+  padding: 36px 24px;
+  display: block;
+}
+body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_time {
+  width: 100%;
+  color: #000 !important;
+}
+body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_time .ex_time__time-label {
+  font-size: 19px !important;
+  color: #000 !important;
+}
+body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_time .ex_time__time {
+  font-size: 24px !important;
+  color: #000 !important;
+}
+body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_places {
+  width: 100%;
+  color: #000 !important;
+}
+body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_places .ex_place__place-label {
+  font-size: 19px !important;
+  color: #000 !important;
+}
+body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_places .ex_place {
+  font-size: 24px !important;
+  color: #000 !important;
+}
+body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_price {
+  width: 100%;
+  color: #000 !important;
+}
+body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_price .ex_price__price {
+  color: #000 !important;
+}
+body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_price .ex_price__pier {
+  font-size: 22px !important;
+  color: #000 !important;
+}
+body.bind .excursion_item__right_padding {
+  color: #000 !important;
+  font-size: 18px !important;
+}
+body.bind .excursion_item__right_padding .h3-rubik {
+  font-size: 20px !important;
+  color: #000 !important;
+}
+body.bind .excursion_item__right_padding li {
+  font-size: 20px !important;
+  font-weight: 500 !important;
+  padding-left: 0 !important;
+}
+body.bind .excursion_item__right_padding li:before {
+  display: none !important;
 }
 body.bind footer .menu_footer-menu-component {
   display: none;

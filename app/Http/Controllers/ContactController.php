@@ -10,14 +10,11 @@ class ContactController extends Controller
     public function contacts()
     {
         $contacts = ContactViewModel::make()->listContacts();
-        $coordinates = ContactViewModel::make()->activeCityCoordinates();
-
 
 
         return view('pages.contacts',
             [
                 'contacts' => $contacts,
-                'coordinates' => ($coordinates)??'',
             ]);
     }
 }
