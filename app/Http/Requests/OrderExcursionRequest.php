@@ -21,7 +21,8 @@ class OrderExcursionRequest extends FormRequest
                 ->lower()
                 ->value(),
             'phone' => phone($this->input('phone')),
-        /*    'excursion_date' => ($this->input('excursion_date')) ? Carbon::createFromFormat('d.m.Y', $this->input('excursion_date'))->format('Y-m-d') : null,*/
+            'emails' =>  ''
+
         ]);
     }
 
@@ -34,6 +35,7 @@ class OrderExcursionRequest extends FormRequest
             'excursion_id' => ['required'],
             'quantity' => ['required', 'min:1', 'max:50'],
             'excursion_date' => ['date_format:d.m.Y', 'nullable'], // Правило date_format заменено на date_format:d.m.Y
+            'emails' => ['nullable']
         ];
     }
 

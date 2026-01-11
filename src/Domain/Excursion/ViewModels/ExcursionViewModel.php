@@ -4,6 +4,7 @@ namespace Domain\Excursion\ViewModels;
 
 
 use App\Models\Excursion;
+use Illuminate\Support\Facades\Cache;
 use Support\Traits\Makeable;
 use Illuminate\Contracts\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Collection;
@@ -13,21 +14,15 @@ class ExcursionViewModel
 {
     use Makeable;
 
-    public function excursions($limit = null):Collection | array | null
+    public function excursions():Collection  | null
     {
+       return Cache::rememberForever('excursions', function ()  {
 
-        $limit = ($limit)??100;
-        $q =  Excursion::query();
-        $q->where('published', 1)
-            ->orderBy('sorting', 'desc')
-            ->limit($limit);
-        $items = $q->get();
-
-
-        if($items) {
-            return $items;
-        }
-        return [];
+           return Excursion::query()
+                ->where('published', 1)
+                ->orderBy('sorting', 'desc')
+                ->get();
+        });
 
     }
 

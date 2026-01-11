@@ -16,7 +16,7 @@ final class MoonshineHome extends MoonShineController
     {
         $data = $request->all();
         Storage::disk('config')->put("moonshine/home.php", "<?php\n\n" . 'return ' . var_export($data, true) . ";\n");
-
+        cache_clear();
         return back();
     }
 

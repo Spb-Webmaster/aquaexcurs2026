@@ -16,7 +16,7 @@ final class MoonshineContact extends MoonShineController
     {
         $data = $request->all();
         Storage::disk('config')->put("moonshine/contact.php", "<?php\n\n" . 'return ' . var_export($data, true) . ";\n");
-
+        cache_clear();
         return back();
     }
 }

@@ -66,6 +66,7 @@ if (!function_exists('cache_clear ')) {
     function cache_clear($model = null)
     {
         Cache::forget('list_contacts');
+        Cache::forget('excursions');
         Cache::forget('menu');
 
     }
