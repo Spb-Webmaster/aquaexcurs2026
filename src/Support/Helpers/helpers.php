@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Exceptions\NotWritableException;
 use Intervention\Image\Laravel\Facades\Image;
 use Support\Flash\Flash;
 use Illuminate\Support\Facades\Route;
@@ -488,8 +489,12 @@ if (!function_exists('intervention')) {
             }
 
 
-            $image->save($storage->path($resultPaht));
-
+            try {
+                $image->save($storage->path($resultPaht));
+            } catch (NotWritableException $e) {
+                logger("Error saving image: {$e->getMessage()} at {$e->getFile()}:{$e->getLine()}");
+                throw $e;
+            }
 
         }
 
