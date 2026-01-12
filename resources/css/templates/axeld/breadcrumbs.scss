@@ -81,6 +81,13 @@ $maxWidth: 1440;
                 a {
                     text-decoration: underline;
                 }
+
+                &.li_span {
+                    min-width: 20px;
+                    .triangle {
+                        display: none;
+                    }
+                }
             }
 
         }

@@ -28,7 +28,6 @@
                                         <span><i>{{ ($item->dont_register_prefix_price)??'' }}</i>{{ price($item->dont_register_price) }}</span>
                                         <span
                                             class="__current">{{ config('currency.currency.RUB') }}</span>
-                                        <div class="display_1024">{!! $item->dont_register_desc !!}</div>
                                     </div>
 
                                     <div class="__buy">
@@ -48,7 +47,7 @@
                                 @endif
 
                             </div>
-                            <div class="excursion_item__pier {{ (!$item->dont_register_price)? '__center' : ''  }}">
+                            <div class="excursion_item__full excursion_item__pier {{ (!$item->dont_register_price)? '__center' : ''  }}">
                                 {!! $item->dont_register_desc !!}
                             </div>
                         </div>

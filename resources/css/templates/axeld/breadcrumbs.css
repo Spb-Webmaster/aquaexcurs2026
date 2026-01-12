@@ -55,6 +55,12 @@
   .breadcrumbs ul li a {
     text-decoration: underline;
   }
+  .breadcrumbs ul li.li_span {
+    min-width: 20px;
+  }
+  .breadcrumbs ul li.li_span .triangle {
+    display: none;
+  }
 }
 @media screen and (max-width: 568px) {
   .breadcrumbs ul li a, .breadcrumbs ul li span {
