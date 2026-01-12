@@ -33,7 +33,7 @@
 
 <div class="app_temp_cart hidden">
     <div class="cart_item">
-        <div class="flex">
+        <div class="flex flex_exh">
             <div class="cart_item__left">
                 <div class="cart_item__human app_set_human"></div>
             </div>

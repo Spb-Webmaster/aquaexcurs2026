@@ -190,6 +190,39 @@ main.excursion .excursion__title .subtitle {
     display: table;
   }
 }
+@media screen and (max-width: 668px) {
+  .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price {
+    display: block;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_time {
+    width: 100%;
+    padding-bottom: 13px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_places {
+    width: 100%;
+    padding-bottom: 13px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  .excursion_item .excursion_item__flex .excursion_item__left .excursion_item__info-price .ex_price {
+    width: 100%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+  .cart_item .flex.flex_exh {
+    flex-direction: column;
+  }
+  .cart_item__left .cart_item__human {
+    padding-bottom: 10px;
+  }
+  .cart-total__left {
+    display: none;
+  }
+}
 @media screen and (max-width: 568px) {
   .excursion_item .excursion_item__flex .excursion_item__left .ex_price__price {
     font-size: 32px;
@@ -222,6 +255,17 @@ main.excursion .excursion__title .subtitle {
   }
   .excursion_item .ex_time__time-label span:last-child {
     display: table;
+  }
+}
+@media screen and (max-width: 370px) {
+  .cart-total__result {
+    display: block !important;
+  }
+  .cart-total__result .cart-total_sum_currency {
+    display: flex !important;
+    align-items: center;
+    justify-content: center !important;
+    padding: 0 0 20px 0 !important;
   }
 }
 
