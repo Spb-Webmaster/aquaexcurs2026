@@ -431,16 +431,29 @@ main.excursion {
                     .flex {
                         gap: 8px;
                         justify-content: space-between;
+                        flex-wrap: wrap;
                     }
 
 
                     .cart-cart__aqua_counter {
-                        width: 30%;
+                        width: 100%;
                         margin-right: 6px;
+                        .aqua_counter {
+                            align-items: center;
+                            justify-content: center;
+                            .aqua_minus ,.aqua_plus {
+                                border: 1px solid #e0e0e0;
+                                width: 32px;
+                                height: 32px;
+                                min-width: 32px;
+                                border-radius: 22px;
+                            }
+                        }
                     }
 
                     .cart-cart__result {
-                        width: 70%;
+                        width: 100%;
+                        padding: 7px 0;
 
                         .cart_price {
                             font-size: 26px;

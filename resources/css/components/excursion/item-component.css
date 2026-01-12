@@ -271,13 +271,26 @@ main.excursion .excursion__title .subtitle {
   .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .flex {
     gap: 8px;
     justify-content: space-between;
+    flex-wrap: wrap;
   }
   .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .cart-cart__aqua_counter {
-    width: 30%;
+    width: 100%;
     margin-right: 6px;
   }
+  .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .cart-cart__aqua_counter .aqua_counter {
+    align-items: center;
+    justify-content: center;
+  }
+  .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .cart-cart__aqua_counter .aqua_counter .aqua_minus, .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .cart-cart__aqua_counter .aqua_counter .aqua_plus {
+    border: 1px solid #e0e0e0;
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    border-radius: 22px;
+  }
   .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .cart-cart__result {
-    width: 70%;
+    width: 100%;
+    padding: 7px 0;
   }
   .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .cart-cart__result .cart_price {
     font-size: 26px;
