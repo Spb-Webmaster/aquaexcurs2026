@@ -88,7 +88,7 @@
                 {{--Не продаем--}}
             @else
                 {{--Продаем--}}
-                <div class="card no_padding" id="scroll-cart">
+                <div class="card no_padding" >
                     <div class="excursion_cart-add-sum__wrapper">
                         @if($item->departure_time_desc )
                             <div class="departure_time">
@@ -130,7 +130,7 @@
                         </div>
 
 
-                        <div class="cart_items py-2">
+                        <div class="cart_items py-2" id="scroll-cart">
                             <x-excursion.cart.cart-result-sum
                                 :id="$item->id"
                                 :excursion="$item->title"

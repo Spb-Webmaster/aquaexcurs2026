@@ -366,10 +366,7 @@ main.excursion {
                         justify-content: space-between;
                     }
 
-                    .cart-cart__human {
-                        width: 0;
-                        display: none;
-                    }
+
 
                     .cart-cart__aqua_counter {
                         width: 40%;
@@ -417,7 +414,7 @@ main.excursion {
     }
 }
 
-@media screen and (max-width: 470px) {
+@media screen and (max-width: 499px) {
 
     .excursion_item {
         .excursion_item__flex {
@@ -433,7 +430,13 @@ main.excursion {
                         justify-content: space-between;
                         flex-wrap: wrap;
                     }
-
+                    .cart-cart__human {
+                        width: 100%;
+                        min-height: 30px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
 
                     .cart-cart__aqua_counter {
                         width: 100%;
@@ -463,6 +466,11 @@ main.excursion {
                             min-width: 100px;
                         }
                     }
+                }
+
+
+                .cart-total__result {
+                    justify-content: space-between;
                 }
 
 
