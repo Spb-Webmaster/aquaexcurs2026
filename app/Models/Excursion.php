@@ -81,7 +81,7 @@ class Excursion extends Model
     {
         if ($this->img) {
 
-            return asset(intervention('580x359', $this->img, 'excursion/intervention'));
+            return asset(intervention('662x410', $this->img, 'excursion/intervention'));
         }
 
         return '';

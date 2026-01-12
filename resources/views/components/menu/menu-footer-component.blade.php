@@ -1,6 +1,6 @@
 <div class="menu_footer-menu-component">
     <nav>
-        <ul class="top_menu app_top_menu">
+        <ul class="top_menu">
 
             @if($menu_rendered)
                 @foreach($menu_rendered as $item)
