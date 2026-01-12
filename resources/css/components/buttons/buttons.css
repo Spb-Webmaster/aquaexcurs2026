@@ -98,4 +98,10 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 478px) {
+  .btn {
+    height: 46px;
+  }
+}
+
 /*# sourceMappingURL=buttons.css.map */
