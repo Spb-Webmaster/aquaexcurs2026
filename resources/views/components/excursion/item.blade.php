@@ -3,7 +3,10 @@
         <div class="excursion_item__left">
             <div class="card no_padding margin-bottom-40">
                 <a href="{{ $item->fancy_img }}" data-caption="{{ $item->title }}" data-fancybox="gallery"
+
                    @if($item->img) style="background-image: url({{ $item->full_img }}) @endif"
+
+
                    class="excursion_item__img"></a>
                 @if(count($item->get_gallery()))
                     @foreach($item->get_gallery() as $gallery)

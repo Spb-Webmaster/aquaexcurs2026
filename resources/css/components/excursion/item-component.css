@@ -1,3 +1,4 @@
+@charset "UTF-8";
 main.excursion .excursion__title {
   padding: 10px 0 40px 0;
 }
@@ -255,6 +256,34 @@ main.excursion .excursion__title .subtitle {
   }
   .excursion_item .ex_time__time-label span:last-child {
     display: table;
+  }
+  .excursion_item__img {
+    height: auto !important;
+    padding-top: 56.8%; /* Соотношение сторон 16:9 */
+    background-size: cover !important;
+    background-position: center !important;
+  }
+}
+@media screen and (max-width: 470px) {
+  .excursion_item .excursion_item__flex .excursion_item__left .cart-cart {
+    padding: 8px 0;
+  }
+  .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .flex {
+    gap: 8px;
+    justify-content: space-between;
+  }
+  .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .cart-cart__aqua_counter {
+    width: 30%;
+    margin-right: 6px;
+  }
+  .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .cart-cart__result {
+    width: 70%;
+  }
+  .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .cart-cart__result .cart_price {
+    font-size: 26px;
+  }
+  .excursion_item .excursion_item__flex .excursion_item__left .cart-cart .cart-cart__result .app_cart_price {
+    min-width: 100px;
   }
 }
 @media screen and (max-width: 370px) {

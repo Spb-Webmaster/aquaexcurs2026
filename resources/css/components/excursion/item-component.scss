@@ -407,12 +407,64 @@ main.excursion {
 
         }
     }
+    .excursion_item__img {
 
+        height: auto !important;
+        padding-top: 56.8%; /* Соотношение сторон 16:9 */
+        background-size: cover !important;
+        background-position: center !important;
+
+    }
 }
 
+@media screen and (max-width: 470px) {
+
+    .excursion_item {
+        .excursion_item__flex {
+
+            .excursion_item__left {
+
+
+                .cart-cart {
+                    padding: 8px 0;
+
+                    .flex {
+                        gap: 8px;
+                        justify-content: space-between;
+                    }
+
+
+                    .cart-cart__aqua_counter {
+                        width: 30%;
+                        margin-right: 6px;
+                    }
+
+                    .cart-cart__result {
+                        width: 70%;
+
+                        .cart_price {
+                            font-size: 26px;
+                        }
+
+                        .app_cart_price {
+                            min-width: 100px;
+                        }
+                    }
+                }
+
+
+            }
+
+
+        }
+
+
+    }
+}
 @media screen and (max-width: 370px) {
     .cart-total__result {
         display: block !important;
+
         .cart-total_sum_currency {
             display: flex !important;
             align-items: center;
