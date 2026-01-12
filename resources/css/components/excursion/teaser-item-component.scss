@@ -321,6 +321,9 @@ $colorOrange: #FF732C;
     .excursion_item__pier {
         display: none;
     }
+    .excursion_item__pier.excursion_item__full {
+        display: block;
+    }
     .display_1024 {
         display: block;
 
