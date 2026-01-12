@@ -10,12 +10,10 @@ use Illuminate\View\Component;
 class HeaderMenuComponent extends Component
 {
 
-    public string $menu;
-    public $menu_rendered;
+    public array $menu_rendered;
 
-    public function __construct($menu = 1)
+    public function __construct()
     {
-        $this->menu = $menu;
 
         $this->menu_rendered = $this->setMenu();
 

@@ -68,6 +68,7 @@ if (!function_exists('cache_clear ')) {
         Cache::forget('list_contacts');
         Cache::forget('excursions');
         Cache::forget('menu');
+        Cache::forget('menu_bottom');
 
     }
 }

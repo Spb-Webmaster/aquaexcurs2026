@@ -8,13 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\Menu;
 use App\MoonShine\Resources\Menu\Pages\MenuIndexPage;
 use App\MoonShine\Resources\Menu\Pages\MenuFormPage;
-use App\MoonShine\Resources\Menu\Pages\MenuDetailPage;
 
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Contracts\Core\PageContract;
 
 /**
- * @extends ModelResource<Menu, MenuIndexPage, MenuFormPage, MenuDetailPage>
+ * @extends ModelResource<Menu, MenuIndexPage, MenuFormPage>
  */
 class MenuResource extends ModelResource
 {

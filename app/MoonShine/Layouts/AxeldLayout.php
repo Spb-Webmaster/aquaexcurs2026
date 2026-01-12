@@ -21,6 +21,7 @@ use App\MoonShine\Resources\ExcursionOrder\ExcursionOrderResource;
 use App\MoonShine\Resources\ExcursionEmail\ExcursionEmailResource;
 use App\MoonShine\Resources\Menu\MenuResource;
 use App\MoonShine\Resources\Page\PageResource;
+use App\MoonShine\Resources\MenuBottom\MenuBottomResource;
 
 final class AxeldLayout extends AppLayout
 {
@@ -64,6 +65,8 @@ final class AxeldLayout extends AppLayout
 
             MenuGroup::make(static fn() => __('Меню сайта'), [
                 MenuItem::make( MenuResource::class, 'Верхнее меню', 'bars-arrow-down'),
+                MenuItem::make(MenuBottomResource::class, 'Нижние меню', 'bars-arrow-down'),
+
 
             ]),
             MenuGroup::make(static fn() => __('Настройки'), [

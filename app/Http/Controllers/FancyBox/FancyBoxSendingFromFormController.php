@@ -31,7 +31,6 @@ class FancyBoxSendingFromFormController extends Controller
          ExcursionEmailViewModel::make()->save($request->validated());
 
          ExcursionEmailEvent::dispatch($request->validated());
-         logger()->info('validated:', $request->validated());
 
      return response()->json([
             'response' => $request->all(),

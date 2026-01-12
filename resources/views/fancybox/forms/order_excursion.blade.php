@@ -20,7 +20,7 @@
             <x-form.form-input
                 name="username"
                 type="text"
-                label="ФИО"
+                :label="config('site.mail.username')"
                 value="{{ old('username')?:'' }}"
       {{--          autofocus="{{ true }}"--}}
                 required="{{ true }}"
@@ -29,7 +29,7 @@
             <x-form.form-input
                 name="phone"
                 type="tel"
-                label="Телефон"
+                :label="config('site.mail.phone')"
                 class="imask"
                 value="{{ old('phone')?:'' }}"
                 required="{{ true }}"
@@ -37,14 +37,14 @@
             <x-form.form-input
                 name="email"
                 type="email"
-                label="Email"
+                :label="config('site.mail.email')"
                 class=""
                 value="{{ old('email')?:'' }}"
             />
             <x-form.form-input
                 name="quantity"
                 type="number"
-                label="Количество"
+                :label="config('site.mail.quantity')"
                 class=""
                 min="1"
                 max="50"
@@ -53,7 +53,7 @@
 
             <x-form.form-input-datepicker
                 name="excursion_date"
-                label="Желаемая дата"
+                :label="config('site.mail.excursion_date')"
                 value="{{ (old('excursion_date'))?: '' }}"
             />
 

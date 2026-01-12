@@ -3,6 +3,7 @@
 namespace Domain\Menu\ViewModels;
 
 use App\Models\Menu;
+use App\Models\MenuBottom;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Cache;
@@ -20,6 +21,18 @@ class MenuViewModel
            return Menu::query()
                 ->where('published', 1)
                ->with(['Excursion','Page'])
+                ->orderBy('sorting', 'desc')
+                ->get();
+        });
+
+    }
+    public function MenuBottomItems():Collection | null
+    {
+
+        return Cache::rememberForever('menu_bottom', function () {
+
+           return MenuBottom::query()
+                ->where('published', 1)
                 ->orderBy('sorting', 'desc')
                 ->get();
         });
