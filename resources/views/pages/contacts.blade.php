@@ -48,7 +48,7 @@
 
         function getYaMap() {
             var myMap = new ymaps.Map("JFormFieldMap", {
-                center: [59.935580, 30.322295],
+                center: [59.935761, 30.319738],
                 zoom: 16,
                 controls: ['zoomControl', 'typeSelector', 'fullscreenControl']
             }, {searchControlProvider: 'yandex#search'});
