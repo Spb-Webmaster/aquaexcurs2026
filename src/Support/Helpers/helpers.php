@@ -470,10 +470,13 @@ if (!function_exists('intervention')) {
         $newDirPath = "$dir/$method/$size";
         $resultPaht = "$newDirPath/$file";
 
-        if (!$storage->exists($newDirPath)) {
+    /*    if (!$storage->exists($newDirPath)) {
             $storage->makeDirectory($newDirPath);
+        }*/
+        if (!is_dir($storage->path($newDirPath))) {
+            mkdir($newDirPath, 0775, true); // Рекурсивно создаем все недостающие директории
+            chmod($newDirPath, 0775);       // Устанавливаем правильные права на вновь созданные директории
         }
-
 
         if (!$storage->exists($resultPaht)) {
 
