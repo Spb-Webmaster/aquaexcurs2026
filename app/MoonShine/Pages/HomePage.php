@@ -78,6 +78,11 @@ class HomePage extends Page
                                         Text::make('Заголовок', 'title')->unescape()->default((isset($title)) ? $title : ''),
                                         Text::make('Подзаголовок', 'subtitle')->unescape()->default((isset($subtitle)) ? $subtitle : ''),
                                     ]),
+                                    Box::make([
+                                        Text::make('Наши экскурсии', 'title_exc')->unescape()->default((isset($title_exc)) ? $title_exc : ''),
+                                        Text::make('Выберите маршрут', 'ci_title')->unescape()->default((isset($ci_title)) ? $ci_title : ''),
+                                        Text::make('Судоходная компания «Аква-экскурс»', 'ci_subtitle')->unescape()->default((isset($ci_subtitle)) ? $ci_subtitle : ''),
+                                    ]),
 
                                 ])->columnSpan(6),
 
