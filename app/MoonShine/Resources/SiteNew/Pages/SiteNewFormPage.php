@@ -2,10 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\MoonShine\Resources\Page\Pages;
+namespace App\MoonShine\Resources\SiteNew\Pages;
 
-use App\MoonShine\Resources\Excursion\ExcursionResource;
-use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Fields\Slug;
 use MoonShine\Laravel\Pages\Crud\FormPage;
 use MoonShine\Contracts\UI\ComponentContract;
@@ -15,7 +13,7 @@ use MoonShine\UI\Components\Collapse;
 use MoonShine\UI\Components\FormBuilder;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
-use App\MoonShine\Resources\Page\PageResource;
+use App\MoonShine\Resources\SiteNew\SiteNewResource;
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\Layout\Column;
 use MoonShine\UI\Components\Layout\Divider;
@@ -35,9 +33,9 @@ use Throwable;
 
 
 /**
- * @extends FormPage<PageResource>
+ * @extends FormPage<SiteNewResource>
  */
-class PageFormPage extends FormPage
+class SiteNewFormPage extends FormPage
 {
     /**
      * @return list<ComponentContract|FieldContract>
@@ -59,6 +57,12 @@ class PageFormPage extends FormPage
                             Text::make('Подзаголовок', 'subtitle')->unescape(),
 
                         ]),
+                        Collapse::make('Изображение', [
+                            Image::make( '','img')
+                                ->dir('images/news')
+                                ->allowedExtensions(['jpg', 'png', 'jpeg', 'gif', 'svg', 'webp'])
+                                ->removable(),
+                        ]),
 
                     ])->columnSpan(6),
                     Column::make([
@@ -74,7 +78,6 @@ class PageFormPage extends FormPage
                         Collapse::make('Детали вывода', [
 
                             Switcher::make('Публикация', 'published')->default(1),
-                            Number::make('Сортировка', 'sorting')->buttons()->default(999),
                             Date::make(__('Дата создания'), 'created_at')
                                 ->format("d.m.Y")
                                 ->default(now()->toDateTimeString())
@@ -135,7 +138,7 @@ class PageFormPage extends FormPage
                                 ]),
 
                             ]),
-                            ]),
+                        ]),
 
                     ])->columnSpan(12),
 
@@ -162,7 +165,7 @@ class PageFormPage extends FormPage
     }
 
     /**
-     * @param FormBuilder $component
+     * @param  FormBuilder  $component
      *
      * @return FormBuilder
      */

@@ -2,10 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\MoonShine\Resources\Page\Pages;
+namespace App\MoonShine\Resources\SiteNew\Pages;
 
-use App\MoonShine\Resources\Excursion\ExcursionResource;
-use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Components\Table\TableBuilder;
@@ -14,19 +12,18 @@ use MoonShine\Laravel\QueryTags\QueryTag;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
 use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
-use App\MoonShine\Resources\Page\PageResource;
+use App\MoonShine\Resources\SiteNew\SiteNewResource;
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Fields\Image;
-use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Switcher;
 use MoonShine\UI\Fields\Text;
 use Throwable;
 
 
 /**
- * @extends IndexPage<PageResource>
+ * @extends IndexPage<SiteNewResource>
  */
-class PageIndexPage extends IndexPage
+class SiteNewIndexPage extends IndexPage
 {
     protected bool $isLazy = true;
 
@@ -43,7 +40,6 @@ class PageIndexPage extends IndexPage
                 ->format("d.m.Y"),
 
             Switcher::make('Публикация', 'published')->updateOnPreview(),
-            Text::make('Сортировка', 'sorting')->updateOnPreview(),
             Switcher::make('title', 'metatitle'),
             Switcher::make('description', 'description'),
             Switcher::make('keywords', 'keywords'),

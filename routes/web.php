@@ -9,6 +9,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Order\OrderController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteExcursion\SiteExcursionController;
+use App\Http\Controllers\SiteNew\SiteNewController;
 use App\Http\Controllers\TestController;
 use App\MoonShine\Controllers\MoonshineContact;
 use App\MoonShine\Controllers\MoonshineHome;
@@ -85,6 +86,16 @@ Route::controller(SiteExcursionController::class)->group(function () {
 
 });
 /** ///Экскурсии **/
+
+/** Новости **/
+Route::controller(SiteNewController::class)->group(function () {
+
+    Route::get('news', 'items')->name('site_news');
+    Route::get('news/{slug}', 'item')->name('site_new');
+
+
+});
+/** ///Новости **/
 /** заказ  */
 Route::get('/book-a-tour', [OrderController::class, 'order' ])->name('order');
 /** заказ  */

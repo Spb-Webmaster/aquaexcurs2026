@@ -41,8 +41,9 @@ class HeaderMenuComponent extends Component
                 /** Работаем с моделью экскурсии */
 
                 $menu[$i]['parent'] = true;
+                $k = 0;
+                foreach ($item->Excursion as $excursion) {
 
-                foreach ($item->Excursion as $k => $excursion) {
 
                     // Получаем доступ к полю pivot (custom_title)
                     $customTitle = $excursion->pivot->custom_title ?? '';
@@ -54,6 +55,7 @@ class HeaderMenuComponent extends Component
                     $menu[$i]['child'][$k]['class'] = false;
                     $menu[$i]['child'][$k]['class_li'] = false;
                     $menu[$i]['child'][$k]['data'] = false;
+                    $k++;
                 }
 
             }
@@ -62,22 +64,41 @@ class HeaderMenuComponent extends Component
                 /** Работаем с моделью страниц (материалы)  */
 
                 $menu[$i]['parent'] = true;
-
-                foreach ($item->Page as $k => $excursion) {
+                $k = ($k)??0;
+                foreach ($item->Page as $excursion) {
 
                     // Получаем доступ к полю pivot (custom_title)
                     $customTitle = $excursion->pivot->custom_title ?? '';
                     $customUrl = $excursion->pivot->custom_url ?? '';
                     $modelUrl = route('page', ['slug' => $excursion->slug]);
 
+
+
                     $menu[$i]['child'][$k]['link'] = !empty($customUrl) ? $customUrl : $modelUrl;
                     $menu[$i]['child'][$k]['text'] = !empty($customTitle) ? $customTitle : $excursion->title;
                     $menu[$i]['child'][$k]['class'] = false;
                     $menu[$i]['child'][$k]['class_li'] = false;
                     $menu[$i]['child'][$k]['data'] = false;
+                    $k++;
                 }
 
             }
+
+            if (isset($item->submenu) && count($item->submenu)>0) {
+                $k = ($k)??0;
+                foreach ($item->submenu as $submenu) {
+
+                    $menu[$i]['parent'] = true;
+                    $menu[$i]['child'][$k]['link'] = $submenu['custom_url'];
+                    $menu[$i]['child'][$k]['text'] = $submenu['custom_title'];
+                    $menu[$i]['child'][$k]['class'] = false;
+                    $menu[$i]['child'][$k]['class_li'] = false;
+                    $menu[$i]['child'][$k]['data'] = false;
+                    $k++;
+                }
+            }
+
+         //
 
       }
 

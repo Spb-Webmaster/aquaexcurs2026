@@ -4,20 +4,25 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ExcursionOrder extends Model
+class SiteNew extends Model
 {
-    protected $table = 'excursion_orders';
-    protected $fillable = [
-        'username',
-        'email',
-        'phone',
-        'price',
-        'order',
-        'excursion_id'
-    ];
+    protected $table = 'site_news';
+    protected $guarded = [];
+
     protected $casts = [
-        'order' => 'collection'
+        'gallery' => 'collection',
+        'faq' => 'collection',
     ];
+
+    public function getTeaserImgAttribute(): string
+    {
+        if ($this->img) {
+
+            return asset(intervention('384x238', $this->img, 'images/news'));
+        }
+
+        return '';
+    }
 
     protected static function boot():void
     {

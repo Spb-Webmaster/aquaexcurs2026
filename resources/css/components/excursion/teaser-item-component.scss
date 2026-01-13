@@ -25,6 +25,13 @@ $colorOrange: #FF732C;
         background-size: cover;
         border-radius: 29px 29px 0 0;
         display: block;
+        filter: brightness(1);
+        transition: .2s;
+        &:hover {
+            filter: brightness(1.2);
+
+        }
+
     }
     .excursion_item__two {
         padding: 24px 24px 36px 24px  ;

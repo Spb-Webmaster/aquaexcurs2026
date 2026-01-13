@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Page extends Model
 {
+    protected $table = 'pages';
+
     protected $guarded = [];
 
     protected $casts = [
@@ -15,7 +17,7 @@ class Page extends Model
     ];
 
 
-    protected static function boot()
+    protected static function boot():void
     {
         parent::boot();
 

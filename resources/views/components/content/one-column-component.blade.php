@@ -1,3 +1,4 @@
+@if(count($home))
 <div class="content_one-column-component">
     <div class="one-column-title">
     <h2 class="up">
@@ -11,3 +12,4 @@
         {!!  $home['desc'] !!}
     </div>
 </div>
+@endif

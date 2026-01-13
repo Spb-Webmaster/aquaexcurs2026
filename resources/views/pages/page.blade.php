@@ -13,23 +13,8 @@
         </section>
         <section>
         <div class="block relative">
-            <div class="page__title">
-                <h1 class="h1">
-                    {!! $item->title !!}
-                </h1>
-                @if($item->subtitle)
-                    <div class="subtitle"> {!! $item->subtitle !!}</div>
-                @endif
-            </div>
-            <div class="desc">
-                {!! $item->text !!}
-            </div>
-            <div class="desc">
-                {!! $item->text2 !!}
-            </div>
+            <x-content.one-column-page-component :content="$item" />
             <x-content.content-faq-component :content="$item" />
-
-
         </div>
         </section>
     </main>

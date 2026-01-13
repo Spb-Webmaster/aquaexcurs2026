@@ -1,0 +1,33 @@
+.content_teaser-component {
+  position: relative;
+  padding: 40px 0 0 0;
+}
+.content_teaser-component ._teaser {
+  width: 100%;
+  display: flex;
+  justify-content: start;
+  gap: 40px;
+  padding: 0 0 40px 0;
+}
+.content_teaser-component ._teaser__left img {
+  border-radius: 4px;
+  filter: brightness(1);
+  transition: 0.2s;
+}
+.content_teaser-component ._teaser__left img:hover {
+  filter: brightness(1.2);
+}
+.content_teaser-component ._teaser__right .page__title {
+  text-align: left;
+  padding-right: 0;
+  padding-left: 0;
+}
+.content_teaser-component ._teaser__right h2 {
+  font-size: 24px;
+}
+.content_teaser-component ._teaser__right h2 a {
+  text-decoration: none;
+  color: #00306B;
+}
+
+/*# sourceMappingURL=content_teaser-component.css.map */

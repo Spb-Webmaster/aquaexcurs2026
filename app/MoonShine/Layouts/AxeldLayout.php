@@ -22,6 +22,7 @@ use App\MoonShine\Resources\ExcursionEmail\ExcursionEmailResource;
 use App\MoonShine\Resources\Menu\MenuResource;
 use App\MoonShine\Resources\Page\PageResource;
 use App\MoonShine\Resources\MenuBottom\MenuBottomResource;
+use App\MoonShine\Resources\SiteNew\SiteNewResource;
 
 final class AxeldLayout extends AppLayout
 {
@@ -48,6 +49,8 @@ final class AxeldLayout extends AppLayout
                 MenuItem::make( HomePage::class, 'Главная', 'building-library'),
                 MenuItem::make( ContactPage::class, 'Контакты', 'flag'),
                 MenuItem::make(PageResource::class, 'Материалы', 'book-open'),
+                MenuItem::make(SiteNewResource::class, 'Новости', 'newspaper'),
+
 
 
             ]),

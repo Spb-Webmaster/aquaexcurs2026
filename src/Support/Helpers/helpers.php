@@ -70,6 +70,7 @@ if (!function_exists('cache_clear ')) {
         Cache::forget('excursions');
         Cache::forget('menu');
         Cache::forget('menu_bottom');
+        Cache::forget('site_news');
 
     }
 }
@@ -473,8 +474,11 @@ if (!function_exists('intervention')) {
     /*    if (!$storage->exists($newDirPath)) {
             $storage->makeDirectory($newDirPath);
         }*/
-        if (!is_dir($storage->path($newDirPath))) {
-            mkdir($newDirPath, 0775, true); // Рекурсивно создаем все недостающие директории
+
+        $newFullPath = $storage->path($newDirPath);
+        if (!is_dir($newFullPath)) {
+
+            $storage->makeDirectory($newDirPath);
             chmod($newDirPath, 0775);       // Устанавливаем правильные права на вновь созданные директории
         }
 

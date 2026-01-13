@@ -12,6 +12,11 @@
   background-size: cover;
   border-radius: 29px 29px 0 0;
   display: block;
+  filter: brightness(1);
+  transition: 0.2s;
+}
+.excursion_item__card .excursion_item__img:hover {
+  filter: brightness(1.2);
 }
 .excursion_item__card .excursion_item__two {
   padding: 24px 24px 36px 24px;
