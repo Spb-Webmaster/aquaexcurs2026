@@ -147,6 +147,7 @@ a:hover {
   font-size: 30px;
   line-height: 1.2em;
   position: relative;
+  color: #00306B;
 }
 
 .h4 {
@@ -232,7 +233,7 @@ hr {
   .JFormFieldMap_wrapper {
     max-width: 96%;
     overflow: hidden;
-    margin-bottom: 0
+    margin-bottom: 55px;
   }
 }
 /** временно **/

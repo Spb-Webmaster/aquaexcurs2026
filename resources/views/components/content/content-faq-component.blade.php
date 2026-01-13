@@ -1,7 +1,7 @@
 @if($faq)
 <div class="content_content-faq">
     @if($faq_title)
-        <h3 class="h1">{{ $faq_title }}</h3>
+        <h3 class="h3">{{ $faq_title }}</h3>
     @endif
     <div class="faq__products">
 
