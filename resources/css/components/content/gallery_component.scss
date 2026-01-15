@@ -22,3 +22,34 @@ padding: 30px 0;
         }
     }
 }
+@media screen and (max-width: 900px) {
+    .content_gallery_component {
+        .gallery__flex {
+            /* По две картинки в ряд до 468px */
+            flex-direction: row;
+            flex-wrap: wrap;
+
+            > div {
+                flex: 0 0 calc(50% - 12px); /* 50% ширины с учетом отступа */
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+@media screen and (max-width: 468px) {
+
+    .content_gallery_component {
+        .gallery__flex {
+            > div {
+                flex: 0 0 100%; /* 100% ширины */
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+}

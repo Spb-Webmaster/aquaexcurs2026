@@ -15,7 +15,7 @@
                     <i class="not-italic">{{ config('currency.currency.RUB') }}</i>
                 </div>
                 {{--{{ route('order') }}--}}
-                <a href="#"
+                <a href="#" data-url="{{ route('interim_request') }}" data-id="{{$id}}"
                     class="btn  font-normal send_to_basket app_send_to_basket">
                     <span class="mr-2">Купить        <i class="w-[20px] min-h-[5px] relative top-1"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                                                                                                          stroke="currentColor" class="size-5">

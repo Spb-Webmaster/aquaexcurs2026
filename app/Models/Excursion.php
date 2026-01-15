@@ -115,6 +115,8 @@ class Excursion extends Model
     }
 
 
+
+
     //            $intervention =  asset(intervention('160x160', $avatar, 'users/' . $user->id . '/avatar/intervention'));
 
 

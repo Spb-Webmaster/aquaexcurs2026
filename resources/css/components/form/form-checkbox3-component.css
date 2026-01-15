@@ -1,3 +1,7 @@
+.checkbox-wrapper-3 {
+  position: relative;
+}
+
 .checkbox-wrapper-3 input[type=checkbox] {
   visibility: hidden;
   display: none;
@@ -70,36 +74,71 @@
   transition: all 0.4s ease;
 }
 
+/*.checkbox__flex {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+
+    .checkbox__left {
+        width: 100%;
+        min-height: 30px;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 4px 20px 4px 0;
+
+    }
+
+    .checkbox__right {
+        min-width: 45px;
+        max-width: 50px;
+        min-height: 30px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 4px 0;
+    }
+
+    .checkbox__title {
+        line-height: 1.3em;
+        font-size: 18px;
+        padding-bottom: 2px;
+
+    }
+
+    .checkbox__subtitle {
+        color: $colorGrey;
+    }
+}*/
 .checkbox__flex {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
+  width: 100%;
   position: relative;
 }
 .checkbox__flex .checkbox__left {
-  width: 100%;
-  min-height: 30px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 4px 20px 4px 0;
+  padding: 0 20px 0 0;
 }
-.checkbox__flex .checkbox__right {
-  min-width: 45px;
-  max-width: 50px;
-  min-height: 30px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  padding: 4px 0;
+.offer-agreement {
+  padding: 20px 0;
 }
-.checkbox__flex .checkbox__title {
-  line-height: 1.3em;
-  font-size: 18px;
-  padding-bottom: 2px;
+.offer-agreement .checkbox__left {
+  padding-top: 10px;
 }
-.checkbox__flex .checkbox__subtitle {
+.offer-agreement a {
+  font-size: 14px;
   color: #667085;
+}
+
+.checkbox_error {
+  position: absolute;
+  background: #fff;
+  padding: 0 10px;
+  color: #EF533F;
+  font-size: 14px;
+  bottom: -4px;
+  left: 10px;
 }
 
 /*# sourceMappingURL=form-checkbox3-component.css.map */

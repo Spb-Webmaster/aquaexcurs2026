@@ -97,7 +97,12 @@ Route::controller(SiteNewController::class)->group(function () {
 });
 /** ///Новости **/
 /** заказ  */
-Route::get('/book-a-tour', [OrderController::class, 'order' ])->name('order');
+Route::controller(OrderController::class)->group(function () {
+    Route::post('/interim.request', 'interimRequest')->name('interim_request');
+    Route::get('/book-a-tour', 'order')->name('order');
+    Route::post('/final.request', 'finalRequest')->name('final_request');
+
+});
 /** заказ  */
 /** Статичные страницы (материалы)  */
 Route::get('/{slug}', [PageController::class, 'page' ])->name('page');

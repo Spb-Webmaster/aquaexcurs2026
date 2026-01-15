@@ -41,6 +41,14 @@ class ExcursionViewModel
 
     }
 
+    public function excursionId($id):Model  | null
+    {
+
+        return  Excursion::query()->where('id', $id)
+            ->where('published', 1)->firstOrFail();
+
+
+    }
 
 
 

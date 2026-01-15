@@ -112,8 +112,17 @@ class SettingPage extends Page
                             ]),
                         ]),
                         Tab::make(__('Константы'), [
-                            Divider::make('Используются на сайте'),
+                            Divider::make('Заказ'),
 
+                            Text::make(__('Заголовок'), 'order_label')->unescape()->default((isset($order_label)) ? $order_label : ''),
+
+                            Text::make(__('Подзаголовок'), 'order_sublabel')->unescape()->default((isset($order_sublabel)) ? $order_sublabel : ''),
+
+                            Text::make(__('Пояснение'), 'order_warning1')->unescape()->default((isset($order_warning1)) ? $order_warning1 : ''),
+
+                            Text::make(__('Пояснение2'), 'order_warning2')->unescape()->default((isset($order_warning2)) ? $order_warning2 : ''),
+
+                            Text::make(__('Оферта (ссылка)'), 'offer')->unescape()->default((isset($offer)) ? $offer : ''),
 
                         ]),
 

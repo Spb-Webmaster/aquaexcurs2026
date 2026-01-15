@@ -53,5 +53,13 @@ export function mobileMenuComponent() {
         slideToggle(subMenu, 500);
 
     }
+/** получим мобильное меню и откроем активные элементы **/
+    bottomMenuContainer.querySelectorAll('.parent.active').forEach((activeItem) => {
+        activeItem.querySelector('.submenu').style.display = 'block'
+    })
+
+
+
+
 
 }

@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
-class OrderExcursionRequest extends FormRequest
+class OrderExcursionEmailRequest extends FormRequest
 {
 
     public function authorize(): bool
@@ -21,6 +21,7 @@ class OrderExcursionRequest extends FormRequest
                 ->lower()
                 ->value(),
             'phone' => phone($this->input('phone')),
+            'emails' =>  ''
 
         ]);
     }
@@ -30,9 +31,11 @@ class OrderExcursionRequest extends FormRequest
         return [
             'username' => ['required', 'min:2', 'max:100'],
             'phone' => ['required', 'string', 'min:6', 'max:100'],
-            'email' => ['required', 'string', 'email', 'max:100', 'nullable'],
-            'offer' => ['required'],
-            'excursion_date' => ['required', 'date_format:d.m.Y'], // Правило date_format заменено на date_format:d.m.Y
+            'email' => ['string', 'email', 'max:100', 'nullable'],
+            'excursion_id' => ['required'],
+            'quantity' => ['required', 'min:1', 'max:50'],
+            'excursion_date' => ['date_format:d.m.Y', 'nullable'], // Правило date_format заменено на date_format:d.m.Y
+            'emails' => ['nullable']
         ];
     }
 
@@ -50,13 +53,13 @@ class OrderExcursionRequest extends FormRequest
             'username.min' => 'Мин. длина ФИО :min символов.',
             'username.max' => 'Макс. длина ФИО :max символов.',
             'phone.required' => 'Необходим номер телефона.',
-            'email.required' => 'Необходим email для получения билета.',
             'phone.min' => 'Мин. длина  - :min.',
             'phone.max' => 'Макс. длина номера  - :max.',
             'email.max' => 'Длина email -  :max',
-            'excursion_date.required' => 'Укажите дату.',
+            'quantity.required' => 'Укажите количество пассажиров.',
+            'quantity.min' => 'Мин. количество - :min.',
+            'quantity.max' => 'Макс. количество -  :max.',
             'excursion_date.date_format' => 'Не правильный формат даты.',
-            'offer.required' => 'Требуется принятие оферты.',
         ];
     }
 }

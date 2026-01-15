@@ -36,6 +36,7 @@
 @import 'components/content/content-faq-component.scss';
 @import 'message/flach_message.scss';
 
+@import 'order/order.scss';
 @import 'templates/axeld/swiper.scss';
 @import 'templates/axeld/tabs.scss';
 @import 'templates/axeld/breadcrumbs.scss';

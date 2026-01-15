@@ -22,5 +22,4 @@
     <input @if($min) min="{{ $min }}" @endif  @if($max) max="{{ $max }}" @endif   class="input-group__input app_input_name {{ $class }} @error($name) _error @enderror" type="{{ $type }}" placeholder="" name="{{ $name }}" id="{{  $name . $rand }}" value="{{ $value }}" autocomplete="{{ $autocomplete }}" {{ ($autofocus)? 'autofocus' : '' }}/>
     <label class="input-group__label" for="{{  $name . $rand  }}">{{ $label }} {!! ($required) ?'<span>*</span>':'' !!}</label>
     <div class="input_error app_input_error">@error($name){{$message}}@enderror</div>
-    @error($name){{$message}}@enderror
 </div>

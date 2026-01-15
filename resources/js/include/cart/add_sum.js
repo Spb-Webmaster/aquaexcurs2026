@@ -1,3 +1,6 @@
+import {axiosLaravel} from "../axios/axiosLaravel";
+
+
 export function add_sum() {
 
     /** кнопка добавить **/
@@ -14,6 +17,10 @@ export function add_sum() {
     const buttonToBasket = document.querySelector('.app_send_to_basket');
     /** список всех компонентов с ценой и счетчиком количества **/
     const carts = Array.from(document.querySelectorAll('.app_cart-cart'))
+
+    if(buttonToBasket) {
+        buttonToBasket.addEventListener('click', finalSender);
+    }
 
 
     for (let addHuman of addHumans) {
@@ -163,7 +170,6 @@ export function add_sum() {
         let cNewPrice = 1;
         let cKey;
         let cIsKeyExists;
-        let cResult;
 
         /** Обработчики событий **/
         minusButton.addEventListener('click', (e) => {
@@ -177,7 +183,7 @@ export function add_sum() {
 
             cIsKeyExists = Array.from(appResult.children).some(child => child.dataset.key === cKey);
             if (cIsKeyExists) {
-                newSumResult(cKey, cNewPrice, currentNumber, e) /** посчитали и записали в результат на экран **/
+                newSumResult(cKey, cNewPrice, currentNumber) /** посчитали и записали в результат на экран **/
             }
 
             //new-block-result-cart
@@ -197,7 +203,7 @@ export function add_sum() {
 
             cIsKeyExists = Array.from(appResult.children).some(child => child.dataset.key === cKey);
             if (cIsKeyExists) {
-                newSumResult(cKey, cNewPrice, currentNumber, e) /** посчитали и записали в результат на экран **/
+                newSumResult(cKey, cNewPrice, currentNumber ) /** посчитали и записали в результат на экран **/
 
             }
             /** сложение всех данных **/
@@ -234,7 +240,7 @@ export function add_sum() {
         }
 
         /** Отфильтруем и запишем новые данные о человеке **/
-        function newSumResult(key, sum, cNumber, e) {
+        function newSumResult(key, sum, cNumber) {
 
             /** найдем новый созданный блок **/
             const newBlocks = Array.from(document.querySelectorAll('.new-block-result-cart'))
@@ -275,18 +281,24 @@ export function add_sum() {
     }
 
     /** проверим. Нельзя покупать только детям   **/
+    /** Основная функция проверки билета **/
     function checkTypeTicket(k) {
-        const newBlocks = Array.from(document.querySelectorAll('.new-block-result-cart'))
-        if(newBlocks.length === 1) {
-            newBlocks.filter(block => {
-                if (block.dataset.key === String(k)) {
-                    typeTicket.classList.add('active')
-                    buttonToBasket.classList.add('deactivate')
-                }
-            })
+        const newBlocks = Array.from(document.querySelectorAll('.new-block-result-cart'));
+
+        if (newBlocks.length === 1) {
+
+            /** String(k)) - 2 это детский **/
+            let foundBlock = newBlocks.find(block => block.dataset.key === String(k));
+
+            if (foundBlock) {
+                typeTicket.classList.add('active');
+                buttonToBasket.classList.add('deactivate');
+            }
+
         } else {
-            typeTicket.classList.remove('active')
-            buttonToBasket.classList.remove('deactivate')
+            typeTicket.classList.remove('active');
+            buttonToBasket.classList.remove('deactivate');
+
         }
     }
 
@@ -303,4 +315,66 @@ export function add_sum() {
         // Выводим результат в абзац
         // document.getElementById("formattedPrice").innerHTML = formattedPrice + '';
     }
+
+
+
+    function finalSender(e) {
+        e.preventDefault(); // останавливаем стандартное поведение ссылки
+        const ParentEl = e.target.closest('.app_send_to_basket');
+      // alert('1')
+        if(ParentEl.classList.contains('deactivate')){
+           return; /** Если класс есть, то прерываем выполнение функции **/
+        }
+
+        /**  получим данные **/
+        /** Основной контейнер для данных **/
+       const url = ParentEl.dataset.url;
+
+        const dataForServer = {
+                id: ParentEl.dataset.id,
+                items: []
+            };
+
+
+        //new-block-result-cart
+        const newBlocks = Array.from(document.querySelectorAll('.new-block-result-cart'))
+        for (let newBlock of newBlocks) {
+            const itemData = {
+                key: newBlock.dataset.key,
+                count: parseInt(newBlock.querySelector('.app_set_count').textContent.trim()) || 0
+            };
+            dataForServer.items.push(itemData);
+        }
+
+
+       // Преобразование в JSON
+      //  const jsonData = JSON.stringify(dataForServer);
+       // console.log(jsonData); // выводит готовый JSON для отправки
+
+        /**  отправка данных **/
+        axiosLaravel(dataForServer, url)
+            .then((result) => {
+
+                if (result.errors) {
+                    console.log(result.errors)
+                } else {
+
+                    /** если нет ошибок **/
+                   //  console.log(result.response)
+                     console.log(result.url)
+                     window.location.href = result.url;
+                }
+
+
+            })
+            .catch((error) => {
+                console.log('.catch((error)...')
+                console.log(error)
+
+            });
+
+
+    }
+
+
 }
