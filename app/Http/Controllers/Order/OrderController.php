@@ -9,6 +9,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Support\PDF\ReplaceText;
 
 class OrderController extends Controller
 {
@@ -16,7 +17,7 @@ class OrderController extends Controller
     {
         /** тут логика сохранения данных */
         //tour_data
-       $bool = ExcursionOrderViewModels::make()->getSession($request->all());
+       $bool = ExcursionOrderViewModels::make()->setSession($request->all());
         /** //тут логика сохранения данных */
 
        $true =  array('url' => route('order'));
@@ -28,7 +29,7 @@ class OrderController extends Controller
 
     public function order():View | RedirectResponse
     {
-        $order = ExcursionOrderViewModels::make()->setSession(config('site.constants.tour_data'));
+        $order = ExcursionOrderViewModels::make()->getSession(config('site.constants.tour_data'));
 
         if(is_null($order)) {
             return redirect()->route('home');
@@ -40,9 +41,17 @@ class OrderController extends Controller
 
     }
 
-    public function finalRequest(OrderExcursionRequest $request):mixed
+    public function finalRequest(OrderExcursionRequest $request):View
     {
-        dd($request->all());
+        /** запишем данные в базу и вернем данные для отображения на странице */
+        $order = ExcursionOrderViewModels::make()->saveOrder($request);
+
+        /** создадим PDF и отправим на почту */
+        ReplaceText::make()->replaceText($order);
+
+        return view('orders.order_result', [
+            'order' => $order
+        ]);
 
     }
 }

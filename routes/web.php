@@ -67,6 +67,7 @@ Route::controller(AxiosSendingFromFormController::class)->group(function () {
 Route::get('/', [HomeController::class, 'index' ])->name('home');
 Route::controller(TestController::class)->group(function () {
     Route::get('/test', 'test')->name("test");
+    Route::post('/test_pdf', 'test_pdf')->name("test_pdf");
 });
 
 /** ///Главная **/
@@ -100,7 +101,7 @@ Route::controller(SiteNewController::class)->group(function () {
 Route::controller(OrderController::class)->group(function () {
     Route::post('/interim.request', 'interimRequest')->name('interim_request');
     Route::get('/book-a-tour', 'order')->name('order');
-    Route::post('/final.request', 'finalRequest')->name('final_request');
+    Route::post('/book-a-tour-final', 'finalRequest')->name('final_request');
 
 });
 /** заказ  */

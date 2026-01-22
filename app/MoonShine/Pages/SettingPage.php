@@ -124,6 +124,14 @@ class SettingPage extends Page
 
                             Text::make(__('Оферта (ссылка)'), 'offer')->unescape()->default((isset($offer)) ? $offer : ''),
 
+                            Divider::make('Заказ создан'),
+
+                            Text::make(__('Заголовок'), 'order_result_label')->unescape()->default((isset($order_result_label)) ? $order_result_label : ''),
+
+                            Text::make(__('Подзаголовок'), 'order_result_sublabel')->unescape()->default((isset($order_result_sublabel)) ? $order_result_sublabel : ''),
+
+
+
                         ]),
 
 

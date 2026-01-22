@@ -2,14 +2,17 @@
 
 namespace Domain\ExcursionOrder\ViewModels;
 
+use App\Models\Excursion;
+use App\Models\ExcursionOrder;
 use Domain\Excursion\ViewModels\ExcursionViewModel;
+use Illuminate\Database\Eloquent\Model;
 use Support\Traits\Makeable;
 
 class ExcursionOrderViewModels
 {
     use Makeable;
 
-    public function getSession($request): bool
+    public function setSession($request): bool
     {
 
         $exc = ExcursionViewModel::make()->excursionId($request['id'])->toArray();
@@ -75,9 +78,34 @@ class ExcursionOrderViewModels
 
     }
 
-    public function setSession($key):mixed
+    public function getSession($key):mixed
     {
         return session()->get($key);
+
+    }
+
+
+    public function saveOrder($request):model |null
+    {
+
+        try {
+            /** запись в бд session и request */
+            $session = $this->getSession(config('site.constants.tour_data'));
+            $array = $request->only(['username', 'phone', 'email', 'excursion_date']);
+            $array['excursion_id'] = $session['id'];
+            $array['price'] = $session['total_price'];
+            $array['order'] = $session;
+            return ExcursionOrder::create($array);
+
+        } catch (\Throwable $th) {
+
+            // Обрабатываем исключение
+            logErrors($th);
+            return null;
+
+        }
+
+
 
     }
 

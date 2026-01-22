@@ -1,8 +1,9 @@
 <?php
-
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use TicketCast;
 
 class ExcursionOrder extends Model
 {
@@ -13,13 +14,37 @@ class ExcursionOrder extends Model
         'phone',
         'price',
         'order',
-        'excursion_id'
+        'excursion_id',
+        'excursion_date',
+        'status',
+        'number',
+        'series',
+        'ticket'
     ];
     protected $casts = [
-        'order' => 'collection'
+        'order' => 'collection',
+        'ticket' => TicketCast::class,
+
     ];
 
-    protected static function boot():void
+    /** Мутация атрибута для изменения формата даты **/
+    public function setExcursionDateAttribute($value): void
+    {
+        if (!empty($value)) {
+            $this->attributes['excursion_date'] = Carbon::parse($value)->format('Y-m-d');
+        }
+    }
+
+    public function getTitleAttribute(): string
+    {
+        $exc = Excursion::find($this->excursion_id);
+        if (!is_null($exc)) {
+            return $exc->title;
+        }
+        return '';
+    }
+
+    protected static function boot(): void
     {
         parent::boot();
 
@@ -29,8 +54,7 @@ class ExcursionOrder extends Model
         });
 
         # Выполняем действия после сохранения
-        static::saved(function()
-        {
+        static::saved(function () {
             cache_clear();
 
         });

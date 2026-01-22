@@ -28,15 +28,16 @@ $colorOrange: #FF732C;
             border-top: none;
             padding-top: 0;
         }
-        .cart_item__title {
-            a {
 
-                color: $colorBlue;
-            }
-        }
+    }
+
+}
+.cart_item__title {
+    a {
+
+        color: $colorBlue;
     }
 }
-
 .alert-warning {
     position: relative;
     padding: 1rem 1rem;
