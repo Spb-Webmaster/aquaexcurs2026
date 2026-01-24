@@ -32,22 +32,24 @@
 
                                     <div class="__buy">
                                         <a class="btn open-fancybox"
-                                                          data-form="{{ $item->dont_register_form }}" data-transfer='{"excursion_id": {{$item->id}}}'
-                                                          href="#"><span>{{ $item->dont_register_button }}</span>
+                                           data-form="{{ $item->dont_register_form }}"
+                                           data-transfer='{"excursion_id": {{$item->id}}}'
+                                           href="#"><span>{{ $item->dont_register_button }}</span>
                                         </a>
                                     </div>
                                 @else
                                     <div class="__buy_100">
                                         <a class="btn open-fancybox"
-                                                              data-transfer='{"excursion_id": {{$item->id}}}'
-                                                              data-form="{{ $item->dont_register_form }}"
-                                                              href="#"><span>{{ $item->dont_register_button }}</span>
+                                           data-transfer='{"excursion_id": {{$item->id}}}'
+                                           data-form="{{ $item->dont_register_form }}"
+                                           href="#"><span>{{ $item->dont_register_button }}</span>
                                         </a>
                                     </div>
                                 @endif
 
                             </div>
-                            <div class="excursion_item__full excursion_item__pier {{ (!$item->dont_register_price)? '__center' : ''  }}">
+                            <div
+                                class="excursion_item__full excursion_item__pier {{ (!$item->dont_register_price)? '__center' : ''  }}">
                                 {!! $item->dont_register_desc !!}
                             </div>
                         </div>
@@ -59,7 +61,8 @@
                     <div class="excursion_item__info-price">
 
                         <div class="ex_time">
-                            <div class="ex_time__time-label"><span>Время отправления</span><span class="display_none">Время</span></div>
+                            <div class="ex_time__time-label"><span>Время отправления</span><span class="display_none">Время</span>
+                            </div>
                             <div class="ex_time__time">{{ $item->departure_time }}</div>
                         </div>
 
@@ -87,7 +90,7 @@
                 {{--Не продаем--}}
             @else
                 {{--Продаем--}}
-                <div class="card no_padding" >
+                <div class="card no_padding">
                     <div class="excursion_cart-add-sum__wrapper">
                         @if($item->departure_time_desc )
                             <div class="departure_time">
@@ -178,15 +181,18 @@
                             <p>{!!   $item->departure_time !!}</p>
                         </div>
                     @endif
-                    <div class="relative pb-7">
-                        <h3 class="h3-rubik">Вы увидите:</h3>
-                        <ul>
-                            @foreach($item->list_points as $point)
-                                <li class="relative">{{ $point['json_list_points_text']  }}</li>
-                            @endforeach
-                        </ul>
+                        @if($item->list_points->count())
+                            <div class="relative pb-7">
 
-                    </div>
+                            <h3 class="h3-rubik">Вы увидите:</h3>
+                            <ul>
+                                @foreach($item->list_points as $point)
+                                    <li class="relative">{{ $point['json_list_points_text']  }}</li>
+                                @endforeach
+                            </ul>
+                            </div>
+                        @endif
+
 
                 </div>
 
