@@ -46,6 +46,7 @@ class OrderController extends Controller
         /** запишем данные в базу и вернем данные для отображения на странице */
         $order = ExcursionOrderViewModels::make()->saveOrder($request);
 
+
         /** создадим PDF и отправим на почту */
         ReplaceText::make()->replaceText($order);
 

@@ -11,9 +11,10 @@ class ReplaceText
 
     use Makeable;
 
-    public function replaceText($data)
+    public function replaceText($data):bool | null
     {
 
+        try {
         $originalPdfPath = storage_path('app/public/orders/pdf/templates/input.pdf'); // Исходный PDF
         $modifiedPdfPath = storage_path('app/public/orders/pdf/files/output.pdf'); // Результирующий PDF
 
@@ -39,7 +40,7 @@ class ReplaceText
                 'y' => 61.5,
                 'fontSize' => 9
             ],
-            ['text' => $data['order']['id'], // Номер заказа
+            ['text' => $data['order']['series'].' '.$data['number'], // Номер заказа
                 'x' => 111,
                 'y' => 77,
                 'color' => [0, 48, 107]
@@ -57,7 +58,7 @@ class ReplaceText
                 'fontSize' => 8
             ],
 
-            ['text' => $data['order']['id'], // Номер заказа
+            ['text' => $data['order']['series'].' '.$data['number'], // Номер заказа
                 'x' => 46,
                 'y' => 103.5,
                 'fontSize' => 8
@@ -90,7 +91,13 @@ class ReplaceText
             $replacements,
             $modifiedPdfPath
         );
+        } catch (\Throwable $th) {
 
+            // Обрабатываем исключение
+            logErrors($th);
+            return null;
+
+        }
         return true;
 
     }

@@ -78,6 +78,8 @@ class ExcursionFormPage extends FormPage
                             Text::make('Мета тэг (keywords) ', 'keywords')->unescape(),
                         ]),
                         Collapse::make('Настройки', [
+
+                            Text::make('Серия', 'series')->required()->hint('Обращайте внимание на эту опцию! Внимательно проверьте, что серия не повторяется с другими экскурсиями! Изменение серии влияет на сортировку и анализ ранее проданных билетов')->locked(),
                             Switcher::make('Публикация', 'published')->default(1),
                             Text::make('Индивидуальный номер', 'sku')->required(),
                             Number::make('Сортировка','sorting')->buttons()->default(0),
@@ -89,6 +91,7 @@ class ExcursionFormPage extends FormPage
                         ]),
                         Collapse::make('Продажа билетов', [
                             Switcher::make('Продажа включена', 'price_hide')->default(1)->hint('(Выключая эту опцию, продажа билетов прекращается)'),
+
                             Number::make('Количество билетов', 'count_ticket')->default(100),
                             OrderTodayTicket::make('', 'order_today_ticket')
 

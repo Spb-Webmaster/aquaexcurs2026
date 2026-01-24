@@ -23,6 +23,13 @@ class TicketCast implements CastsAttributes
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
-        return $value;
+        // Проверяем, что передано массив с серией и номером
+        if (!is_array($value)) {
+            throw new \InvalidArgumentException("Значение для тикета должно быть массивом");
+        }
+
+        // Объединяем серию и номер пробелом
+        return implode(' ', [$value['series'], $value['number']]);
+
     }
 }

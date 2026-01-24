@@ -20,6 +20,8 @@ use App\MoonShine\Resources\Menu\MenuResource;
 use App\MoonShine\Resources\Page\PageResource;
 use App\MoonShine\Resources\MenuBottom\MenuBottomResource;
 use App\MoonShine\Resources\SiteNew\SiteNewResource;
+use App\MoonShine\Resources\FleetSpeedboat\FleetSpeedboatResource;
+use App\MoonShine\Resources\FleetShip\FleetShipResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -39,6 +41,8 @@ class MoonShineServiceProvider extends ServiceProvider
                 PageResource::class,
                 MenuBottomResource::class,
                 SiteNewResource::class,
+                FleetSpeedboatResource::class,
+                FleetShipResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

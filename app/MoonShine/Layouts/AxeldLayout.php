@@ -23,6 +23,8 @@ use App\MoonShine\Resources\Menu\MenuResource;
 use App\MoonShine\Resources\Page\PageResource;
 use App\MoonShine\Resources\MenuBottom\MenuBottomResource;
 use App\MoonShine\Resources\SiteNew\SiteNewResource;
+use App\MoonShine\Resources\FleetSpeedboat\FleetSpeedboatResource;
+use App\MoonShine\Resources\FleetShip\FleetShipResource;
 
 final class AxeldLayout extends AppLayout
 {
@@ -77,6 +79,8 @@ final class AxeldLayout extends AppLayout
 
             ]),
 
+            MenuItem::make(FleetSpeedboatResource::class, 'FleetSpeedboats'),
+            MenuItem::make(FleetShipResource::class, 'FleetShips'),
         ];
     }
     protected function getFooterCopyright(): string

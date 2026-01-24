@@ -2,9 +2,8 @@
 
 declare(strict_types=1);
 
-namespace App\MoonShine\Resources\Excursion\Pages;
+namespace App\MoonShine\Resources\FleetShip\Pages;
 
-use App\Models\Excursion;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Components\Table\TableBuilder;
@@ -12,22 +11,17 @@ use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Laravel\QueryTags\QueryTag;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
 use MoonShine\UI\Fields\ID;
-use App\MoonShine\Resources\Excursion\ExcursionResource;
+use App\MoonShine\Resources\FleetShip\FleetShipResource;
 use MoonShine\Support\ListOf;
-use MoonShine\UI\Fields\Image;
-use MoonShine\UI\Fields\Number;
-use MoonShine\UI\Fields\Switcher;
-use MoonShine\UI\Fields\Text;
 use Throwable;
 
 
 /**
- * @extends IndexPage<ExcursionResource>
+ * @extends IndexPage<FleetShipResource>
  */
-class ExcursionIndexPage extends IndexPage
+class FleetShipIndexPage extends IndexPage
 {
     protected bool $isLazy = true;
-
 
     /**
      * @return list<FieldContract>
@@ -36,12 +30,6 @@ class ExcursionIndexPage extends IndexPage
     {
         return [
             ID::make(),
-            Image::make(__('Изображение'), 'img'),
-            Text::make('Название', 'title'),
-            Text::make('Серия', 'series'),
-            Switcher::make('Публикация', 'published')->updateOnPreview(),
-            Switcher::make('Продажа билетов', 'price_hide')->updateOnPreview(),
-            Text::make('Сортировка', 'sorting')->updateOnPreview(),
         ];
     }
 

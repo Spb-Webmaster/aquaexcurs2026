@@ -2,23 +2,27 @@
 
 declare(strict_types=1);
 
-namespace App\MoonShine\Resources\Excursion\Pages;
+namespace App\MoonShine\Resources\FleetSpeedboat\Pages;
 
-use MoonShine\Laravel\Pages\Crud\DetailPage;
+use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\Contracts\UI\FieldContract;
-use App\MoonShine\Resources\Excursion\ExcursionResource;
-use MoonShine\Support\ListOf;
+use MoonShine\Laravel\QueryTags\QueryTag;
+use MoonShine\UI\Components\Metrics\Wrapped\Metric;
 use MoonShine\UI\Fields\ID;
+use App\MoonShine\Resources\FleetSpeedboat\FleetSpeedboatResource;
+use MoonShine\Support\ListOf;
 use Throwable;
 
 
 /**
- * @extends DetailPage<ExcursionResource>
+ * @extends IndexPage<FleetSpeedboatResource>
  */
-class ExcursionDetailPage extends DetailPage
+class FleetSpeedboatIndexPage extends IndexPage
 {
+    protected bool $isLazy = true;
+
     /**
      * @return list<FieldContract>
      */
@@ -35,11 +39,35 @@ class ExcursionDetailPage extends DetailPage
     }
 
     /**
+     * @return list<FieldContract>
+     */
+    protected function filters(): iterable
+    {
+        return [];
+    }
+
+    /**
+     * @return list<QueryTag>
+     */
+    protected function queryTags(): array
+    {
+        return [];
+    }
+
+    /**
+     * @return list<Metric>
+     */
+    protected function metrics(): array
+    {
+        return [];
+    }
+
+    /**
      * @param  TableBuilder  $component
      *
      * @return TableBuilder
      */
-    protected function modifyDetailComponent(ComponentContract $component): ComponentContract
+    protected function modifyListComponent(ComponentContract $component): ComponentContract
     {
         return $component;
     }

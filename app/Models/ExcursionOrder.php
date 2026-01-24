@@ -24,7 +24,6 @@ class ExcursionOrder extends Model
     protected $casts = [
         'order' => 'collection',
         'ticket' => TicketCast::class,
-
     ];
 
     /** Мутация атрибута для изменения формата даты **/
@@ -48,6 +47,15 @@ class ExcursionOrder extends Model
     {
         parent::boot();
 
+        static::creating(function ($model) {
+
+            // Сначала увеличиваем значение
+            ExcursionNextTicketNumber::first()->increment('next_value');
+            // Потом достаем последнее значение из таблицы
+            $nextNumber = ExcursionNextTicketNumber::first()->next_value;
+            // Применяем форматирование с ведущими нулями
+            $model->number = str_pad((string)$nextNumber, 5, '0', STR_PAD_LEFT);
+        });
 
         static::deleted(function () {
             cache_clear();

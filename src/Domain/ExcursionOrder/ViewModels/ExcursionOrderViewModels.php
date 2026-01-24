@@ -3,6 +3,7 @@
 namespace Domain\ExcursionOrder\ViewModels;
 
 use App\Models\Excursion;
+use App\Models\ExcursionNextTicketNumber;
 use App\Models\ExcursionOrder;
 use Domain\Excursion\ViewModels\ExcursionViewModel;
 use Illuminate\Database\Eloquent\Model;
@@ -60,6 +61,7 @@ class ExcursionOrderViewModels
         $data = [
             'id' => $request['id'],
             'title' => $exc['title'],
+            'series' => $exc['series'],
             'slug' => $exc['slug'],
             'sku' => $exc['sku'],
             'price' => $exc['price'],
@@ -95,6 +97,12 @@ class ExcursionOrderViewModels
             $array['excursion_id'] = $session['id'];
             $array['price'] = $session['total_price'];
             $array['order'] = $session;
+            $array['series'] = $session['series'];
+            // Генерируем номер (предварительно увеличенный в creating)
+            $nextNumber = ExcursionNextTicketNumber::first()->next_value ?? '';
+            $array['number'] = str_pad((string)$nextNumber, 5, '0', STR_PAD_LEFT);
+            // Создаем объект ticket
+          //   $array['ticket'] = ['series' => $session['series'], 'number' =>  $array['number']];
             return ExcursionOrder::create($array);
 
         } catch (\Throwable $th) {

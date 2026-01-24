@@ -29,7 +29,7 @@
             <div class="block relative item_customer_info ">
                 <div class="_info card ">
 
-                    <div class="h3_blue"><span>Ваучер: 9234 </span></div>
+                    <div class="h3_blue"><span>Ваучер: {{ $order['order']['series'].' '.$order['number'] }}</span></div>
 
                     <div class="cart_items py-2">
                         <div class="cart_cart-result-sum hidden  active">
