@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Excursion extends Model
 {
@@ -68,6 +69,18 @@ class Excursion extends Model
         'list_points' => 'collection',
         'route' => 'collection',
     ];
+
+    //
+    public function FleetSpeedboat(): BelongsToMany
+    {
+        return $this->belongsToMany(FleetSpeedboat::class)->where('published', 1)->orderBy('sorting', 'desc');
+
+    }
+    public function FleetShip(): BelongsToMany
+    {
+        return $this->belongsToMany(FleetShip::class)->where('published', 1)->orderBy('sorting', 'desc');
+
+    }
 
     public function getTeaserImgAttribute(): string
     {

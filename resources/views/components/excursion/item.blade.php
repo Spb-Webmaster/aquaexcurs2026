@@ -144,7 +144,6 @@
             @endif
         </div>
 
-
         <div class="excursion_item__right">
             <div class="card no_padding ">
 
@@ -181,18 +180,23 @@
                             <p>{!!   $item->departure_time !!}</p>
                         </div>
                     @endif
-                        @if($item->list_points->count())
-                            <div class="relative pb-7">
 
+                    @if($item->list_points->count())
+                        <div class="relative pb-7">
                             <h3 class="h3-rubik">Вы увидите:</h3>
                             <ul>
                                 @foreach($item->list_points as $point)
                                     <li class="relative">{{ $point['json_list_points_text']  }}</li>
                                 @endforeach
                             </ul>
-                            </div>
-                        @endif
+                        </div>
+                    @endif
 
+                    @if($item->rent_text)
+                        <div class="relative pb-7">
+                            {!!   $item->rent_text !!}
+                        </div>
+                    @endif
 
                 </div>
 
@@ -206,6 +210,23 @@
             {!! $item->yandex_map  !!}
         </div>
     @endif
+
+    @if($item->FleetSpeedBoat->isNotEmpty())
+        <div class="FleetSpeedBoat">
+        @foreach($item->FleetSpeedBoat as $it)
+            <x-excursion.fleet.speed-boat :item="$it" />
+         @endforeach
+        </div>
+    @endif
+
+    @if($item->FleetShip->isNotEmpty())
+        <div class="FleetShip">
+        @foreach($item->FleetShip as $it)
+            <x-excursion.fleet.ship :item="$it" />
+        @endforeach
+        </div>
+    @endif
+
     @if($item->desc )
         <div class="excursion_item__desc">
             <div class="desc desc_1">

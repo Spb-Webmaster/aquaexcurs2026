@@ -26,7 +26,9 @@
         <x-excursion.item :item="$item" />
     </div>
 </section>
+
 {{ Breadcrumbs::render('site_excursion', $item) }}
+
 </main>
 @endsection
 

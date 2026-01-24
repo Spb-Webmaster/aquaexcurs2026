@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources\Excursion\Pages;
 
+use App\Models\FleetShip;
 use App\MoonShine\Fields\OrderTodayTicket;
+use App\MoonShine\Resources\FleetShip\FleetShipResource;
+use App\MoonShine\Resources\FleetSpeedboat\FleetSpeedboatResource;
+use Illuminate\Contracts\Database\Eloquent\Builder;
+use MoonShine\Laravel\Fields\Relationships\BelongsToMany;
 use MoonShine\Laravel\Fields\Slug;
 use MoonShine\Laravel\Pages\Crud\FormPage;
 use MoonShine\Contracts\UI\ComponentContract;
@@ -22,6 +27,7 @@ use MoonShine\UI\Components\Layout\Grid;
 use MoonShine\UI\Components\Tabs;
 use MoonShine\UI\Components\Tabs\Tab;
 use MoonShine\UI\Fields\Date;
+use MoonShine\UI\Fields\Field;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\Image;
@@ -214,9 +220,6 @@ class ExcursionFormPage extends FormPage
 
                             ]),
 
-
-
-
                             Tab::make(__('Маршрут'), [
                                 Grid::make([
                                     Column::make([
@@ -234,7 +237,6 @@ class ExcursionFormPage extends FormPage
 
                             ]),
 
-
                             Tab::make(__('Вы увидите'), [
                                 Grid::make([
                                     Column::make([
@@ -250,10 +252,16 @@ class ExcursionFormPage extends FormPage
                                     ])->columnSpan(6),
                                 ]),
                             ]),
+                            Tab::make(__('Для Аренды'), [
+                                Grid::make([
+                                    Column::make([
 
+                                    TinyMce::make('Описание аренды', 'rent_text')->hint('Выводится с правой стороны в самом низу')
+                                    ])->columnSpan(6),
+                                ]),
+                            ]),
 
                         ]),
-
 
                     ])->columnSpan(12),
 
@@ -261,8 +269,14 @@ class ExcursionFormPage extends FormPage
                 Grid::make([
                     Column::make([
 
-
-
+                        BelongsToMany::make('Катера', 'FleetSpeedboat', 'title', resource: FleetSpeedboatResource::class)
+                            ->valuesQuery(fn(Builder $query, Field $field) => $query->orderBy('sorting', 'DESC'))
+                            ->selectMode()
+                            ->nullable(),
+                        BelongsToMany::make('Теплоходы', 'FleetShip', 'title', resource: FleetShipResource::class)
+                            ->valuesQuery(fn(Builder $query, Field $field) => $query->orderBy('sorting', 'DESC'))
+                            ->selectMode()
+                            ->nullable(),
 
                     ])->columnSpan(12),
                 ]),
