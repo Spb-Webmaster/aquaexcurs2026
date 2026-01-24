@@ -14,6 +14,8 @@ use App\Http\Controllers\TestController;
 use App\MoonShine\Controllers\MoonshineContact;
 use App\MoonShine\Controllers\MoonshineHome;
 use App\MoonShine\Controllers\MoonshineSetting;
+use App\MoonShine\Controllers\MoonshineShip;
+use App\MoonShine\Controllers\MoonshineSpeedBoat;
 use Illuminate\Support\Facades\Route;
 
 /**
@@ -22,6 +24,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('/moonshine/home', [MoonshineHome::class, 'home' ]);
 Route::post('/moonshine/setting', [MoonshineSetting::class, 'setting' ]);
 Route::post('/moonshine/contact', [MoonshineContact::class, 'contact' ]);
+Route::post('/moonshine/fleet_speedboat', [MoonshineSpeedBoat::class, 'fleet_speedboat' ]);
+Route::post('/moonshine/fleet_ship', [MoonshineShip::class, 'fleet_ship' ]);
 
 /**
  * админка

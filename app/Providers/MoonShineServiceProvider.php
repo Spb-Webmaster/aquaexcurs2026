@@ -22,6 +22,8 @@ use App\MoonShine\Resources\MenuBottom\MenuBottomResource;
 use App\MoonShine\Resources\SiteNew\SiteNewResource;
 use App\MoonShine\Resources\FleetSpeedboat\FleetSpeedboatResource;
 use App\MoonShine\Resources\FleetShip\FleetShipResource;
+use App\MoonShine\Pages\FleetSpeedBoatPage;
+use App\MoonShine\Pages\FleetShipPage;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -49,6 +51,8 @@ class MoonShineServiceProvider extends ServiceProvider
                 HomePage::class,
                 SettingPage::class,
                 ContactPage::class,
+                FleetSpeedBoatPage::class,
+                FleetShipPage::class,
             ])
         ;
     }

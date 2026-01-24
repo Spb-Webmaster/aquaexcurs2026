@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\MoonShine\Layouts;
 
 use App\MoonShine\Pages\ContactPage;
+use App\MoonShine\Pages\FleetShipPage;
+use App\MoonShine\Pages\FleetSpeedBoatPage;
 use App\MoonShine\Pages\HomePage;
 use App\MoonShine\Pages\SettingPage;
 use App\MoonShine\Resources\MoonShineUser\MoonShineUserResource;
@@ -53,6 +55,9 @@ final class AxeldLayout extends AppLayout
                 MenuItem::make( ContactPage::class, 'Контакты', 'flag'),
                 MenuItem::make(PageResource::class, 'Материалы', 'book-open'),
                 MenuItem::make(SiteNewResource::class, 'Новости', 'newspaper'),
+                MenuItem::make(FleetSpeedBoatPage::class, 'Катера', 'arrow-right-circle'),
+                MenuItem::make(FleetShipPage::class, 'Теплоходы', 'arrow-right-circle'),
+
             ]),
 
             MenuGroup::make(static fn() => __('Экскурсии'), [

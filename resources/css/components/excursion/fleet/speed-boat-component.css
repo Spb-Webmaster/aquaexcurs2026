@@ -58,4 +58,50 @@
   top: 11px;
 }
 
+.fleet_flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px 0 40px 0;
+}
+.fleet_flex .fleet_item {
+  width: 48%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fleet_flex .fleet_item .fleet_item__flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  min-height: 25px;
+}
+.fleet_flex .fleet_item .fleet_item__flex .json_title {
+  width: 49%;
+  min-height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-right: 1px solid #3BA3D0;
+}
+.fleet_flex .fleet_item .fleet_item__flex .json_title .h3_blue {
+  padding: 0 !important;
+}
+.fleet_flex .fleet_item .fleet_item__flex .json_price {
+  width: 49%;
+  min-height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fleet_flex .fleet_item .fleet_item__flex .json_price .h3_blue {
+  padding: 0 !important;
+}
+.fleet_flex .fleet_item .json_text {
+  color: #667085;
+  padding: 19px 0 0 0;
+  line-height: 1.4em;
+  font-size: 15px;
+}
+
 /*# sourceMappingURL=speed-boat-component.css.map */
