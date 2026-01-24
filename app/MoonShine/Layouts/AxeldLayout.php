@@ -47,40 +47,40 @@ final class AxeldLayout extends AppLayout
                 MenuItem::make( MoonShineUserResource::class, 'Админ', 'user'),
                 MenuDivider::make(),
             ]),
+
             MenuGroup::make(static fn() => __('Страницы'), [
                 MenuItem::make( HomePage::class, 'Главная', 'building-library'),
                 MenuItem::make( ContactPage::class, 'Контакты', 'flag'),
                 MenuItem::make(PageResource::class, 'Материалы', 'book-open'),
                 MenuItem::make(SiteNewResource::class, 'Новости', 'newspaper'),
-
-
-
             ]),
+
             MenuGroup::make(static fn() => __('Экскурсии'), [
                 MenuItem::make( ExcursionResource::class, 'Экскурсии', 'banknotes'),
 
             ]),
-            MenuGroup::make(static fn() => __('Заказы'), [
-                MenuItem::make(ExcursionEmailResource::class, 'Заявки с формы', 'envelope'),
-                MenuItem::make(ExcursionOrderResource::class, 'Заказы билетов' , 'currency-dollar'),
+
+            MenuGroup::make(static fn() => __('Наш флот'), [
+                MenuItem::make(FleetSpeedboatResource::class, 'Катера', 'arrow-right-circle'),
+                MenuItem::make(FleetShipResource::class, 'Теплоходы', 'arrow-right-circle'),
 
             ]),
 
-
+            MenuGroup::make(static fn() => __('Заказы'), [
+                MenuItem::make(ExcursionEmailResource::class, 'Заявки с формы', 'envelope'),
+                MenuItem::make(ExcursionOrderResource::class, 'Заказы билетов' , 'currency-dollar'),
+            ]),
 
             MenuGroup::make(static fn() => __('Меню сайта'), [
                 MenuItem::make( MenuResource::class, 'Верхнее меню', 'bars-arrow-down'),
                 MenuItem::make(MenuBottomResource::class, 'Нижние меню', 'bars-arrow-down'),
-
-
             ]),
+
             MenuGroup::make(static fn() => __('Настройки'), [
                 MenuItem::make( SettingPage::class, 'Настройки', 'adjustments-vertical'),
-
             ]),
 
-            MenuItem::make(FleetSpeedboatResource::class, 'FleetSpeedboats'),
-            MenuItem::make(FleetShipResource::class, 'FleetShips'),
+
         ];
     }
     protected function getFooterCopyright(): string

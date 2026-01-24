@@ -13,6 +13,9 @@ use MoonShine\UI\Components\Metrics\Wrapped\Metric;
 use MoonShine\UI\Fields\ID;
 use App\MoonShine\Resources\FleetSpeedboat\FleetSpeedboatResource;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Fields\Image;
+use MoonShine\UI\Fields\Switcher;
+use MoonShine\UI\Fields\Text;
 use Throwable;
 
 
@@ -29,7 +32,10 @@ class FleetSpeedboatIndexPage extends IndexPage
     protected function fields(): iterable
     {
         return [
-            ID::make(),
+            Image::make(__('Изображение'), 'img'),
+            Text::make('Название', 'title'),
+            Switcher::make('Публикация', 'published')->updateOnPreview(),
+            Text::make('Сортировка', 'sorting')->updateOnPreview(),
         ];
     }
 

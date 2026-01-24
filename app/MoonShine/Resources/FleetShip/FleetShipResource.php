@@ -8,20 +8,28 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\FleetShip;
 use App\MoonShine\Resources\FleetShip\Pages\FleetShipIndexPage;
 use App\MoonShine\Resources\FleetShip\Pages\FleetShipFormPage;
-use App\MoonShine\Resources\FleetShip\Pages\FleetShipDetailPage;
 
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Contracts\Core\PageContract;
 
 /**
- * @extends ModelResource<FleetShip, FleetShipIndexPage, FleetShipFormPage, FleetShipDetailPage>
+ * @extends ModelResource<FleetShip, FleetShipIndexPage, FleetShipFormPage>
  */
 class FleetShipResource extends ModelResource
 {
     protected string $model = FleetShip::class;
 
-    protected string $title = 'FleetShips';
-    
+    protected string $title = 'Теплоходы';
+
+    protected string $column = 'title';
+
+    protected string $sortColumn = 'sorting';
+
+    public function search(): array
+    {
+        return ['title'];
+    }
+
     /**
      * @return list<class-string<PageContract>>
      */
@@ -30,7 +38,6 @@ class FleetShipResource extends ModelResource
         return [
             FleetShipIndexPage::class,
             FleetShipFormPage::class,
-            FleetShipDetailPage::class,
         ];
     }
 }

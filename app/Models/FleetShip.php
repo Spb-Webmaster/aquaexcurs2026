@@ -9,6 +9,7 @@ class FleetShip extends Model
     protected $table = 'fleet_ships';
     protected $fillable = [
         'title',
+        'slug',
         'subtitle',
         'desc',
         'desc2',
@@ -28,6 +29,7 @@ class FleetShip extends Model
 
    protected $casts = [
        'params' => 'collection',
+       'gallery' => 'collection',
    ];
 
     protected static function boot():void

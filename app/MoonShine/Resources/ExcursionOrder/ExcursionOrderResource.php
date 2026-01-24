@@ -8,20 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 use App\Models\ExcursionOrder;
 use App\MoonShine\Resources\ExcursionOrder\Pages\ExcursionOrderIndexPage;
 use App\MoonShine\Resources\ExcursionOrder\Pages\ExcursionOrderFormPage;
-use App\MoonShine\Resources\ExcursionOrder\Pages\ExcursionOrderDetailPage;
 
 use MoonShine\Laravel\Resources\ModelResource;
 use MoonShine\Contracts\Core\PageContract;
 
 /**
- * @extends ModelResource<ExcursionOrder, ExcursionOrderIndexPage, ExcursionOrderFormPage, ExcursionOrderDetailPage>
+ * @extends ModelResource<ExcursionOrder, ExcursionOrderIndexPage, ExcursionOrderFormPage>
  */
 class ExcursionOrderResource extends ModelResource
 {
     protected string $model = ExcursionOrder::class;
 
     protected string $title = 'ExcursionOrders';
-    
+
     /**
      * @return list<class-string<PageContract>>
      */
@@ -30,7 +29,6 @@ class ExcursionOrderResource extends ModelResource
         return [
             ExcursionOrderIndexPage::class,
             ExcursionOrderFormPage::class,
-            ExcursionOrderDetailPage::class,
         ];
     }
 }
