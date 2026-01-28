@@ -1,0 +1,182 @@
+@charset "utf-8";
+$color: #282828;
+$colorRed: #EF533F;
+$colorCCC: #CCCCCC;
+$colorGrey: #667085;
+$colorBlue: #00306B;
+$colorBlue2: #3BA3D0;
+$colorGreen: #0f6567;
+$colorYellow: #FF931E;
+$colorOrange: #FF732C;
+
+.fleet__html {
+    h2 {
+        padding: 10px 0 20px 0;
+        color: #3BA3D0;
+    }
+
+    .fl__table {
+        width: 100%;
+        position: relative;
+        padding: 10px 0 20px 0;
+    }
+
+    .fl__tr {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        border: 1px solid #eeeeee;
+        border-radius: 8px;
+        padding: 16px;
+
+        .fl__sub {
+            font-weight: 600;
+            padding: 10px 0;
+            position: relative;
+            line-height: 1.4em;
+        }
+
+        .fl__ships {
+            padding: 10px 0;
+            position: relative;
+            line-height: 1.4em;
+            color: $colorBlue;
+        }
+
+        .fl__price_text {
+            padding: 10px 0;
+            position: relative;
+            line-height: 1.4em;
+            font-weight: 600;
+            border-bottom: 1px solid #eeeeee;
+            margin-bottom: 20px;
+
+        }
+
+        .fl__flex {
+            display: flex;
+            width: 100%;
+            position: relative;
+
+            .am {
+                width: 50%;
+            }
+
+            .pm {
+                width: 50%;
+            }
+
+            .am__time, .pm__time {
+                padding: 0 0 19px 0;
+                border-bottom: 1px solid #eeeeee;
+                margin-bottom: 20px;
+            }
+
+            .fl_super {
+                line-height: 1.4em;
+                position: relative;
+                color: $colorRed;
+            }
+        }
+
+        .flw_60 {
+            width: 60%;
+            padding-right: 70px;
+        }
+
+        .flw_40 {
+            width: 40%;
+        }
+    }
+
+    .fl__grey {
+        color: $colorGrey;
+        line-height: 1.4em;
+        position: relative;
+        padding: 0 0 20px 0;
+    }
+
+    .fl__td {
+        img {
+            width: 100%;
+            border-radius: 8px;
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .fleet__html {
+.fl_pad {
+    padding-top: 30px;
+}
+
+        .fl__tr {
+            display: block;
+            position: relative;
+            border: 1px solid #eeeeee;
+            border-radius: 8px;
+            padding: 16px;
+
+
+            .flw_60 {
+                width: 100%;
+                padding: 0 0 20px 0;
+            }
+
+            .flw_40 {
+                width: 100%;
+            }
+        }
+
+
+    }
+}
+
+@media (max-width: 468px) {
+    .fleet__html {
+
+
+        .fl__tr {
+
+
+
+            .fl__flex {
+
+
+                .am {
+                    width: 50%;
+                    font-size: 15px;
+                }
+
+                .pm {
+                    width: 50%;
+                    font-size: 15px;
+
+                }
+
+                .am__time, .pm__time {
+                    padding: 0 0 19px 0;
+                    border-bottom: 1px solid #eeeeee;
+                    margin-bottom: 20px;
+                }
+
+                .fl_super {
+                    line-height: 1.4em;
+                    position: relative;
+                    color: $colorRed;
+                }
+            }
+
+            .flw_60 {
+                width: 100%;
+                padding: 0 0 20px 0;
+            }
+
+            .flw_40 {
+                width: 100%;
+            }
+        }
+
+
+    }
+}

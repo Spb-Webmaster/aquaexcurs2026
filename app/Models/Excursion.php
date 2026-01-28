@@ -58,7 +58,8 @@ class Excursion extends Model
         'dont_register_button',
         'dont_register_form',
         'series',
-        'rent_text'
+        'rent_text',
+        'html'
     ];
 
 

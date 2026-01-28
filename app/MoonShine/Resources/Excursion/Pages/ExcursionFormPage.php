@@ -277,6 +277,7 @@ class ExcursionFormPage extends FormPage
                             ->valuesQuery(fn(Builder $query, Field $field) => $query->orderBy('sorting', 'DESC'))
                             ->selectMode()
                             ->nullable(),
+                        Textarea::make('Код html', 'html')->unescape(),
 
                     ])->columnSpan(12),
                 ]),

@@ -211,6 +211,8 @@
         </div>
     @endif
 
+
+
     @if($item->FleetSpeedBoat->isNotEmpty())
         <div class="FleetSpeedBoat">
             @if(config2('moonshine.fleet_speedboat.json_price'))
@@ -238,32 +240,42 @@
         </div>
     @endif
 
+
+
+
+
     @if($item->FleetShip->isNotEmpty())
         <div class="FleetShip">
 
-                @if(config2('moonshine.fleet_ship.json_price'))
-                    <div class="fleet_flex">
-                        @foreach(config2('moonshine.fleet_ship.json_price') as $json_price)
-                            <div class="fleet_item card">
-                                <div class="fleet_item__flex">
-                                    <div class="json_title"><span class="h3_blue">{{ $json_price['json_title'] }}</span>
-                                    </div>
-                                    <div class="json_price"><span class="h3_blue">{{ $json_price['json_price'] }}</span>
-                                    </div>
+            @if(config2('moonshine.fleet_ship.json_price'))
+                <div class="fleet_flex">
+                    @foreach(config2('moonshine.fleet_ship.json_price') as $json_price)
+                        <div class="fleet_item card">
+                            <div class="fleet_item__flex">
+                                <div class="json_title"><span class="h3_blue">{{ $json_price['json_title'] }}</span>
                                 </div>
-                                @if($json_price['json_text'])
-                                    <div class="json_text">
-                                        {!! $json_price['json_text'] !!}
-                                    </div>
-                                @endif
+                                <div class="json_price"><span class="h3_blue">{{ $json_price['json_price'] }}</span>
+                                </div>
                             </div>
-                        @endforeach
-                    </div>
-                @endif
+                            @if($json_price['json_text'])
+                                <div class="json_text">
+                                    {!! $json_price['json_text'] !!}
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+            @endif
 
             @foreach($item->FleetShip as $it)
                 <x-excursion.fleet.ship :item="$it"/>
             @endforeach
+        </div>
+    @endif
+
+    @if($item->html)
+        <div class="fleet__html">
+            <div class="fl_pad">{!!  $item->html !!}</div>
         </div>
     @endif
 
@@ -279,6 +291,7 @@
             @endif
         </div>
     @endif
+
 
 
 </div>

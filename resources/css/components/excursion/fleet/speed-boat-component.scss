@@ -136,3 +136,60 @@ $colorOrange: #FF732C;
         }
     }
 }
+
+@media (max-width: 968px) {
+    .excursion_speed-boat {
+
+        height: auto;
+                .speed-boat__flex {
+            .speed-boat__left {
+                min-width: 388px;
+                border-radius: 8px 0 0 8px;
+                img {
+                    min-width: 388px;
+                    width: 388px;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+}
+@media (max-width: 900px) {
+    .fleet_flex {
+        display: block;
+
+        .fleet_item {
+            width: 100%;
+
+        }
+    }
+}
+
+@media (max-width: 668px) {
+    .fleet_flex {
+        .fleet_item {
+            .fleet_item__flex {
+                width: 100%;
+                display: block;
+                min-height: 25px;
+
+                .json_title {
+                    border: none;
+                    padding-bottom: 4px;
+                    width: 100%;
+                    .h3_blue {
+                        font-size: 18px !important;
+                    }
+                }
+
+                .json_price {
+                    width: 100%;
+                    .h3_blue {
+                        font-size: 18px !important;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,124 @@
+.fleet__html h2 {
+  padding: 10px 0 20px 0;
+  color: #3BA3D0;
+}
+.fleet__html .fl__table {
+  width: 100%;
+  position: relative;
+  padding: 10px 0 20px 0;
+}
+.fleet__html .fl__tr {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  border: 1px solid #eeeeee;
+  border-radius: 8px;
+  padding: 16px;
+}
+.fleet__html .fl__tr .fl__sub {
+  font-weight: 600;
+  padding: 10px 0;
+  position: relative;
+  line-height: 1.4em;
+}
+.fleet__html .fl__tr .fl__ships {
+  padding: 10px 0;
+  position: relative;
+  line-height: 1.4em;
+  color: #00306B;
+}
+.fleet__html .fl__tr .fl__price_text {
+  padding: 10px 0;
+  position: relative;
+  line-height: 1.4em;
+  font-weight: 600;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 20px;
+}
+.fleet__html .fl__tr .fl__flex {
+  display: flex;
+  width: 100%;
+  position: relative;
+}
+.fleet__html .fl__tr .fl__flex .am {
+  width: 50%;
+}
+.fleet__html .fl__tr .fl__flex .pm {
+  width: 50%;
+}
+.fleet__html .fl__tr .fl__flex .am__time, .fleet__html .fl__tr .fl__flex .pm__time {
+  padding: 0 0 19px 0;
+  border-bottom: 1px solid #eeeeee;
+  margin-bottom: 20px;
+}
+.fleet__html .fl__tr .fl__flex .fl_super {
+  line-height: 1.4em;
+  position: relative;
+  color: #EF533F;
+}
+.fleet__html .fl__tr .flw_60 {
+  width: 60%;
+  padding-right: 70px;
+}
+.fleet__html .fl__tr .flw_40 {
+  width: 40%;
+}
+.fleet__html .fl__grey {
+  color: #667085;
+  line-height: 1.4em;
+  position: relative;
+  padding: 0 0 20px 0;
+}
+.fleet__html .fl__td img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .fleet__html .fl_pad {
+    padding-top: 30px;
+  }
+  .fleet__html .fl__tr {
+    display: block;
+    position: relative;
+    border: 1px solid #eeeeee;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .fleet__html .fl__tr .flw_60 {
+    width: 100%;
+    padding: 0 0 20px 0;
+  }
+  .fleet__html .fl__tr .flw_40 {
+    width: 100%;
+  }
+}
+@media (max-width: 468px) {
+  .fleet__html .fl__tr .fl__flex .am {
+    width: 50%;
+    font-size: 15px;
+  }
+  .fleet__html .fl__tr .fl__flex .pm {
+    width: 50%;
+    font-size: 15px;
+  }
+  .fleet__html .fl__tr .fl__flex .am__time, .fleet__html .fl__tr .fl__flex .pm__time {
+    padding: 0 0 19px 0;
+    border-bottom: 1px solid #eeeeee;
+    margin-bottom: 20px;
+  }
+  .fleet__html .fl__tr .fl__flex .fl_super {
+    line-height: 1.4em;
+    position: relative;
+    color: #EF533F;
+  }
+  .fleet__html .fl__tr .flw_60 {
+    width: 100%;
+    padding: 0 0 20px 0;
+  }
+  .fleet__html .fl__tr .flw_40 {
+    width: 100%;
+  }
+}
+
+/*# sourceMappingURL=fleet.css.map */
