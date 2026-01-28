@@ -6,7 +6,6 @@
 
                    @if($item->img) style="background-image: url({{ $item->full_img }}) @endif"
 
-
                    class="excursion_item__img"></a>
                 @if(count($item->get_gallery()))
                     @foreach($item->get_gallery() as $gallery)
@@ -239,10 +238,6 @@
             @endforeach
         </div>
     @endif
-
-
-
-
 
     @if($item->FleetShip->isNotEmpty())
         <div class="FleetShip">

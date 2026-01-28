@@ -27,6 +27,7 @@ use App\MoonShine\Resources\MenuBottom\MenuBottomResource;
 use App\MoonShine\Resources\SiteNew\SiteNewResource;
 use App\MoonShine\Resources\FleetSpeedboat\FleetSpeedboatResource;
 use App\MoonShine\Resources\FleetShip\FleetShipResource;
+use YuriZoom\MoonShineMediaManager\Pages\MediaManagerPage;
 
 final class AxeldLayout extends AppLayout
 {
@@ -83,6 +84,8 @@ final class AxeldLayout extends AppLayout
 
             MenuGroup::make(static fn() => __('Настройки'), [
                 MenuItem::make( SettingPage::class, 'Настройки', 'adjustments-vertical'),
+                MenuItem::make(MediaManagerPage::class, 'Медиа' , 'film'),
+
             ]),
 
 

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "42e5aaf9c411eec58a88e4931cd13081",
+    "content-hash": "5d9e597085faae30d8992770bcc491ce",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -8279,6 +8279,63 @@
                 }
             ],
             "time": "2024-11-21T01:49:47+00:00"
+        },
+        {
+            "name": "yurizoom/moonshine-media-manager",
+            "version": "3.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yurizoom/moonshine-media-manager.git",
+                "reference": "33b8b9cbbf47496589af789dd5ccbe17573ac89b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yurizoom/moonshine-media-manager/zipball/33b8b9cbbf47496589af789dd5ccbe17573ac89b",
+                "reference": "33b8b9cbbf47496589af789dd5ccbe17573ac89b",
+                "shasum": ""
+            },
+            "require": {
+                "moonshine/moonshine": "^4.0",
+                "php": "^8.2"
+            },
+            "conflict": {
+                "moonshine/moonshine": "<4.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "YuriZoom\\MoonShineMediaManager\\MediaManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "YuriZoom\\MoonShineMediaManager\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "yurizoom",
+                    "homepage": "https://github.com/yurizoom",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Media manager for MoonShine",
+            "keywords": [
+                "manager",
+                "media",
+                "moonshine"
+            ],
+            "support": {
+                "issues": "https://github.com/yurizoom/moonshine-media-manager/issues",
+                "source": "https://github.com/yurizoom/moonshine-media-manager/tree/3.0.1"
+            },
+            "time": "2026-01-06T19:09:37+00:00"
         }
     ],
     "packages-dev": [

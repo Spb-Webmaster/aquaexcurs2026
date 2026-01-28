@@ -108,4 +108,14 @@ return [
     'locales' => [
         // en
     ],
+    'media_manager' => [
+        // Автоматическое добавление в меню
+        'auto_menu' => false,
+        // Корневая директория
+        'disk' => config('filesystem.default', 'public'),
+        // Разрешенные для загрузки расширения файлов
+        'allowed_ext' => 'jpg,jpeg,png,pdf,doc,docx,zip',
+        // Вид менеджера по-умолчанию
+        'default_view' => 'table',
+    ]
 ];
