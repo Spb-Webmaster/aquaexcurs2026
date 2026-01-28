@@ -30,9 +30,12 @@ $colorOrange: #FF732C;
 
             min-width: 488px;
             border-radius: 8px 0 0 8px;
+            overflow: hidden;
 
             img {
                 border-radius: 8px 0 0 8px;
+                width: 100%;
+                object-fit: cover; /* Это свойство сохраняет пропорции изображения и обрезает его, если необходимо */
             }
         }
 
@@ -146,9 +149,7 @@ $colorOrange: #FF732C;
                 min-width: 388px;
                 border-radius: 8px 0 0 8px;
                 img {
-                    min-width: 388px;
-                    width: 388px;
-                    height: auto;
+
                 }
             }
         }
@@ -166,6 +167,36 @@ $colorOrange: #FF732C;
     }
 }
 
+@media (max-width: 800px) {
+    .excursion_speed-boat {
+        position: relative;
+        max-height: 100%;
+        background-position: 100% 100%;
+        background-repeat: no-repeat;
+        .speed-boat__flex {
+            display: block;
+
+
+            .speed-boat__left {
+
+                min-width: 1px;
+                width: 100%;
+                border-radius: 8px 8px 0 0;
+                overflow: hidden;
+
+                img {
+                    border-radius: 8px  8px 0 0;
+                    width: 100%;
+                    object-fit: cover; /* Это свойство сохраняет пропорции изображения и обрезает его, если необходимо */
+                }
+            }
+
+            .speed-boat__right {
+                width: 100%;
+            }
+        }
+    }
+}
 @media (max-width: 668px) {
     .fleet_flex {
         .fleet_item {
@@ -191,5 +222,8 @@ $colorOrange: #FF732C;
                 }
             }
         }
+    }
+    .speed-boat__right {
+        padding-left: 20px !important;
     }
 }

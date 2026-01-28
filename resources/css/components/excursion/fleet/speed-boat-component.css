@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .excursion_speed-boat {
   position: relative;
   max-height: 237px;
@@ -16,9 +17,12 @@
 .excursion_speed-boat .speed-boat__flex .speed-boat__left {
   min-width: 488px;
   border-radius: 8px 0 0 8px;
+  overflow: hidden;
 }
 .excursion_speed-boat .speed-boat__flex .speed-boat__left img {
   border-radius: 8px 0 0 8px;
+  width: 100%;
+  object-fit: cover; /* Это свойство сохраняет пропорции изображения и обрезает его, если необходимо */
 }
 .excursion_speed-boat .speed-boat__flex .speed-boat__right {
   width: 100%;
@@ -112,17 +116,37 @@
     min-width: 388px;
     border-radius: 8px 0 0 8px;
   }
-  .excursion_speed-boat .speed-boat__flex .speed-boat__left img {
-    min-width: 388px;
-    width: 388px;
-    height: auto;
-  }
 }
 @media (max-width: 900px) {
   .fleet_flex {
     display: block;
   }
   .fleet_flex .fleet_item {
+    width: 100%;
+  }
+}
+@media (max-width: 800px) {
+  .excursion_speed-boat {
+    position: relative;
+    max-height: 100%;
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+  }
+  .excursion_speed-boat .speed-boat__flex {
+    display: block;
+  }
+  .excursion_speed-boat .speed-boat__flex .speed-boat__left {
+    min-width: 1px;
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    overflow: hidden;
+  }
+  .excursion_speed-boat .speed-boat__flex .speed-boat__left img {
+    border-radius: 8px 8px 0 0;
+    width: 100%;
+    object-fit: cover; /* Это свойство сохраняет пропорции изображения и обрезает его, если необходимо */
+  }
+  .excursion_speed-boat .speed-boat__flex .speed-boat__right {
     width: 100%;
   }
 }
@@ -145,6 +169,9 @@
   }
   .fleet_flex .fleet_item .fleet_item__flex .json_price .h3_blue {
     font-size: 18px !important;
+  }
+  .speed-boat__right {
+    padding-left: 20px !important;
   }
 }
 
