@@ -51,13 +51,15 @@ class OrderController extends Controller
         ReplaceText::make()->replaceText($order);
 
         /** Отправим в 1С */
-        OrderProcessing::make()->sendingProcess($order);
+        $order_request  = OrderProcessing::make()->sendingProcess($order);
 
+       // тут необходимо записать код ответа (200) или (500) для отправки в БД!!!!! order_request['http_code']
         /** Отправим на почту  */
 
 
         return view('orders.order_result', [
-            'order' => $order
+            'order' => $order,
+            'http_code' => $order_request['http_code'],
         ]);
 
     }

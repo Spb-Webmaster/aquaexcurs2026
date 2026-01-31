@@ -10,10 +10,10 @@ class OrderProcessing
 
 
     /**
-     * @return true|false
+     * @return array
      * Процесс отправки данных на сервер 1С
      */
-    public function sendingProcess($order) // процессОтправки
+    public function sendingProcess($order): array // процессОтправки
     {
 
         $men = [];
@@ -115,8 +115,6 @@ class OrderProcessing
         }
 
 
-
-
         // авторизация
         $curl = curl_init('http://89.104.109.202/Aqua-main/hs/ex?appid=Aqua&action=sendticketrequest');
         curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -126,47 +124,15 @@ class OrderProcessing
         //  запрос
 
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        $result = curl_exec($curl);
-        //$res = json_decode($result);
-        // вывести результат
+        $result = [
+            'curl' => curl_exec($curl),
+            'http_code' => curl_getinfo($curl, CURLINFO_HTTP_CODE)
+        ];
 
-
-        ///////////////////////////
-/*        $to = "axeld1975@yandex.ru";
-        $subject = 'YK #' . $order['number'] . ' ' . $result;
-        $message = ' <p>This is (Code) $_REQUEST[orderNumber] - ' . $order['number']. '</p>';
-        $message .= ' <p>This is (Date)$now_date - ' . $now_date . '</p>';
-        $message .= ' <p>This is (FIO)$order_fio - ' . $order_fio . '</p>';
-        $message .= ' <p>This is (PlanDate) $order_date - ' . $order_date . '</p>';
-        $message .= ' <p>This is (Paid)$_REQUEST[action] - </p>';
-        $message .= ' <p>This is (Route)$route - ' . $route . '</p>';
-
-        if (count($men)) {
-            $message .= ' <p>This is (Category)- $men ' . $men['category'] . '</p>';
-            $message .= ' <p>This is (Number)$quantity_men - ' . $men['quantity'] . '</p>';
-            $message .= ' <p>This is (Price)$price_men - ' . $men['price']  . '</p>';
-            $message .= ' <p>This is (Sum)$sum_men - ' . $men['total_price']  . '</p>';
-        }
-
-
-        if (count($child)) {
-            $message .= ' <p>This is (Category)- $child ' . $child['category'] . '</p>';
-            $message .= ' <p>This is (Number)$quantity_child - ' . $child['quantity'] . '</p>';
-            $message .= ' <p>This is (Price)$price_child - ' . $child['price'] . '</p>';
-            $message .= ' <p>This is (Sum)$sum_child - ' . $child['total_price'] . '</p>';
-        }
-
-
-        $message .= ' <p>' . $result . '</p>';
-        $message .= ' <p>' . $mm . '</p>';
-
-        $headers = "Content-type: text/html; charset=utf-8 \r\n";
-        $headers .= "From: FROM <akva.eksckurs@yandex.ru>\r\n";
-        $headers .= "Reply-To: akva.eksckurs@yandex.ru\r\n";
-
-        mail($to, $subject, $message, $headers);*/
-////////////////////////
+        curl_close($curl);
         return $result;
+
+
     }
 
 

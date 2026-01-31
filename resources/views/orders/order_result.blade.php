@@ -7,7 +7,10 @@
 @section('content')
 
     <main class="order_result">
-      {{--  @dump($order->toArray())--}}
+
+
+      @dump($order->toArray())
+       @dump($http_code)
         {{--
                 <section>
                     <div class="block relative item_customer_info">
