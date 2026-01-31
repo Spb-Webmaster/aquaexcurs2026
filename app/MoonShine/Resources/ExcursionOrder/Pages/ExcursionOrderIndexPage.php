@@ -4,15 +4,21 @@ declare(strict_types=1);
 
 namespace App\MoonShine\Resources\ExcursionOrder\Pages;
 
+use App\MoonShine\Resources\Excursion\ExcursionResource;
+use MoonShine\Laravel\Fields\Relationships\BelongsTo;
 use MoonShine\Laravel\Pages\Crud\IndexPage;
 use MoonShine\Contracts\UI\ComponentContract;
 use MoonShine\UI\Components\Table\TableBuilder;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Laravel\QueryTags\QueryTag;
 use MoonShine\UI\Components\Metrics\Wrapped\Metric;
+use MoonShine\UI\Fields\Date;
+use MoonShine\UI\Fields\Field;
 use MoonShine\UI\Fields\ID;
 use App\MoonShine\Resources\ExcursionOrder\ExcursionOrderResource;
 use MoonShine\Support\ListOf;
+use MoonShine\UI\Fields\Preview;
+use MoonShine\UI\Fields\Text;
 use Throwable;
 
 
@@ -30,6 +36,16 @@ class ExcursionOrderIndexPage extends IndexPage
     {
         return [
             ID::make(),
+            Text::make('Серия', 'series'),
+            Text::make('Номер', 'number'),
+            Preview::make('Статус', 'status')
+                ->badge(fn($status, Field $field) => ($status == 200) ? 'green' : (($status == 500) ? 'error' : 'gray')),
+            Text::make('ФИО', 'username'),
+            Text::make('Телефон', 'phone'),
+            Text::make('Email', 'email'),
+            Date::make(__('Необходимая дата'), 'excursion_date')
+                ->format("d.m.Y"),
+            BelongsTo::make('Экскурсия', 'Excursion', 'title', resource: ExcursionResource::class)->nullable(),
         ];
     }
 
@@ -79,7 +95,7 @@ class ExcursionOrderIndexPage extends IndexPage
     protected function topLayer(): array
     {
         return [
-            ...parent::topLayer()
+       //     ...parent::topLayer()
         ];
     }
 

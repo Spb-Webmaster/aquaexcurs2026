@@ -320,11 +320,15 @@ body.bind {
     }
 
 
-    .excursion_item__right_padding {
+    .excursion_item__right_padding ,.excursion_speed-boat {
         color: #000 !important;
         font-size: 18px !important;
 
-        .h3-rubik {
+        .sb_subtitle {
+            color: #000 !important;
+            font-size: 18px !important;
+        }
+        .h3-rubik,.sb_title {
             font-size: 20px !important;
             color: #000 !important;
 
@@ -341,7 +345,47 @@ body.bind {
         }
     }
 
+    .fleet_flex {
+        .fleet_item {
+          .h3_blue {
+                color: #000 !important;
+            }
+        }
+    }
+
+    .fl_pad {
+        h2 {
+            font-size: 32px !important;
+            color: #000 !important;
+            font-weight: 600;
+        }
+    }
+
+.fl__grey,.fl__ships,.excursion_item__pier  {
+    color: #000 !important;
+}
+.fl_super {
+    color: red !important;
+}
+
+
+.__price {
+    font-size: 40px;
+    color: #000 !important;
+}
+
+
     /** ////Полная экскурсия **/
+
+
+
+
+
+
+
+
+
+
 
     /** footer **/
     footer {

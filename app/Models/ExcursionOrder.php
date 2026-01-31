@@ -3,7 +3,9 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
-use TicketCast;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Support\Casts\TicketCast;
+
 
 class ExcursionOrder extends Model
 {
@@ -26,6 +28,11 @@ class ExcursionOrder extends Model
         'ticket' => TicketCast::class,
     ];
 
+    public function Excursion(): BelongsTo
+    {
+        return $this->belongsTo(Excursion::class, 'excursion_id');
+
+    }
     /** Мутация атрибута для изменения формата даты **/
     public function setExcursionDateAttribute($value): void
     {

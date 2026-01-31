@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderExcursionRequest;
+use App\Send1C\OrderProcessing;
 use Domain\ExcursionOrder\ViewModels\ExcursionOrderViewModels;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -17,38 +18,43 @@ class OrderController extends Controller
     {
         /** тут логика сохранения данных */
         //tour_data
-       $bool = ExcursionOrderViewModels::make()->setSession($request->all());
+        $bool = ExcursionOrderViewModels::make()->setSession($request->all());
         /** //тут логика сохранения данных */
 
-       $true =  array('url' => route('order'));
-       $false = array('errors' => 'error');
+        $true = array('url' => route('order'));
+        $false = array('errors' => 'error');
 
-        return response()->json(($bool)?$true:$false, 200);
+        return response()->json(($bool) ? $true : $false, 200);
     }
 
 
-    public function order():View | RedirectResponse
+    public function order(): View|RedirectResponse
     {
         $order = ExcursionOrderViewModels::make()->getSession(config('site.constants.tour_data'));
 
-        if(is_null($order)) {
+        if (is_null($order)) {
             return redirect()->route('home');
         }
 
-       return view('orders.order', [
-           'order' => $order
-       ]);
+        return view('orders.order', [
+            'order' => $order
+        ]);
 
     }
 
-    public function finalRequest(OrderExcursionRequest $request):View
+    public function finalRequest(OrderExcursionRequest $request): View
     {
-        /** запишем данные в базу и вернем данные для отображения на странице */
+        /** Запишем данные в базу и вернем данные для отображения на странице */
         $order = ExcursionOrderViewModels::make()->saveOrder($request);
 
-
-        /** создадим PDF и отправим на почту */
+        /** Создадим PDF */
         ReplaceText::make()->replaceText($order);
+
+        /** Отправим в 1С */
+        OrderProcessing::make()->sendingProcess($order);
+
+        /** Отправим на почту  */
+
 
         return view('orders.order_result', [
             'order' => $order

@@ -19,8 +19,14 @@ class ExcursionOrderResource extends ModelResource
 {
     protected string $model = ExcursionOrder::class;
 
-    protected string $title = 'ExcursionOrders';
+    protected string $title = 'Заказы экскурсий';
 
+    protected string $column = 'username';
+    protected string $sortColumn = 'created_at';
+    public function search(): array
+    {
+        return ['username','order','series','number', 'email', 'phone',  'Excursion.title'];
+    }
     /**
      * @return list<class-string<PageContract>>
      */

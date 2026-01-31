@@ -1,8 +1,7 @@
 @props([
     'value' => $value,
 ])
-@if(count($array))
-
+@if(isset($array))
 
         <x-moonshine::layout.grid>
 
@@ -11,24 +10,14 @@
                 <x-moonshine::layout.box :dark="true" title="Форма">
                     @foreach($array as $item)
                         <br>
-                        {{ $item['name'] }} - {{ $item['value'] }}
-
                         <x-moonshine::layout.divider/>
-
                     @endforeach
 
                 </x-moonshine::layout.box>
 
             </x-moonshine::layout.column>
 
-
         </x-moonshine::layout.grid>
-
-
-
-
-
-
 
 
 @endif

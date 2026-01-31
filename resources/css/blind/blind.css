@@ -218,21 +218,43 @@ body.bind .excursion_item .excursion_item__flex .excursion_item__left .excursion
   font-size: 22px !important;
   color: #000 !important;
 }
-body.bind .excursion_item__right_padding {
+body.bind .excursion_item__right_padding, body.bind .excursion_speed-boat {
   color: #000 !important;
   font-size: 18px !important;
 }
-body.bind .excursion_item__right_padding .h3-rubik {
+body.bind .excursion_item__right_padding .sb_subtitle, body.bind .excursion_speed-boat .sb_subtitle {
+  color: #000 !important;
+  font-size: 18px !important;
+}
+body.bind .excursion_item__right_padding .h3-rubik, body.bind .excursion_item__right_padding .sb_title, body.bind .excursion_speed-boat .h3-rubik, body.bind .excursion_speed-boat .sb_title {
   font-size: 20px !important;
   color: #000 !important;
 }
-body.bind .excursion_item__right_padding li {
+body.bind .excursion_item__right_padding li, body.bind .excursion_speed-boat li {
   font-size: 20px !important;
   font-weight: 500 !important;
   padding-left: 0 !important;
 }
-body.bind .excursion_item__right_padding li:before {
+body.bind .excursion_item__right_padding li:before, body.bind .excursion_speed-boat li:before {
   display: none !important;
+}
+body.bind .fleet_flex .fleet_item .h3_blue {
+  color: #000 !important;
+}
+body.bind .fl_pad h2 {
+  font-size: 32px !important;
+  color: #000 !important;
+  font-weight: 600;
+}
+body.bind .fl__grey, body.bind .fl__ships, body.bind .excursion_item__pier {
+  color: #000 !important;
+}
+body.bind .fl_super {
+  color: red !important;
+}
+body.bind .__price {
+  font-size: 40px;
+  color: #000 !important;
 }
 body.bind footer .menu_footer-menu-component {
   display: none;

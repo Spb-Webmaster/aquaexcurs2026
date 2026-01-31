@@ -11,7 +11,7 @@ use MoonShine\UI\Traits\Fields\WithInputExtensions;
 use MoonShine\UI\Traits\Fields\WithMask;
 
 
-class FormParams extends Field
+class OrderParams extends Field
 {
 
     use WithInputExtensions;
@@ -24,23 +24,14 @@ class FormParams extends Field
 
 
     // params
-    protected string $view = 'moonshine.fields.form_params';
+    protected string $view = 'moonshine.fields.order_params';
 
 
     protected function fields()
     {
-        $j = $this->toValue()->toArray();
-        $jd = (json_decode($j[0]));
-        $array = [];
-        foreach ($jd->form as $key => $value) {
-
-            $array[$key]['name'] = $value[0];
-            $array[$key]['value'] = $value[1];
-
-        }
-
-
-        return $array;
+        $j = ($this->toValue())?->toArray();
+        dump($j);
+       // return $array;
 
     }
 

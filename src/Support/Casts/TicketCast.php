@@ -1,5 +1,5 @@
 <?php
-
+namespace Support\Casts;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 
@@ -13,7 +13,7 @@ class TicketCast implements CastsAttributes
     public function get(Model $model, string $key, mixed $value, array $attributes): mixed
     {
 
-        return $value;
+       return $value;
     }
 
     /**
@@ -23,6 +23,8 @@ class TicketCast implements CastsAttributes
      */
     public function set(Model $model, string $key, mixed $value, array $attributes): mixed
     {
+
+       // dd($value);
         // Проверяем, что передано массив с серией и номером
         if (!is_array($value)) {
             throw new \InvalidArgumentException("Значение для тикета должно быть массивом");
