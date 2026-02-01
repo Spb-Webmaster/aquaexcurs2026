@@ -122,17 +122,24 @@ class OrderController extends Controller
     {
         /** получить данные сессии по ключу из прошлого шага */
         $order_session = ExcursionOrderViewModels::make()->getSession(config('site.constants.excursion_order'));
-        /** получить данные из бд по id */
-        $order = ExcursionOrder::find($order_session['id']);
-        /** удалить сессии **/
-        session()->forget([config('site.constants.tour_data'), config('site.constants.excursion_order')]);
+        if($order_session) {
+            /** получить данные из бд по id */
+            $order = ExcursionOrder::find($order_session['id']);
+            /** удалить сессии **/
+            session()->forget([config('site.constants.tour_data'), config('site.constants.excursion_order')]);
+            return view('orders.order_result_payment', [
+                'order' => (isset($order))?$order->toArray():null,
+            ]);
+
+        }
+        return view('orders.order_result_error', [
+
+        ]);
+
 
         // получить данные из бд по id
         // удалить сессии
         // рассмотреть остальные сценарии неудачной покупки
-        return view('orders.order_result_payment', [
-              'order' => (!is_null($order))?$order->toArray():null,
-        ]);
 
     }
 
