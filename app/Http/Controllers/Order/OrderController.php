@@ -79,12 +79,21 @@ class OrderController extends Controller
         Log::info($requestBody); // в логи
 
 
+
         try {
-            $notification = ($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED)
+            $notification = ($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED) //'payment.succeeded'
                 ? new NotificationSucceeded($requestBody)
                 : new NotificationWaitingForCapture($requestBody);
+            if(isset($notification)) {
+                Log::info('получим id модели ExcursionOrder'); // в логи
+                Log::info($requestBody['metadata']['orderId']); // в логи
+            }
+
+
+
         } catch (\Exception $e) {
             // Обработка ошибок при неверных данных
+            logErrors($e);
         }
         return true;
 
