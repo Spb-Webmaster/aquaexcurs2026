@@ -82,7 +82,7 @@ class OrderController extends Controller
                 : new NotificationWaitingForCapture($requestBody);
 
             if(isset($notification)) {
-
+                /** Вся логика будет тут */
                 $order = ExcursionOrder::find($requestBody['object']['metadata']['orderId']);
                 if(!is_null($order)) {
 
@@ -100,19 +100,12 @@ class OrderController extends Controller
                     //   $order_request  = OrderProcessing::make()->sendingProcess($order->toArray());
                 }
 
-
-/*                Log::info($requestBody['object']['metadata']['orderId']); // в логи
+/*              Log::info($requestBody['object']['metadata']['orderId']); // в логи
                 Log::info($requestBody['object']['id']); // в логи
                 Log::info($requestBody['object']['status']); // в логи
                 Log::info($requestBody['object']['amount']['value']); // в логи*/
 
-                /** Вся логика будет тут */
-                //отправить в 1с
-                // добавить статус оплаты в бд и статус от 1с
-                // создать pdf если позволяет статус
-
             }
-
 
 
         } catch (\Exception $e) {
@@ -125,10 +118,18 @@ class OrderController extends Controller
 
     public function paymentResult()
     {
+        /** получить данные сессии по ключу из прошлого шага */
+        $order_session = ExcursionOrderViewModels::make()->getSession(config('site.constants.excursion_order'));
+        /** получить данные из бд по id */
+        $order = ExcursionOrder::find($order_session['id']);
+        /** удалить сессии **/
+        session()->forget([config('site.constants.tour_data'), config('site.constants.excursion_order')]);
 
-        $order = ExcursionOrderViewModels::make()->getSession(config('site.constants.excursion_order'));
+        // получить данные из бд по id
+        // удалить сессии
+        // рассмотреть остальные сценарии неудачной покупки
         return view('orders.order_result_payment', [
-              'order' => $order,
+              'order' => (!is_null($order))?$order->toArray():null,
         ]);
 
     }

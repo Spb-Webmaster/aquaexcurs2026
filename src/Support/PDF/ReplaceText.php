@@ -16,7 +16,7 @@ class ReplaceText
 
         try {
         $originalPdfPath = storage_path('app/public/orders/pdf/templates/input.pdf'); // Исходный PDF
-        $modifiedPdfPath = storage_path('app/public/orders/pdf/files/output'.$data['number'].'.pdf'); // Результирующий PDF
+        $modifiedPdfPath = storage_path('app/public/orders/pdf/files/ticket-'.$data['number'].'.pdf'); // Результирующий PDF
 
         $human_quantity = (isset($data['order']['items'][0])) ? $data['order']['items'][0]['count'] : '—'; // Получаем первый элемент массива (взрослый)
         $child_quantity = (isset($data['order']['items'][1])) ? $data['order']['items'][1]['count'] : '—'; // Получаем первый элемент массива (детский)
