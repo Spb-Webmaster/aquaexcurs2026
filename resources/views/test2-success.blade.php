@@ -1,4 +1,4 @@
 @extends('layouts.layout')
 @section('content')
-test
+test2
 @endsection

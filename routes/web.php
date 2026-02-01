@@ -70,8 +70,10 @@ Route::controller(AxiosSendingFromFormController::class)->group(function () {
 
 Route::get('/', [HomeController::class, 'index' ])->name('home');
 Route::controller(TestController::class)->group(function () {
-    Route::get('/test', 'test')->name("test");
-    Route::post('/test_pdf', 'test_pdf')->name("test_pdf");
+/*    Route::get('/test', 'test')->name("test");
+    Route::get('/success', 'success')->name("success");
+    Route::get('/payment-succeeded', 'paymentSucceeded')->name("paymentSucceeded");
+    Route::post('/test_pdf', 'test_pdf')->name("test_pdf");*/
 });
 
 /** ///Главная **/
@@ -107,7 +109,12 @@ Route::controller(OrderController::class)->group(function () {
     Route::get('/book-a-tour', 'order')->name('order');
     Route::post('/book-a-tour-final', 'finalRequest')->name('final_request');
 
+    Route::get('/payment-result', 'paymentResult')->name('payment_result');
+    Route::any('/payment-succeeded', 'paymentSucceeded')->name('payment_succeeded');
 });
+
+
+
 /** заказ  */
 /** Статичные страницы (материалы)  */
 Route::get('/{slug}', [PageController::class, 'page' ])->name('page');

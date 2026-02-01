@@ -5,12 +5,17 @@ namespace App\Http\Controllers\Order;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderExcursionRequest;
 use App\Send1C\OrderProcessing;
+use App\YooKassa\YooKassaPayment;
 use Domain\ExcursionOrder\ViewModels\ExcursionOrderViewModels;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\Log;
 use Support\PDF\ReplaceText;
+use YooKassa\Model\Notification\NotificationEventType;
+use YooKassa\Model\Notification\NotificationSucceeded;
+use YooKassa\Model\Notification\NotificationWaitingForCapture;
 
 class OrderController extends Controller
 {
@@ -27,7 +32,6 @@ class OrderController extends Controller
         return response()->json(($bool) ? $true : $false, 200);
     }
 
-
     public function order(): View|RedirectResponse
     {
         $order = ExcursionOrderViewModels::make()->getSession(config('site.constants.tour_data'));
@@ -42,25 +46,61 @@ class OrderController extends Controller
 
     }
 
-    public function finalRequest(OrderExcursionRequest $request): View
+    public function finalRequest(OrderExcursionRequest $request):View|RedirectResponse
     {
         /** Запишем данные в базу и вернем данные для отображения на странице */
         $order = ExcursionOrderViewModels::make()->saveOrder($request);
+
 
         /** Создадим PDF */
         ReplaceText::make()->replaceText($order);
 
         /** Отправим в 1С */
-        $order_request  = OrderProcessing::make()->sendingProcess($order);
+      //  $order_request  = OrderProcessing::make()->sendingProcess($order);
 
-       // тут необходимо записать код ответа (200) или (500) для отправки в БД!!!!! order_request['http_code']
+
+        /** Оплатим заказ */
+        if($confirmationUrl = YooKassaPayment::make()->getRedirect($order)) {
+            return redirect($confirmationUrl);
+        }
+
+        // тут необходимо записать код ответа (200) или (500) для отправки в БД!!!!! order_request['http_code']
         /** Отправим на почту  */
 
 
+        /** Если дошли до сюда, то оплата не прошла !!! */
         return view('orders.order_result', [
             'order' => $order,
-            'http_code' => $order_request['http_code'],
+          //  'http_code' => $order_request['http_code'],
         ]);
 
     }
+
+
+    public function paymentSucceeded()
+    {
+        $source = file_get_contents('php://input');
+        $requestBody = json_decode($source, true);
+        Log::info('paymentSucceeded'); // в логи
+
+        try {
+            $notification = ($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED)
+                ? new NotificationSucceeded($requestBody)
+                : new NotificationWaitingForCapture($requestBody);
+        } catch (\Exception $e) {
+            // Обработка ошибок при неверных данных
+        }
+        return true;
+
+    }
+
+    public function paymentResult()
+    {
+
+        return view('orders.order_result_payment', [
+            //  'http_code' => $order_request['http_code'],
+        ]);
+
+    }
+
 }
