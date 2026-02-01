@@ -51,22 +51,21 @@ class OrderController extends Controller
         /** Запишем данные в базу и вернем данные для отображения на странице */
         $order = ExcursionOrderViewModels::make()->saveOrder($request);
 
-
-        /** Создадим PDF */
-        ReplaceText::make()->replaceText($order);
-
-        /** Отправим в 1С */
-      //  $order_request  = OrderProcessing::make()->sendingProcess($order);
-
         /** Оплатим заказ */
         if($confirmationUrl = YooKassaPayment::make()->getRedirect($order)) {
             return redirect($confirmationUrl);
         }
 
+        /** Создадим PDF */
+       // ReplaceText::make()->replaceText($order);
+
+        /** Отправим в 1С */
+       //  $order_request  = OrderProcessing::make()->sendingProcess($order);
+
         // тут необходимо записать код ответа (200) или (500) для отправки в БД!!!!! order_request['http_code']
         /** Отправим на почту  */
 
-        /** вернем на заданную страницу */
+        /** Вернем на заданную страницу нужно добавить сообщение flash */
         return redirect()->back();
     }
 
@@ -78,18 +77,23 @@ class OrderController extends Controller
         Log::info('public function paymentSucceeded()'); // в логи
         Log::info($requestBody); // в логи
 
-
-
         try {
             $notification = ($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED) //'payment.succeeded'
                 ? new NotificationSucceeded($requestBody)
                 : new NotificationWaitingForCapture($requestBody);
+
             if(isset($notification)) {
                 Log::info('получим id модели ExcursionOrder'); // в логи
                 Log::info($requestBody['object']['metadata']['orderId']); // в логи
                 Log::info($requestBody['object']['id']); // в логи
                 Log::info($requestBody['object']['status']); // в логи
                 Log::info($requestBody['object']['amount']['value']); // в логи
+
+                /** Вся логика будет тут */
+                //отправить в 1с
+                // добавить статус оплаты в бд и статус от 1с
+                // создать pdf если позволяет статус
+
             }
 
 
