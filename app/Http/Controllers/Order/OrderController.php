@@ -117,7 +117,7 @@ class OrderController extends Controller
 
     }
 
-    public function paymentResult()
+    public function paymentResult():View
     {
         /** получить данные сессии по ключу из прошлого шага */
         $order_session = ExcursionOrderViewModels::make()->getSession(config('site.constants.excursion_order'));
@@ -126,14 +126,18 @@ class OrderController extends Controller
             $order = ExcursionOrder::find($order_session['id']);
             /** удалить сессии **/
             session()->forget([config('site.constants.tour_data'), config('site.constants.excursion_order')]);
+
+            if($order->status_yoo_kassa !== 'succeeded') {
+                /** Произошла ошибка */
+                return view('orders.order_result_error', []);
+            }
+            /** Платеж прошел успешно */
             return view('orders.order_result_payment', [
                 'order' => (isset($order))?$order->toArray():null,
             ]);
 
         }
-        return view('orders.order_result_error', [
-
-        ]);
+        return view('orders.order_result_error', []);
 
 
         // получить данные из бд по id
