@@ -15,13 +15,18 @@ class ExcursionOrder extends Model
         'email',
         'phone',
         'price',
+        'amount',
+        'quantity',
         'order',
         'excursion_id',
         'excursion_date',
+        'status_yoo_kassa',
+        'id_yoo_kassa',
         'status',
         'number',
         'series',
-        'ticket'
+        'ticket',
+        'notification_yoo_kassa'
     ];
     protected $casts = [
         'order' => 'collection',
