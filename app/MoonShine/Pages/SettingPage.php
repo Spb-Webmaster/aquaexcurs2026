@@ -136,6 +136,8 @@ class SettingPage extends Page
 
                             Text::make(__('Подзаголовок'), 'order_error_sublabel')->unescape()->default((isset($order_error_sublabel)) ? $order_error_sublabel : ''),
 
+                            Textarea::make(__('Описание'), 'order_error__desc')->unescape()->default((isset($order_error__desc)) ? $order_error__desc : ''),
+
 
 
                         ]),

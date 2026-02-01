@@ -32,6 +32,7 @@
                 <div class="_info card ">
 
                     <div class="h3_blue"><span>Ошибка</span></div>
+                    <div class="desc">{!!  config2('moonshine.setting.order_error_desc') !!}</div>
 
                 </div>
             </div>
