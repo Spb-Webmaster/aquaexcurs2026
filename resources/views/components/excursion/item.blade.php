@@ -234,7 +234,7 @@
                 </div>
             @endif
             @foreach($item->FleetSpeedBoat as $it)
-                <x-excursion.fleet.speed-boat :item="$it"/>
+                <x-excursion.fleet.ship :item="$it"/>
             @endforeach
         </div>
     @endif
@@ -292,7 +292,7 @@
                 </div>
             @endif
             @foreach($item->FleetSchoolboy as $it)
-                <x-excursion.fleet.school-boy :item="$it"/>
+                <x-excursion.fleet.ship :item="$it"/>
             @endforeach
         </div>
     @endif

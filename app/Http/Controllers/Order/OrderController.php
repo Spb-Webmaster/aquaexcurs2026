@@ -81,7 +81,7 @@ class OrderController extends Controller
                 ? new NotificationSucceeded($requestBody)
                 : new NotificationWaitingForCapture($requestBody);*/
 
-            if($requestBody) {
+            if($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED) {
                 /** Вся логика будет тут */
                 $order = ExcursionOrder::find($requestBody['object']['metadata']['orderId']);
                 if(!is_null($order)) {
@@ -98,7 +98,6 @@ class OrderController extends Controller
 
                     /** Создадим PDF */
                      ReplaceText::make()->replaceText($order->toArray());
-
 
                 }
 
