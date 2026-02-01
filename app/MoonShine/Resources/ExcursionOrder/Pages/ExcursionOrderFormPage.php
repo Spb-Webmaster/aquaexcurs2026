@@ -23,6 +23,7 @@ use MoonShine\UI\Fields\Date;
 use MoonShine\UI\Fields\ID;
 use MoonShine\UI\Components\Layout\Box;
 use MoonShine\UI\Fields\Json;
+use MoonShine\UI\Fields\Number;
 use MoonShine\UI\Fields\Text;
 use Throwable;
 
@@ -61,6 +62,8 @@ class ExcursionOrderFormPage extends FormPage
 
                             Text::make('Серия', 'series')->locked(),
                             Text::make('Номер', 'number')->locked(),
+                            Number::make('Количество пассажиров', 'quantity'),
+                            Text::make('Общая сумма', 'amount'),
 
                         ]),
 
@@ -82,12 +85,21 @@ class ExcursionOrderFormPage extends FormPage
                     Grid::make([
                         Column::make([
 
-                            Collapse::make('Полные данные', [
+                            Collapse::make('Полные данные билета', [
                                 OrderParams::make('', 'order'),
                             ]),
 
                         ])->columnSpan(6),
                         Column::make([
+                            Collapse::make('Данные оплаты', [
+
+                                Text::make('ID YooKassa', 'id_yoo_kassa')->locked(),
+                                Text::make('Status YooKassa', 'status_yoo_kassa')->locked(),
+
+                            ]),
+                            Collapse::make('Полные данные платежного ответа', [
+                                OrderParams::make('', 'notification_yoo_kassa'),
+                            ]),
 
                         ])->columnSpan(6),
                     ]),

@@ -45,6 +45,7 @@ class ExcursionOrderIndexPage extends IndexPage
             Text::make('Email', 'email'),
             Date::make(__('Необходимая дата'), 'excursion_date')
                 ->format("d.m.Y"),
+            Text::make('Общая сумма', 'amount'),
             BelongsTo::make('Экскурсия', 'Excursion', 'title', resource: ExcursionResource::class)->nullable(),
         ];
     }

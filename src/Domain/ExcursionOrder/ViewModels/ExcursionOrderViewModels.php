@@ -99,7 +99,7 @@ class ExcursionOrderViewModels
             $array['order'] = $session;
             $array['series'] = $session['series'];
             $array['status'] = 0;
-            $array['quantity'] =  $session['total_count'];;
+            $array['quantity'] =  $session['total_count'];
             // Генерируем номер (предварительно увеличенный в creating)
             $nextNumber = ExcursionNextTicketNumber::first()->next_value ?? '';
             $array['number'] = str_pad((string)$nextNumber, 5, '0', STR_PAD_LEFT);
