@@ -102,6 +102,7 @@ Route::controller(SiteNewController::class)->group(function () {
 
 });
 /** ///Новости **/
+
 /** заказ  */
 Route::controller(OrderController::class)->group(function () {
     Route::post('/interim.request', 'interimRequest')->name('interim_request');
@@ -110,12 +111,10 @@ Route::controller(OrderController::class)->group(function () {
 
     Route::get('/payment/payment-result', 'paymentResult')->name('payment_result');
     Route::any('/payment/payment-succeeded', 'paymentSucceeded')
-        ->name('payment_succeeded');
+         ->name('payment_succeeded');
 });
-
-
-
 /** заказ  */
+
 /** Статичные страницы (материалы)  */
 Route::get('/{slug}', [PageController::class, 'page' ])->name('page');
 /** Статичные страницы (материалы)  */

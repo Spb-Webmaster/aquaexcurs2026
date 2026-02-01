@@ -18,21 +18,35 @@ class YooKassaPayment
         $series_number = $order['series'] .' '. $order['number'];
         $client = new Client();
         $client->setAuth($this->shopId, $this->apiKey);
+
         try {
             $idempotenceKey = uniqid('', true);
             $response = $client->createPayment(
-                array(
-                    'amount' => array(
+                [
+                    'amount' => [
                         'value' => trim($order['order']['total_price']),
                         'currency' => 'RUB',
-                    ),
-                    'confirmation' => array(
+                    ],
+                    'confirmation' => [
                         'type' => 'redirect',
+                        'locale' => 'ru_RU',
                         'return_url' => route('payment_result'),
-                    ),
+                    ],
                     'capture' => true,
-                    'description' => 'Заказ' . $series_number,
-                ),
+                    'description' => "Заказ {$series_number}",
+                    'metadata' => [
+                        'orderNumber' => $series_number,
+                        'orderId' => $order['id'],
+                    ],
+                    'receipt' => [
+                        'customer' => [
+                            'full_name' => ($order['username'])?? '',
+                            'email' => ($order['email'])??'',
+                            'phone' => ($order['phone'])??'',
+                        ],
+
+                    ],
+                ],
                 $idempotenceKey
             );
 
@@ -51,5 +65,12 @@ class YooKassaPayment
           return false;
 
 
+    }
+
+    public function getInfo(string $paymentId):object|null {
+        $client = new Client();
+        $client->setAuth($this->shopId, $this->apiKey);
+      //  $paymentId = '215d8da0-000f-50be-b000-0003308c89be';
+        return $client->getPaymentInfo($paymentId);
     }
 }

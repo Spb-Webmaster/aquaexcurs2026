@@ -7,8 +7,9 @@
 @section('content')
 
     <main class="order_result">
+        @dd($order)
         {{--      @dump($order->toArray())
-               @dump($http_code)--}}
+                  @dump($http_code)--}}
         {{--
                 <section>
                     <div class="block relative item_customer_info">
@@ -28,7 +29,64 @@
 
         <section class="relative">
             <div class="block relative item_customer_info ">
-                Переход после оплаты
+                <div class="_info card ">
+
+                    <div class="h3_blue"><span>Ваучер: {{ $order['order']['series'].' '.$order['number'] }}</span></div>
+
+                    <div class="cart_items py-2">
+                        <div class="cart_cart-result-sum hidden  active">
+                            @foreach($order['order']['items'] as $item)
+
+                                <div class="new-block-result-cart" data-key="{{ $item['human_id'] }}">
+                                    <div class="cart_item">
+                                        <div class="flex flex_exh">
+                                            <div class="cart_item__left">
+                                                <div class="cart_item__human ">{{ $item['human'] }}</div>
+                                            </div>
+
+                                            <div class="cart_item__right flex">
+                                                <div class="cart_item__options">
+                                                    <div class="cart_item__title"><a target="_blank"
+                                                                                     href="{{ route('site_excursion', ['slug' => $order['order']['slug']]) }}">{{ $order['order']['title'] }}</a>
+                                                    </div>
+                                                    <div class="py-1"></div>
+                                                    <div class="ci_item_1"><span
+                                                            class="">{{ $item['price'] }}</span> {{ config('currency.currency.RUB') }}
+                                                        x <span class="">{{ $item['count'] }}</span> чел.
+                                                    </div>
+                                                    <div class="ci_item_2"><span
+                                                            class="">{{ $item['total_price'] }}</span> {{ config('currency.currency.RUB') }}
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            @endforeach
+                        </div>
+                        <div class=" cart-total hidden active">
+
+                            <div class="flex">
+                                <div class="cart-total__left"></div>
+                                <div class="cart-total__right cart-t">
+                                    <hr class="">
+                                    <div class="cart-total__result flex">
+                                        <div class="mr-20 cart-total_sum_currency">
+                                            <span class="">{{ price($order['order']['total_price']) }}</span>
+                                            <i class="not-italic">{{ config('currency.currency.RUB') }}</i>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
             </div>
         </section>
 
@@ -48,6 +106,5 @@
         </section>
     </main>
 @endsection
-
 
 

@@ -7,6 +7,7 @@
 @section('content')
 
     <main class="order">
+
         {{--
                 <section>
                     <div class="block relative item_customer_info">
@@ -14,6 +15,7 @@
                     </div>
                 </section>
         --}}
+
         <section class="relative">
             <div class="block">
                 <div class="page__title pad_t50_important pad_b40_important">
