@@ -73,15 +73,15 @@ class OrderController extends Controller
     {
         $source = file_get_contents('php://input');
         $requestBody = json_decode($source, true);
-/*        Log::info('public function paymentSucceeded()'); // в логи
-          Log::info($requestBody); // в логи*/
+         Log::info('public function paymentSucceeded()'); // в логи
+          Log::info($requestBody); // в логи
 
         try {
-            $notification = ($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED) //'payment.succeeded'
+         /*   $notification = ($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED) //'payment.succeeded'
                 ? new NotificationSucceeded($requestBody)
-                : new NotificationWaitingForCapture($requestBody);
+                : new NotificationWaitingForCapture($requestBody);*/
 
-            if(isset($notification)) {
+            if($requestBody) {
                 /** Вся логика будет тут */
                 $order = ExcursionOrder::find($requestBody['object']['metadata']['orderId']);
                 if(!is_null($order)) {
