@@ -6,6 +6,7 @@ namespace App\MoonShine\Resources\Excursion\Pages;
 
 use App\Models\FleetShip;
 use App\MoonShine\Fields\OrderTodayTicket;
+use App\MoonShine\Resources\FleetSchoolboy\FleetSchoolboyResource;
 use App\MoonShine\Resources\FleetShip\FleetShipResource;
 use App\MoonShine\Resources\FleetSpeedboat\FleetSpeedboatResource;
 use Illuminate\Contracts\Database\Eloquent\Builder;
@@ -274,6 +275,10 @@ class ExcursionFormPage extends FormPage
                             ->selectMode()
                             ->nullable(),
                         BelongsToMany::make('Теплоходы', 'FleetShip', 'title', resource: FleetShipResource::class)
+                            ->valuesQuery(fn(Builder $query, Field $field) => $query->orderBy('sorting', 'DESC'))
+                            ->selectMode()
+                            ->nullable(),
+                        BelongsToMany::make('Школьные экскурсии', 'FleetSchoolboy', 'title', resource: FleetSchoolboyResource::class)
                             ->valuesQuery(fn(Builder $query, Field $field) => $query->orderBy('sorting', 'DESC'))
                             ->selectMode()
                             ->nullable(),

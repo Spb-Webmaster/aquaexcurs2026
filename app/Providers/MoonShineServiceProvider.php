@@ -24,6 +24,7 @@ use App\MoonShine\Resources\FleetSpeedboat\FleetSpeedboatResource;
 use App\MoonShine\Resources\FleetShip\FleetShipResource;
 use App\MoonShine\Pages\FleetSpeedBoatPage;
 use App\MoonShine\Pages\FleetShipPage;
+use App\MoonShine\Resources\FleetSchoolboy\FleetSchoolboyResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -45,6 +46,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 SiteNewResource::class,
                 FleetSpeedboatResource::class,
                 FleetShipResource::class,
+                FleetSchoolboyResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

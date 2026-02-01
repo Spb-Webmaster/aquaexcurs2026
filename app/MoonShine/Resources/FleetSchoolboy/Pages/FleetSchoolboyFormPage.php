@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\MoonShine\Resources\FleetShip\Pages;
+namespace App\MoonShine\Resources\FleetSchoolboy\Pages;
 
 use MoonShine\Laravel\Fields\Slug;
 use MoonShine\Laravel\Pages\Crud\FormPage;
@@ -13,7 +13,7 @@ use MoonShine\UI\Components\Collapse;
 use MoonShine\UI\Components\FormBuilder;
 use MoonShine\Contracts\UI\FieldContract;
 use MoonShine\Contracts\Core\TypeCasts\DataWrapperContract;
-use App\MoonShine\Resources\FleetShip\FleetShipResource;
+use App\MoonShine\Resources\FleetSchoolboy\FleetSchoolboyResource;
 use MoonShine\Support\ListOf;
 use MoonShine\UI\Components\Layout\Column;
 use MoonShine\UI\Components\Layout\Divider;
@@ -30,9 +30,9 @@ use Throwable;
 
 
 /**
- * @extends FormPage<FleetShipResource>
+ * @extends FormPage<FleetSchoolboyResource>
  */
-class FleetShipFormPage extends FormPage
+class FleetSchoolboyFormPage extends FormPage
 {
     /**
      * @return list<ComponentContract|FieldContract>
@@ -43,7 +43,7 @@ class FleetShipFormPage extends FormPage
 
             Box::make([
                 ID::make(),
-                Divider::make('Теплоходы'),
+                Divider::make('Школьные экскурсии'),
                 Grid::make([
                     Column::make([
 

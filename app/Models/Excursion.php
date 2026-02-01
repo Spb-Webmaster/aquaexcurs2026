@@ -82,6 +82,11 @@ class Excursion extends Model
         return $this->belongsToMany(FleetShip::class)->where('published', 1)->orderBy('sorting', 'desc');
 
     }
+    public function FleetSchoolboy(): BelongsToMany
+    {
+        return $this->belongsToMany(FleetSchoolboy::class)->where('published', 1)->orderBy('sorting', 'desc');
+
+    }
 
     public function getTeaserImgAttribute(): string
     {
