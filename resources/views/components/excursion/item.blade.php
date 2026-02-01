@@ -271,6 +271,25 @@
 
     @if($item->FleetSchoolboy->isNotEmpty())
         <div class="FleetShip">
+            @if(config2('moonshine.fleet_school_boy.json_price'))
+                <div class="fleet_flex">
+                    @foreach(config2('moonshine.fleet_school_boy.json_price') as $json_price)
+                        <div class="fleet_item card">
+                            <div class="fleet_item__flex">
+                                <div class="json_title"><span class="h3_blue">{{ $json_price['json_title'] }}</span>
+                                </div>
+                                <div class="json_price"><span class="h3_blue">{{ $json_price['json_price'] }}</span>
+                                </div>
+                            </div>
+                            @if($json_price['json_text'])
+                                <div class="json_text">
+                                    {!! $json_price['json_text'] !!}
+                                </div>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+            @endif
             @foreach($item->FleetSchoolboy as $it)
                 <x-excursion.fleet.ship :item="$it"/>
             @endforeach

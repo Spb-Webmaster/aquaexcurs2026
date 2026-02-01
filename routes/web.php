@@ -13,6 +13,7 @@ use App\Http\Controllers\SiteNew\SiteNewController;
 use App\Http\Controllers\TestController;
 use App\MoonShine\Controllers\MoonshineContact;
 use App\MoonShine\Controllers\MoonshineHome;
+use App\MoonShine\Controllers\MoonshineSchoolBoy;
 use App\MoonShine\Controllers\MoonshineSetting;
 use App\MoonShine\Controllers\MoonshineShip;
 use App\MoonShine\Controllers\MoonshineSpeedBoat;
@@ -26,6 +27,7 @@ Route::post('/moonshine/setting', [MoonshineSetting::class, 'setting' ]);
 Route::post('/moonshine/contact', [MoonshineContact::class, 'contact' ]);
 Route::post('/moonshine/fleet_speedboat', [MoonshineSpeedBoat::class, 'fleet_speedboat' ]);
 Route::post('/moonshine/fleet_ship', [MoonshineShip::class, 'fleet_ship' ]);
+Route::post('/moonshine/fleet_school_boy', [MoonshineSchoolBoy::class, 'fleet_school_boy' ]);
 
 /**
  * админка
