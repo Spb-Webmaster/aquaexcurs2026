@@ -270,6 +270,7 @@
 
 
     @if($item->FleetSchoolboy->isNotEmpty())
+
         <div class="FleetShip">
             @if(config2('moonshine.fleet_school_boy.json_price'))
                 <div class="fleet_flex">
@@ -291,7 +292,7 @@
                 </div>
             @endif
             @foreach($item->FleetSchoolboy as $it)
-                <x-excursion.fleet.ship :item="$it"/>
+                <x-excursion.fleet.school-boy :item="$it"/>
             @endforeach
         </div>
     @endif
