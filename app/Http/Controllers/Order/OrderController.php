@@ -86,7 +86,10 @@ class OrderController extends Controller
                 : new NotificationWaitingForCapture($requestBody);
             if(isset($notification)) {
                 Log::info('получим id модели ExcursionOrder'); // в логи
-                Log::info($requestBody['metadata']['orderId']); // в логи
+                Log::info($requestBody['object']['metadata']['orderId']); // в логи
+                Log::info($requestBody['object']['id']); // в логи
+                Log::info($requestBody['object']['status']); // в логи
+                Log::info($requestBody['object']['amount']['value']); // в логи
             }
 
 
