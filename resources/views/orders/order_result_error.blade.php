@@ -20,8 +20,8 @@
         <section class="relative">
             <div class="block">
                 <div class="page__title pad_t50_important ">
-                    <h1 class="h1">{{ config2('moonshine.setting.order_result_label') }}</h1>
-                    <div class="subtitle">{{ config2('moonshine.setting.order_result_sublabel') }}</div>
+                    <h1 class="h1">{{ config2('moonshine.setting.order_error_label') }}</h1>
+                    <div class="subtitle">{{ config2('moonshine.setting.order_error_sublabel') }}</div>
                 </div>
 
             </div>
@@ -32,7 +32,6 @@
                 <div class="_info card ">
 
                     <div class="h3_blue"><span>Ошибка</span></div>
-
 
                 </div>
             </div>

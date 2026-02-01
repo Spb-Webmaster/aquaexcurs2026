@@ -130,6 +130,12 @@ class SettingPage extends Page
 
                             Text::make(__('Подзаголовок'), 'order_result_sublabel')->unescape()->default((isset($order_result_sublabel)) ? $order_result_sublabel : ''),
 
+                           Divider::make('Ошибка в заказе'),
+
+                            Text::make(__('Заголовок'), 'order_error_label')->unescape()->default((isset($order_error_label)) ? $order_error_label : ''),
+
+                            Text::make(__('Подзаголовок'), 'order_error_sublabel')->unescape()->default((isset($order_error_sublabel)) ? $order_error_sublabel : ''),
+
 
 
                         ]),
