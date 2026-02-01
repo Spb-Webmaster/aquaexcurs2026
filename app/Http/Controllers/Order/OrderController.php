@@ -91,13 +91,15 @@ class OrderController extends Controller
                     $order->notification_yoo_kassa = $requestBody; // уведомление
                     //'pending', 'waiting_for_capture', 'succeeded', 'canceled'
                     $order->status_yoo_kassa = $requestBody['object']['status']; //статус
+                    /** Отправим в 1С */
+                    $order_request  = OrderProcessing::make()->sendingProcess($order->toArray());
+                    $order->status = $order_request['http_code'];
                     $order->save();
 
                     /** Создадим PDF */
                      ReplaceText::make()->replaceText($order->toArray());
 
-                    /** Отправим в 1С */
-                    //   $order_request  = OrderProcessing::make()->sendingProcess($order->toArray());
+
                 }
 
 /*              Log::info($requestBody['object']['metadata']['orderId']); // в логи
