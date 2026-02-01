@@ -70,10 +70,9 @@ Route::controller(AxiosSendingFromFormController::class)->group(function () {
 
 Route::get('/', [HomeController::class, 'index' ])->name('home');
 Route::controller(TestController::class)->group(function () {
-/*    Route::get('/test', 'test')->name("test");
-    Route::get('/success', 'success')->name("success");
-    Route::get('/payment-succeeded', 'paymentSucceeded')->name("paymentSucceeded");
-    Route::post('/test_pdf', 'test_pdf')->name("test_pdf");*/
+  Route::get('/test', 'test')->name("test");
+    Route::any('/payment/test_send', 'test_send')->name("test_send");
+
 });
 
 /** ///Главная **/
@@ -109,8 +108,9 @@ Route::controller(OrderController::class)->group(function () {
     Route::get('/book-a-tour', 'order')->name('order');
     Route::post('/book-a-tour-final', 'finalRequest')->name('final_request');
 
-    Route::get('/payment-result', 'paymentResult')->name('payment_result');
-    Route::any('/payment-succeeded', 'paymentSucceeded')->name('payment_succeeded');
+    Route::get('/payment/payment-result', 'paymentResult')->name('payment_result');
+    Route::any('/payment/payment-succeeded', 'paymentSucceeded')
+        ->name('payment_succeeded');
 });
 
 

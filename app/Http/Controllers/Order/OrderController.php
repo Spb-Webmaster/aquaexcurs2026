@@ -81,7 +81,9 @@ class OrderController extends Controller
     {
         $source = file_get_contents('php://input');
         $requestBody = json_decode($source, true);
-        Log::info('paymentSucceeded'); // в логи
+        Log::info('Жду сюда сообщение'); // в логи
+        Log::info($requestBody); // в логи
+        /** ничего не получаю ***/
 
         try {
             $notification = ($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED)

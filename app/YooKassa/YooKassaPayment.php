@@ -9,8 +9,8 @@ use YooKassa\Client;
 class YooKassaPayment
 {
     use Makeable;
-    protected $shopId = '1263476';
-    protected $apiKey = 'test_Z1CzV3biXUEW9fIUyboI3YosIbRrOlO5lwjMYGzqq00';
+    protected $shopId = '1263585';
+    protected $apiKey = 'test_jA7wPSbj7qZQs96QLuvgLVDCkqDBZ2e94zWS33gfoSc';
 
     public function getRedirect($order) :string|bool
     {
@@ -28,7 +28,7 @@ class YooKassaPayment
                     ),
                     'confirmation' => array(
                         'type' => 'redirect',
-                        'return_url' => 'https://aquaexcurs2026.test/payment-result',
+                        'return_url' => route('payment_result'),
                     ),
                     'capture' => true,
                     'description' => 'Заказ' . $series_number,
