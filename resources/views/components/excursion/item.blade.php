@@ -268,6 +268,15 @@
         </div>
     @endif
 
+
+    @if($item->FleetSchoolboy->isNotEmpty())
+        <div class="FleetShip">
+            @foreach($item->FleetSchoolboy as $it)
+                <x-excursion.fleet.ship :item="$it"/>
+            @endforeach
+        </div>
+    @endif
+
     @if($item->html)
         <div class="fleet__html">
             <div class="fl_pad">{!!  $item->html !!}</div>
