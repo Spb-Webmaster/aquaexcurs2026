@@ -80,12 +80,6 @@ class ExcursionOrderViewModels
 
     }
 
-    public function getSession($key):mixed
-    {
-        return session()->get($key);
-
-    }
-
 
     public function saveOrder($request):model |null
     {
@@ -118,5 +112,20 @@ class ExcursionOrderViewModels
 
 
     }
+
+    public function setSessionExcursionOrder($order): bool
+    {
+        /**config('site.constants.excursion_order')  - название сессии **/
+        /** Сохраняем данные в сессии **/
+        session()->put(config('site.constants.excursion_order'), $order);
+        return session()->has(config('site.constants.excursion_order'));
+
+    }
+
+    public function getSession($key):mixed
+    {
+        return session()->get($key);
+    }
+
 
 }

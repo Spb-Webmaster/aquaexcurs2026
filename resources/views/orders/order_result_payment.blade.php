@@ -7,7 +7,7 @@
 @section('content')
 
     <main class="order_result">
-        @dd($order)
+        @dump($order)
         {{--      @dump($order->toArray())
                   @dump($http_code)--}}
         {{--

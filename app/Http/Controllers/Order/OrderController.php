@@ -51,17 +51,15 @@ class OrderController extends Controller
     {
         /** Запишем данные в базу и вернем данные для отображения на странице */
         $order = ExcursionOrderViewModels::make()->saveOrder($request);
-
+        /** Сохраним данные заказа в сессию */
+        $bool =  ExcursionOrderViewModels::make()->setSessionExcursionOrder($order);
+        /** Получим ссылку на страницу оплаты */
+        $confirmationUrl = YooKassaPayment::make()->getRedirect($order);
         /** Оплатим заказ */
-        if($confirmationUrl = YooKassaPayment::make()->getRedirect($order)) {
+        if($confirmationUrl && $bool) {
             return redirect($confirmationUrl);
         }
 
-        /** Создадим PDF */
-       // ReplaceText::make()->replaceText($order);
-
-        /** Отправим в 1С */
-       //  $order_request  = OrderProcessing::make()->sendingProcess($order);
 
         // тут необходимо записать код ответа (200) или (500) для отправки в БД!!!!! order_request['http_code']
         /** Отправим на почту  */
@@ -75,8 +73,8 @@ class OrderController extends Controller
     {
         $source = file_get_contents('php://input');
         $requestBody = json_decode($source, true);
-        Log::info('public function paymentSucceeded()'); // в логи
-        Log::info($requestBody); // в логи
+/*        Log::info('public function paymentSucceeded()'); // в логи
+          Log::info($requestBody); // в логи*/
 
         try {
             $notification = ($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED) //'payment.succeeded'
@@ -85,19 +83,28 @@ class OrderController extends Controller
 
             if(isset($notification)) {
 
-                $excursionOrder = ExcursionOrder::find($requestBody['object']['metadata']['orderId']);
-                $excursionOrder->amount = $requestBody['object']['amount']['value']; // сумма
-                $excursionOrder->id_yoo_kassa = $requestBody['object']['id']; // id платежа yoo kassa
-                $excursionOrder->notification_yoo_kassa = $requestBody; // уведомление
-                //'pending', 'waiting_for_capture', 'succeeded', 'canceled'
-                $excursionOrder->status_yoo_kassa = $requestBody['object']['status']; //статус
-                $excursionOrder->save();
+                $order = ExcursionOrder::find($requestBody['object']['metadata']['orderId']);
+                if(!is_null($order)) {
 
-                Log::info('получим id модели ExcursionOrder'); // в логи
-                Log::info($requestBody['object']['metadata']['orderId']); // в логи
+                    $order->amount = $requestBody['object']['amount']['value']; // сумма
+                    $order->id_yoo_kassa = $requestBody['object']['id']; // id платежа yoo kassa
+                    $order->notification_yoo_kassa = $requestBody; // уведомление
+                    //'pending', 'waiting_for_capture', 'succeeded', 'canceled'
+                    $order->status_yoo_kassa = $requestBody['object']['status']; //статус
+                    $order->save();
+
+                    /** Создадим PDF */
+                     ReplaceText::make()->replaceText($order->toArray());
+
+                    /** Отправим в 1С */
+                    //   $order_request  = OrderProcessing::make()->sendingProcess($order->toArray());
+                }
+
+
+/*                Log::info($requestBody['object']['metadata']['orderId']); // в логи
                 Log::info($requestBody['object']['id']); // в логи
                 Log::info($requestBody['object']['status']); // в логи
-                Log::info($requestBody['object']['amount']['value']); // в логи
+                Log::info($requestBody['object']['amount']['value']); // в логи*/
 
                 /** Вся логика будет тут */
                 //отправить в 1с
@@ -119,7 +126,7 @@ class OrderController extends Controller
     public function paymentResult()
     {
 
-        $order = ExcursionOrderViewModels::make()->getSession(config('site.constants.tour_data'));
+        $order = ExcursionOrderViewModels::make()->getSession(config('site.constants.excursion_order'));
         return view('orders.order_result_payment', [
               'order' => $order,
         ]);
