@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Order;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderExcursionRequest;
+use App\Models\ExcursionOrder;
 use App\Send1C\OrderProcessing;
 use App\YooKassa\YooKassaPayment;
 use Domain\ExcursionOrder\ViewModels\ExcursionOrderViewModels;
@@ -84,6 +85,13 @@ class OrderController extends Controller
 
             if(isset($notification)) {
 
+                $excursionOrder = ExcursionOrder::find($requestBody['object']['metadata']['orderId']);
+                $excursionOrder->amount = $requestBody['object']['amount']['value']; // сумма
+                $excursionOrder->id_yoo_kassa = $requestBody['object']['id']; // id платежа yoo kassa
+                $excursionOrder->notification_yoo_kassa = $requestBody; // уведомление
+                //'pending', 'waiting_for_capture', 'succeeded', 'canceled'
+                $excursionOrder->status_yoo_kassa = $requestBody['object']['status']; //статус
+                $excursionOrder->save();
 
                 Log::info('получим id модели ExcursionOrder'); // в логи
                 Log::info($requestBody['object']['metadata']['orderId']); // в логи

@@ -30,6 +30,7 @@ class ExcursionOrder extends Model
     ];
     protected $casts = [
         'order' => 'collection',
+        'notification_yoo_kassa' => 'collection',
         'ticket' => TicketCast::class,
     ];
 

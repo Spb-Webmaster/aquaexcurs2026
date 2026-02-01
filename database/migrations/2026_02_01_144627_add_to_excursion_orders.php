@@ -12,10 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('excursion_orders', function (Blueprint $table) {
-            $table->float('amount')->nullable();
-            $table->string('id_yoo_kassa')->nullable();
-            $table->integer('quantity')->default(0);
-            $table->longText('notification_yoo_kassa')->nullable();
+            $table->enum('status_yoo_kassa', ['pending', 'waiting_for_capture', 'succeeded', 'canceled'])->default('pending');
         });
     }
 
