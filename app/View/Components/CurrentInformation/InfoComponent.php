@@ -8,12 +8,13 @@ use Illuminate\View\Component;
 
 class InfoComponent extends Component
 {
-    /**
-     * Create a new component instance.
-     */
-    public function __construct()
+
+   public ?string $title;
+   public ?string $desc;
+       public function __construct()
     {
-        //
+        $this->title = config2('moonshine.setting.info');
+        $this->desc = config2('moonshine.setting.info_desc');
     }
 
     /**

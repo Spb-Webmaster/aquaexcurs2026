@@ -1,7 +1,7 @@
 @props([
     'class' => ''
 ])
-<div class="_info card {{ $class }}">
-    <div class="h3_blue"><span>Текущая информация</span></div>
-    <p>В связи с закрытием акватории Невы 28 июня 2025 маршрут "Белые ночи" отменён! Билеты на маршрут - "Золотое кольцо" можно будет приобрести только в кассах на причалах!</p>
+<div class="_info card app_update info_update {{ $class }}">
+    <div class="h3_blue"><span>{{ $title }}</span></div>
+    <p>{!! $desc !!}</p>
 </div>

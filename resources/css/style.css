@@ -213,6 +213,10 @@ hr {
   background: #F5F5F7;
 }
 
+.auth_user .info_update {
+  background: #afe5fd;
+}
+
 @media (max-width: 1440px) {
   .block {
     width: 100%;

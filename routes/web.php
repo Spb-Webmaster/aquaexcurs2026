@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Axios\AxiosController;
 use App\Http\Controllers\Axios\AxiosSendingFromFormController;
+use App\Http\Controllers\Cabinet\CabinetController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FancyBox\FancyBoxController;
 use App\Http\Controllers\FancyBox\FancyBoxSendingFromFormController;
@@ -11,6 +13,8 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\SiteExcursion\SiteExcursionController;
 use App\Http\Controllers\SiteNew\SiteNewController;
 use App\Http\Controllers\TestController;
+use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Middleware\UserMiddleware;
 use App\MoonShine\Controllers\MoonshineContact;
 use App\MoonShine\Controllers\MoonshineHome;
 use App\MoonShine\Controllers\MoonshineSchoolBoy;
@@ -22,12 +26,12 @@ use Illuminate\Support\Facades\Route;
 /**
  * админка
  */
-Route::post('/moonshine/home', [MoonshineHome::class, 'home' ]);
-Route::post('/moonshine/setting', [MoonshineSetting::class, 'setting' ]);
-Route::post('/moonshine/contact', [MoonshineContact::class, 'contact' ]);
-Route::post('/moonshine/fleet_speedboat', [MoonshineSpeedBoat::class, 'fleet_speedboat' ]);
-Route::post('/moonshine/fleet_ship', [MoonshineShip::class, 'fleet_ship' ]);
-Route::post('/moonshine/fleet_school_boy', [MoonshineSchoolBoy::class, 'fleet_school_boy' ]);
+Route::post('/moonshine/home', [MoonshineHome::class, 'home']);
+Route::post('/moonshine/setting', [MoonshineSetting::class, 'setting']);
+Route::post('/moonshine/contact', [MoonshineContact::class, 'contact']);
+Route::post('/moonshine/fleet_speedboat', [MoonshineSpeedBoat::class, 'fleet_speedboat']);
+Route::post('/moonshine/fleet_ship', [MoonshineShip::class, 'fleet_ship']);
+Route::post('/moonshine/fleet_school_boy', [MoonshineSchoolBoy::class, 'fleet_school_boy']);
 
 /**
  * админка
@@ -48,9 +52,9 @@ Route::controller(FancyBoxSendingFromFormController::class)->group(function () {
 
 /**
  * ///fancybox-ajax
-
  *
- *//**
+ */
+/**
  *
  *
  * axios
@@ -71,29 +75,23 @@ Route::controller(AxiosSendingFromFormController::class)->group(function () {
 
 /** Главная **/
 
-Route::get('/', [HomeController::class, 'index' ])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::controller(TestController::class)->group(function () {
-  Route::get('/test', 'test')->name("test");
-  //Route::any('/payment/test_send', 'test_send')->name("test_send");
-
+  //  Route::get('/test', 'test')->name("test");
+    //Route::any('/payment/test_send', 'test_send')->name("test_send");
 });
-
 /** ///Главная **/
+
 /** Контакты **/
-
 Route::controller(ContactController::class)->group(function () {
-    Route::get('/'. config2('moonshine.contact.slug'), 'contacts')->name('contacts');
+    Route::get('/' . config2('moonshine.contact.slug'), 'contacts')->name('contacts');
 });
-
 /** ///Контакты **/
 
 /** Новости **/
 Route::controller(SiteNewController::class)->group(function () {
-
     Route::get('news', 'items')->name('site_news');
     Route::get('news/{slug}', 'item')->name('site_new');
-
-
 });
 /** ///Новости **/
 
@@ -105,7 +103,7 @@ Route::controller(OrderController::class)->group(function () {
 
     Route::get('/payment/payment-result', 'paymentResult')->name('payment_result');
     Route::any('/payment/payment-succeeded', 'paymentSucceeded')
-         ->name('payment_succeeded');
+        ->name('payment_succeeded');
 });
 /** заказ  */
 
@@ -118,8 +116,32 @@ Route::controller(SiteExcursionController::class)->group(function () {
 });
 /** ///Экскурсии **/
 
+/** * Auth */
+Route::controller(SignInController::class)->group(function () {
+
+    Route::get('/aqua-login', 'login')
+        ->middleware(RedirectIfAuthenticated::class)
+        ->name('login');
+
+    Route::post('/aqua-login', 'handleLogin')
+        ->middleware(RedirectIfAuthenticated::class)
+        ->name('handle_login');
+
+});
+/** * Auth */
+
+/** * cabinetUser */
+Route::controller(CabinetController::class)->group(function () {
+
+    /** кабинет  */
+    Route::get('/cabinet', 'cabinetUser')
+        ->name('cabinet_user')
+        ->middleware(UserMiddleware::class);
+});
+/** * cabinetUser */
+
 /** Статичные страницы (материалы)  */
-Route::get('/{slug}', [PageController::class, 'page' ])->name('page');
+Route::get('/{slug}', [PageController::class, 'page'])->name('page');
 /** Статичные страницы (материалы)  */
 
 

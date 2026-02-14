@@ -29,6 +29,7 @@ use App\MoonShine\Resources\FleetSpeedboat\FleetSpeedboatResource;
 use App\MoonShine\Resources\FleetShip\FleetShipResource;
 use YuriZoom\MoonShineMediaManager\Pages\MediaManagerPage;
 use App\MoonShine\Resources\FleetSchoolboy\FleetSchoolboyResource;
+use App\MoonShine\Resources\User\UserResource;
 
 final class AxeldLayout extends AppLayout
 {
@@ -49,6 +50,8 @@ final class AxeldLayout extends AppLayout
         return [
             MenuGroup::make('Пользователи', [
                 MenuItem::make( MoonShineUserResource::class, 'Админ', 'user'),
+                MenuItem::make(UserResource::class, 'Менеджер', 'users'),
+
                 MenuDivider::make(),
             ]),
 

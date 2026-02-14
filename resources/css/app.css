@@ -36,6 +36,7 @@
 @import 'components/content/desc.scss';
 @import 'components/content/gallery_component.scss';
 @import 'components/content/content-faq-component.scss';
+@import 'auth/auth.scss';
 @import 'message/flach_message.scss';
 
 @import 'order/order.scss';

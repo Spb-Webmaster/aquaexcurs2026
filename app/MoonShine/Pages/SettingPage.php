@@ -77,7 +77,15 @@ class SettingPage extends Page
                                         Text::make('Название', 'title')->default((isset($title)) ? $title : '')->unescape(),
 
                                         Text::make('Название в логотипе', 'title_logo')->default((isset($title_logo)) ? $title_logo : '')->unescape(),
-                                        Textarea::make('Слоган', 'slogan')->default((isset($slogan)) ? $slogan : ''),
+
+                                    ]),
+
+                                    Divider::make('Текущая информация'),
+
+                                    Box::make([
+                                        Text::make('Текущая информация', 'info')->default((isset($info)) ? $info : 'Текущая информация')->unescape(),
+
+                                        Textarea::make('Описание', 'info_desc')->default((isset($info_desc)) ? $info_desc : '')->unescape(),
 
                                     ]),
                                     Divider::make('Соц.сети'),

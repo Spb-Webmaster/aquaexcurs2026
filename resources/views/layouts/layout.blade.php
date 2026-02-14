@@ -19,7 +19,7 @@
     <meta name="description" content="@yield('description',  config('seo.seo.description'))"/>
     <meta name="keywords" content="@yield('keywords',  config('seo.seo.keywords'))"/>
 </head>
-<body>
+<body @if(auth()->user()) class="auth_user" @endif>
 <div id="back-to-top"></div>
 {{--  {!!  config('google.google_tag.body') !!}  --}}
     <div class="content_  @yield('class')  {{ route_name() }}" >
