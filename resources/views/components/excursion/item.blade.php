@@ -87,7 +87,8 @@
                 {{--Не продаем--}}
 
                 {{--Не продаем--}}
-            @else
+            @elseif($item->price_hide)
+
                 {{--Продаем--}}
                 <div class="card no_padding">
                     <div class="excursion_cart-add-sum__wrapper">
@@ -140,12 +141,15 @@
                     </div>
                 </div>
                 {{--Продаем--}}
+            @else
+                {{--Продажи закрыты--}}
+
+                {{--Продажи закрыты--}}
             @endif
         </div>
 
         <div class="excursion_item__right">
             <div class="card no_padding ">
-
                 <div
                     class="route_bg_blue">
                     @if($item->route)

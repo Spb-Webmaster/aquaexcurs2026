@@ -77,9 +77,6 @@ class OrderController extends Controller
           Log::info($requestBody); // в логи
 
         try {
-         /*   $notification = ($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED) //'payment.succeeded'
-                ? new NotificationSucceeded($requestBody)
-                : new NotificationWaitingForCapture($requestBody);*/
 
             if($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED) {
                 /** Вся логика будет тут */
@@ -95,6 +92,8 @@ class OrderController extends Controller
                     $order_request  = OrderProcessing::make()->sendingProcess($order->toArray());
                     $order->status = $order_request['http_code'];
                     $order->save();
+
+                    /** Обновим данные об экскурсии */
 
                     /** Создадим PDF */
                      ReplaceText::make()->replaceText($order->toArray());
@@ -131,6 +130,7 @@ class OrderController extends Controller
                 /** Произошла ошибка */
                 return view('orders.order_result_error', []);
             }
+
             /** Платеж прошел успешно */
             return view('orders.order_result_payment', [
                 'order' => (isset($order))?$order->toArray():null,

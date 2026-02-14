@@ -5,6 +5,7 @@ namespace Domain\ExcursionOrder\ViewModels;
 use App\Models\Excursion;
 use App\Models\ExcursionNextTicketNumber;
 use App\Models\ExcursionOrder;
+use Carbon\Carbon;
 use Domain\Excursion\ViewModels\ExcursionViewModel;
 use Illuminate\Database\Eloquent\Model;
 use Support\Traits\Makeable;
@@ -125,6 +126,29 @@ class ExcursionOrderViewModels
     public function getSession($key):mixed
     {
         return session()->get($key);
+    }
+
+
+    /**
+     * Получаем количество билетов, проданных за сегодняшний день
+     *
+     * @param int $excursion_id
+     * @return array
+     */
+    public function quantityTicketsForToday(int $excursion_id): array
+    {
+        // Определяем начало сегодняшнего дня (полночь)
+        $startOfToday = Carbon::today();
+
+        // Определяем конец сегодняшнего дня (следующая полночь минус одна секунда)
+        $endOfToday = Carbon::tomorrow()->subSecond();
+
+        // Выполняем выборку всех экскурсий ($id — условие фильтра, например, ID пользователя)
+        return ExcursionOrder::query()
+            ->where('excursion_id', $excursion_id) // Id экскурсии
+            ->whereBetween('created_at', [$startOfToday, $endOfToday])
+            ->get()
+            ->toArray(); // Преобразуем коллекцию в обычный PHP-массив
     }
 
 

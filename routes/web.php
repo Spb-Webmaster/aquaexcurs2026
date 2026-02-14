@@ -41,7 +41,6 @@ Route::controller(FancyBoxController::class)->group(function () {
 });
 /** Отправка самой формы */
 Route::controller(FancyBoxSendingFromFormController::class)->group(function () {
-
     Route::post('/call_me', 'fancyboxCallMe');
     Route::post('/order_excursion', 'fancyboxOrderExcursion');
 
@@ -49,6 +48,8 @@ Route::controller(FancyBoxSendingFromFormController::class)->group(function () {
 
 /**
  * ///fancybox-ajax
+
+ *
  *//**
  *
  *
@@ -73,7 +74,7 @@ Route::controller(AxiosSendingFromFormController::class)->group(function () {
 Route::get('/', [HomeController::class, 'index' ])->name('home');
 Route::controller(TestController::class)->group(function () {
   Route::get('/test', 'test')->name("test");
-    Route::any('/payment/test_send', 'test_send')->name("test_send");
+  //Route::any('/payment/test_send', 'test_send')->name("test_send");
 
 });
 
@@ -85,15 +86,6 @@ Route::controller(ContactController::class)->group(function () {
 });
 
 /** ///Контакты **/
-/** Экскурсии **/
-Route::controller(SiteExcursionController::class)->group(function () {
-
-    Route::get('excursions/{slug}', 'site_excursion')
-        ->name('site_excursion');
-
-
-});
-/** ///Экскурсии **/
 
 /** Новости **/
 Route::controller(SiteNewController::class)->group(function () {
@@ -116,6 +108,15 @@ Route::controller(OrderController::class)->group(function () {
          ->name('payment_succeeded');
 });
 /** заказ  */
+
+/** Экскурсии **/
+Route::controller(SiteExcursionController::class)->group(function () {
+
+    Route::get('excursions/{slug}', 'site_excursion')
+        ->name('site_excursion');
+
+});
+/** ///Экскурсии **/
 
 /** Статичные страницы (материалы)  */
 Route::get('/{slug}', [PageController::class, 'page' ])->name('page');

@@ -4,6 +4,8 @@ namespace Domain\Excursion\ViewModels;
 
 
 use App\Models\Excursion;
+use App\Models\ExcursionOrder;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Cache;
 use Support\Traits\Makeable;
 use Illuminate\Contracts\Pagination\Paginator;
@@ -47,8 +49,8 @@ class ExcursionViewModel
         return  Excursion::query()->where('id', $id)
             ->where('published', 1)->firstOrFail();
 
-
     }
+
 
 
 

@@ -89,7 +89,7 @@ body.bind .excursion_items .excursion_items__flex .excursion_item .__price {
 }
 body.bind .excursion_items .excursion_items__flex .excursion_item .__buy {
   width: 100%;
-  margin-top: 60px;
+  margin-top: 100px;
 }
 body.bind .excursion_items .excursion_items__flex .excursion_item .__buy a {
   width: 100%;

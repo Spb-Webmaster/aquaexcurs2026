@@ -3,6 +3,8 @@
 
 namespace App\MoonShine\Fields;
 
+
+use Domain\ExcursionOrder\ViewModels\ExcursionOrderViewModels;
 use MoonShine\UI\Fields\Field;
 
 
@@ -12,11 +14,11 @@ class OrderTodayTicket extends Field
 
     protected string $view = 'moonshine.fields.order_today_ticket';
 
-    protected function count_tickets()
+    protected function tickets()
     {
 
-        $tickets = 99;
-        return $tickets;
+        $id = $this->getData()->getKey();
+        return (is_null($id))?[]:ExcursionOrderViewModels::make()->quantityTicketsForToday($id);
 
     }
 
@@ -24,7 +26,7 @@ class OrderTodayTicket extends Field
     protected function viewData(): array
     {
         return [
-            'count_tickets' => $this->count_tickets(),
+            'tickets' => $this->tickets(),
         ];
     }
 

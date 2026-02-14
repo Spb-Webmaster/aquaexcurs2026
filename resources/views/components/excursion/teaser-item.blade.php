@@ -54,7 +54,6 @@
                     {!! $item->dont_register_desc !!}
                 </div>
 
-
                 {{--Не продаем--}}
             @else
                 {{--Продаем--}}
@@ -67,11 +66,10 @@
                     </div>
                     @if($item->price_hide)
                     <div class="__buy">
-
                             <a class="btn"
-                               href="{{ route('site_excursion', ['slug' => $item->slug ]) }}"><span>Купить</span></a>
-
-
+                               href="{{ route('site_excursion', ['slug' => $item->slug ]) }}">
+                                <span>Купить</span>
+                            </a>
                     </div>
                     @endif
                 </div>
