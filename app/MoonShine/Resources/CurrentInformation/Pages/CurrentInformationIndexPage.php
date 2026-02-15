@@ -91,7 +91,7 @@ class CurrentInformationIndexPage extends IndexPage
     protected function topLayer(): array
     {
         return [
-       //     ...parent::topLayer()
+            ...parent::topLayer()
         ];
     }
 
