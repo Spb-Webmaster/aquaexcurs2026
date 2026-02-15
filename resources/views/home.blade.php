@@ -23,4 +23,4 @@
     </section>
 
 @endsection
-{{-- test запись --}}
+{{-- test запись --- --}}
