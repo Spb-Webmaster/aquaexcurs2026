@@ -4,21 +4,29 @@ namespace App\Http\Controllers\FancyBox;
 
 use App\Http\Controllers\Controller;
 use App\Models\Excursion;
+use Domain\CurrentInformation\ViewModels\CurrentInformationViewModel;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
 class FancyBoxController extends Controller
 {
-    public function fancybox(Request $request) {
-
-
+    public function fancybox(Request $request):View
+    {
 
         if($request->template == 'call_me') {
             return view('fancybox.forms.call_me');
         }
 
 
-        if($request->template == 'order_excursion') {
+        if($request->template == 'edit_info') {
+            $ci = CurrentInformationViewModel::make()->show();
+            return view('fancybox.forms.edit_info', [
+                'text' => $ci['text']
+            ]);
+        }
 
+
+        if($request->template == 'order_excursion') {
             $jsonData = json_decode($request->data);
             $item  = null;
             if ($jsonData && isset($jsonData->excursion_id)) {
@@ -28,13 +36,10 @@ class FancyBoxController extends Controller
                 $item = Excursion::find($excursion_id);
             }
 
-
             return view('fancybox.forms.order_excursion', [
                 'item' => $item
             ]);
         }
-
-
 
         return view('fancybox.forms.error.error_form');
 

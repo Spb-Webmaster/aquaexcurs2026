@@ -64,13 +64,14 @@ if (!function_exists('phone')) {
  */
 if (!function_exists('cache_clear ')) {
 
-    function cache_clear($model = null)
+    function cache_clear($model = null):void
     {
         Cache::forget('list_contacts');
         Cache::forget('excursions');
         Cache::forget('menu');
         Cache::forget('menu_bottom');
         Cache::forget('site_news');
+        Cache::forget('custom_information');
 
     }
 }

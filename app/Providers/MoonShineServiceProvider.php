@@ -27,6 +27,7 @@ use App\MoonShine\Pages\FleetShipPage;
 use App\MoonShine\Resources\FleetSchoolboy\FleetSchoolboyResource;
 use App\MoonShine\Pages\FleetSchoolBoyPage;
 use App\MoonShine\Resources\User\UserResource;
+use App\MoonShine\Resources\CurrentInformation\CurrentInformationResource;
 
 class MoonShineServiceProvider extends ServiceProvider
 {
@@ -50,6 +51,7 @@ class MoonShineServiceProvider extends ServiceProvider
                 FleetShipResource::class,
                 FleetSchoolboyResource::class,
                 UserResource::class,
+                CurrentInformationResource::class,
             ])
             ->pages([
                 ...$core->getConfig()->getPages(),

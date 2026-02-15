@@ -5,6 +5,7 @@ namespace App\Http\Controllers\FancyBox;
 use App\Events\Form\ExcursionEmailEvent;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderExcursionEmailRequest;
+use Domain\CurrentInformation\ViewModels\CurrentInformationViewModel;
 use Domain\ExcursionEmail\ViewModels\ExcursionEmailViewModel;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -35,6 +36,29 @@ class FancyBoxSendingFromFormController extends Controller
      return response()->json([
             'response' => $request->all(),
         ], 200);
+
+    }
+    /** Редактирование текущей информации */
+    public function fancyboxEditInfo(Request $request):?JsonResponse {
+
+       $response = [
+           'response' => $request->all(),
+       ];
+        try {
+            if(!CurrentInformationViewModel::make()->save($request->all())) {
+                $response['errors'] = "Ошибка сохранения";
+            }
+
+
+        } catch (\Throwable $exception) {
+            logErrors($exception);
+            throw $exception;
+
+        }
+
+//        dd($response);
+
+     return response()->json($response, 200);
 
     }
 

@@ -30,6 +30,7 @@ use App\MoonShine\Resources\FleetShip\FleetShipResource;
 use YuriZoom\MoonShineMediaManager\Pages\MediaManagerPage;
 use App\MoonShine\Resources\FleetSchoolboy\FleetSchoolboyResource;
 use App\MoonShine\Resources\User\UserResource;
+use App\MoonShine\Resources\CurrentInformation\CurrentInformationResource;
 
 final class AxeldLayout extends AppLayout
 {
@@ -94,7 +95,7 @@ final class AxeldLayout extends AppLayout
             ]),
 
             MenuGroup::make(static fn() => __('Настройки'), [
-
+                MenuItem::make(CurrentInformationResource::class, 'Текущая информация', 'chat-bubble-left-ellipsis'),
                 MenuItem::make( SettingPage::class, 'Настройки', 'adjustments-vertical'),
                 MenuItem::make(MediaManagerPage::class, 'Медиа' , 'film'),
 

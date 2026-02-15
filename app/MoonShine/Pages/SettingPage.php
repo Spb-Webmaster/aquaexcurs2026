@@ -33,7 +33,7 @@ class SettingPage extends Page
         ];
     }
 
-    public function setting()
+    public function setting():?array
     {
 
         if (Storage::disk('config')->exists('moonshine/setting.php')) {

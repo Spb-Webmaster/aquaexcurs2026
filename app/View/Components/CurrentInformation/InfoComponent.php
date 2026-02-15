@@ -3,6 +3,7 @@
 namespace App\View\Components\CurrentInformation;
 
 use Closure;
+use Domain\CurrentInformation\ViewModels\CurrentInformationViewModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
@@ -10,11 +11,12 @@ class InfoComponent extends Component
 {
 
    public ?string $title;
-   public ?string $desc;
+   public ?string $text;
        public function __construct()
     {
-        $this->title = config2('moonshine.setting.info');
-        $this->desc = config2('moonshine.setting.info_desc');
+        $ci = CurrentInformationViewModel::make()->show();
+        $this->title = $ci['title'];
+        $this->text = $ci['text'];
     }
 
     /**
