@@ -11,10 +11,11 @@
     'resources/css/app.css',
     'resources/js/app.js',
     ])
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
-    <link rel="manifest" href="/favicon/site.webmanifest">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ config('app.app_url') }}/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ config('app.app_url') }}/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ config('app.app_url') }}/favicon/favicon-16x16.png">
+    <link rel="manifest" href="{{ config('app.app_url') }}/favicon/site.webmanifest">
+    <meta name="yandex-verification" content="7065b2341e042350" />
     <title>@yield('title', config('seo.seo.title'))</title>
     <meta name="description" content="@yield('description',  config('seo.seo.description'))"/>
     <meta name="keywords" content="@yield('keywords',  config('seo.seo.keywords'))"/>
