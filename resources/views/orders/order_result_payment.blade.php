@@ -80,7 +80,6 @@
 
                                     </div>
                                     <div class="pad_t10"><span class="grey">Дата: </span> {{ rusdate3($item['excursion_date']) }}</div>
-
                                 </div>
                             </div>
                         </div>
