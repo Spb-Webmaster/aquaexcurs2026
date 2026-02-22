@@ -100,6 +100,7 @@ class ExcursionOrderViewModels
             $array['number'] = str_pad((string)$nextNumber, 5, '0', STR_PAD_LEFT);
             // Создаем объект ticket
           //   $array['ticket'] = ['series' => $session['series'], 'number' =>  $array['number']];
+
             return ExcursionOrder::create($array);
 
         } catch (\Throwable $th) {

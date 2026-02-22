@@ -9,8 +9,8 @@ use YooKassa\Client;
 class YooKassaPayment
 {
     use Makeable;
-    protected $shopId = '1263585';
-    protected $apiKey = 'test_jA7wPSbj7qZQs96QLuvgLVDCkqDBZ2e94zWS33gfoSc';
+    protected $shopId = '1282712';
+    protected $apiKey = 'test_tTs8kil8G_rrbUuDqfRY_ug5QMIVARPI6nYIzqkNUJw';
 
     public function getRedirect($order) :string|bool
     {

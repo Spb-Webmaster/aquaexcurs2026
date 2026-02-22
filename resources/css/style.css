@@ -200,6 +200,10 @@ hr {
   color: #667085;
 }
 
+.grey {
+  color: #667085;
+}
+
 .fancybox__dialog * {
   user-select: auto !important; /* Включаем выделение текста */
   cursor: default !important; /*Меняем курсор мыши на стандартный */

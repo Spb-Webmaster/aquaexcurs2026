@@ -60,10 +60,8 @@ class OrderController extends Controller
             return redirect($confirmationUrl);
         }
 
-
-        // тут необходимо записать код ответа (200) или (500) для отправки в БД!!!!! order_request['http_code']
-        /** Отправим на почту  */
-
+        /** Ошибка */
+        flash()->alert(config('message_flash.alert.buy_error'));
         /** Вернем на заданную страницу нужно добавить сообщение flash */
         return redirect()->back();
     }
