@@ -16,9 +16,15 @@ class OrderTodayTicket extends Field
 
     protected function tickets()
     {
-
         $id = $this->getData()->getKey();
         return (is_null($id))?[]:ExcursionOrderViewModels::make()->quantityTicketsForToday($id);
+
+    }
+    protected function calculation()
+    {
+
+        $id = $this->getData()->getKey();
+        return (is_null($id))?[]:ExcursionOrderViewModels::make()->quantityTicketsCalculation($id);
 
     }
 
@@ -27,6 +33,7 @@ class OrderTodayTicket extends Field
     {
         return [
             'tickets' => $this->tickets(),
+            'calculation' => $this->calculation(),
         ];
     }
 

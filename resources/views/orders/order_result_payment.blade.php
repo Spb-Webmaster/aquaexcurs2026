@@ -79,7 +79,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="pad_t10"><span class="grey">Дата: </span> {{ rusdate3($order['excursion_date']) }}</div>
+                                    <div class="pad_t10"><span class="grey">{{ config2('moonshine.setting.booked_date') }}: </span> {{ rusdate3($order['excursion_date']) }}</div>
                                 </div>
                             </div>
                         </div>

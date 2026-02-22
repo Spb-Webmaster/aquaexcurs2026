@@ -67,7 +67,7 @@
 
                         <div class="ex_places">
                             <div class="ex_place__place-label">Осталось мест</div>
-                            <div class="ex_place">90</div>
+                            <div class="ex_place">{{ $item->real_ticket }}</div>
                         </div>
 
                         <div class="ex_price">

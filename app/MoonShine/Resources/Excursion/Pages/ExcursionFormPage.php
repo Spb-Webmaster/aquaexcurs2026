@@ -99,7 +99,7 @@ class ExcursionFormPage extends FormPage
                         Collapse::make('Продажа билетов', [
                             Switcher::make('Продажа включена', 'price_hide')->default(1)->hint('(Выключая эту опцию, продажа билетов прекращается)'),
 
-                            Number::make('Количество билетов', 'count_ticket')->default(100)->locked(),
+                            Number::make('Количество МЕСТ', 'count_ticket')->default(100)->locked()->hint('Количество мест на экскурсию. Это не билеты, а места!'),
                             OrderTodayTicket::make('', 'order_today_ticket')
 
                         ]),

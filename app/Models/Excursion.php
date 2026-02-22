@@ -39,6 +39,7 @@ class Excursion extends Model
         'departure_time_desc',
         'privilege',
         'count_ticket',
+        'real_ticket',
 
         'metatitle',
         'description',
@@ -116,6 +117,12 @@ class Excursion extends Model
         }
 
         return '';
+    }
+
+    public function getRemainingTicketsAttribute(): string
+    { // remaining tickets - остаток билетов
+
+return '';
     }
 
     public function get_gallery(): array

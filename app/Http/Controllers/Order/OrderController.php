@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Order;
 
+use App\Enums\Payment\PaymentClient;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderExcursionRequest;
 use App\Models\ExcursionOrder;
@@ -49,16 +50,44 @@ class OrderController extends Controller
 
     public function finalRequest(OrderExcursionRequest $request):View|RedirectResponse
     {
-        /** Запишем данные в базу и вернем данные для отображения на странице */
-        $order = ExcursionOrderViewModels::make()->saveOrder($request);
+        /** Запишем данные в базу и вернем данные */
+        $order = ExcursionOrderViewModels::make()->saveOrderStepOne($request);
         /** Сохраним данные заказа в сессию */
         $bool =  ExcursionOrderViewModels::make()->setSessionExcursionOrder($order);
-        /** Получим ссылку на страницу оплаты */
-        $confirmationUrl = YooKassaPayment::make()->getRedirect($order);
-        /** Оплатим заказ */
-        if($confirmationUrl && $bool) {
-            return redirect($confirmationUrl);
+
+
+        if(config2('moonshine.setting.payment') == PaymentClient::YOO_KASSA->value) {
+            /** Получим ссылку на страницу оплаты */
+            $confirmationUrl = YooKassaPayment::make()->getRedirect($order);
+
+            /** Оплатим заказ */
+            if($confirmationUrl && $bool) {
+                return redirect($confirmationUrl);
+            }
         }
+
+
+        if(config2('moonshine.setting.payment') == PaymentClient::NULL->value) {
+            /** получить данные сессии по ключу из прошлого шага */
+            $order_session = ExcursionOrderViewModels::make()->getSession(config('site.constants.excursion_order'));
+            if($order_session) {
+                /** удалить сессии **/
+                session()->forget([config('site.constants.tour_data'), config('site.constants.excursion_order')]);
+            }
+            if(!$order) {
+                /** Произошла ошибка */
+                return view('orders.order_result_error', []);
+            }
+
+            /** Пересчитаем количество билетов */
+            ExcursionOrderViewModels::make()->quantityTicketsCalculation($order->excursion_id);
+
+            /** Нет оплаты, идем далее без оплаты  */
+            return view('orders.order_result_payment', [
+                'order' => (isset($order))?$order->toArray():null,
+            ]);
+        }
+
 
         /** Ошибка */
         flash()->alert(config('message_flash.alert.buy_error'));
@@ -77,31 +106,27 @@ class OrderController extends Controller
         try {
 
             if($requestBody['event'] === NotificationEventType::PAYMENT_SUCCEEDED) {
-                /** Вся логика будет тут */
-                $order = ExcursionOrder::find($requestBody['object']['metadata']['orderId']);
-                if(!is_null($order)) {
 
-                    $order->amount = $requestBody['object']['amount']['value']; // сумма
-                    $order->id_yoo_kassa = $requestBody['object']['id']; // id платежа yoo kassa
-                    $order->notification_yoo_kassa = $requestBody; // уведомление
-                    //'pending', 'waiting_for_capture', 'succeeded', 'canceled'
-                    $order->status_yoo_kassa = $requestBody['object']['status']; //статус
+                $order = ExcursionOrderViewModels::make()->saveOrderStepTwo($requestBody);
+                if($order) {
                     /** Отправим в 1С */
                     $order_request  = OrderProcessing::make()->sendingProcess($order->toArray());
+
+                    /** Запишем ответ  */
                     $order->status = $order_request['http_code'];
                     $order->save();
 
-                    /** Обновим данные об экскурсии */
-
                     /** Создадим PDF */
-                     ReplaceText::make()->replaceText($order->toArray());
+                    ReplaceText::make()->replaceText($order->toArray());
 
+                    /** Пересчитаем количество билетов */
+                    ExcursionOrderViewModels::make()->quantityTicketsCalculation($order->excursion_id);
                 }
 
 /*              Log::info($requestBody['object']['metadata']['orderId']); // в логи
                 Log::info($requestBody['object']['id']); // в логи
                 Log::info($requestBody['object']['status']); // в логи
-                Log::info($requestBody['object']['amount']['value']); // в логи*/
+                Log::info($requestBody['object']['amount']['value']); // в логи   */
 
             }
 
@@ -123,6 +148,7 @@ class OrderController extends Controller
             $order = ExcursionOrder::find($order_session['id']);
             /** удалить сессии **/
             session()->forget([config('site.constants.tour_data'), config('site.constants.excursion_order')]);
+
 
             if($order->status_yoo_kassa !== 'succeeded') {
                 /** Произошла ошибка */

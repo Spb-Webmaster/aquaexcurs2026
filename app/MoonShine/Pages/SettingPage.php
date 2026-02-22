@@ -17,6 +17,7 @@ use MoonShine\UI\Components\Tabs;
 use MoonShine\UI\Components\Tabs\Tab;
 use MoonShine\UI\Fields\Json;
 use MoonShine\UI\Fields\Number;
+use MoonShine\UI\Fields\Select;
 use MoonShine\UI\Fields\Text;
 use MoonShine\UI\Fields\Textarea;
 
@@ -132,6 +133,8 @@ class SettingPage extends Page
 
                             Text::make(__('Оферта (ссылка)'), 'offer')->unescape()->default((isset($offer)) ? $offer : ''),
 
+                            Text::make(__('Забронированная дата'), 'booked_date')->unescape()->default((isset($booked_date)) ? $booked_date : 'Забронированная дата'),
+
                             Divider::make('Заказ создан'),
 
                             Text::make(__('Заголовок'), 'order_result_label')->unescape()->default((isset($order_result_label)) ? $order_result_label : ''),
@@ -150,8 +153,19 @@ class SettingPage extends Page
 
                         ]),
 
+                        Tab::make(__('Касса'), [
 
+                            Column::make([
 
+                            Divider::make('Оплата билетов'),
+                            Select::make('Сервис для приёма платежей', 'payment')
+                                ->options([
+                                    '1' => 'БЕЗ ОПЛАТЫ',
+                                    '2' => 'Юкасса',
+                                ])->default((isset($payment)) ? $payment : '2')
+                            ])->columnSpan(6),
+
+                        ]),
 
                         Tab::make(__('Email получателя системных сообщений'), [
 

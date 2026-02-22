@@ -51,8 +51,27 @@ class ExcursionViewModel
 
     }
 
+    /**
+     * @param $excursion_id
+     * @param $limit
+     * @return int|null
+     * Функция для публикации реально оставшихся мест в билетах
+     */
+    public function saveTicketLimit($excursion_id, $limit):?int
+    {
+        $excursion = Excursion::find($excursion_id);
+        $result = (int)$excursion->count_ticket - (int)$limit;
+        // Проверяем, что результат положителен и является целым числом
+        if ($result > 0 && is_int($result)) {
+            $excursion->real_ticket = $result;
+        } else {
+            $excursion->price_hide = 0; // выключим продажи
+            $excursion->real_ticket = 0; // продали больше, чем нужно
+        }
+        $excursion->save();
+        return $result;
 
-
+    }
 
 
 }
