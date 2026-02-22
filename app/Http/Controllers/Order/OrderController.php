@@ -71,8 +71,8 @@ class OrderController extends Controller
     {
         $source = file_get_contents('php://input');
         $requestBody = json_decode($source, true);
-          Log::info('public function paymentSucceeded()'); // в логи
-          Log::info($requestBody); // в логи
+   /*       Log::info('public function paymentSucceeded()'); // в логи
+            Log::info($requestBody); // в логи*/
 
         try {
 

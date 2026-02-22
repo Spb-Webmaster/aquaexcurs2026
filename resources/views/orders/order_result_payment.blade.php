@@ -8,7 +8,7 @@
 
     <main class="order_result">
 
-         {{--  @dump($order)--}}
+          @dump($order)
         {{--
                 <section>
                     <div class="block relative item_customer_info">
@@ -79,7 +79,7 @@
                                         </div>
 
                                     </div>
-                                    <div class="pad_t10"><span class="grey">Дата: </span> {{ rusdate3($item['excursion_date']) }}</div>
+                                    <div class="pad_t10"><span class="grey">Дата: </span> Просто дата</div>
                                 </div>
                             </div>
                         </div>
